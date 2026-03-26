@@ -331,10 +331,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="pt-20 lg:pt-24 pb-20 lg:pb-24 bg-white relative z-20 -mt-8 lg:-mt-12">
+    <section id="services" className="pt-20 lg:pt-24 pb-12 lg:pb-16 bg-white relative z-20 -mt-8 lg:-mt-12">
       <div className="absolute top-0 left-0 w-full h-2 bison-stripes" />
       <div className="max-w-[85rem] mx-auto px-6" style={{ zoom: "65%" }}>
-        <div className="text-center max-w-3xl mx-auto mb-10 lg:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24 xl:mb-28">
           <h2 className="text-4xl md:text-5xl lg:text-5xl xl:text-7xl font-black tracking-tighter mb-4 lg:mb-6 font-display uppercase">Hvordan vi gør det <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">anderledes</span></h2>
           <p className="text-sm lg:text-base xl:text-lg text-bison-dark/60">Vi har fjernet alt det, der normalt gør et webprojekt til en langsommelig hovedpine.</p>
         </div>
