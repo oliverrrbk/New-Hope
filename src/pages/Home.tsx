@@ -806,11 +806,9 @@ const Home = () => {
       {/* Final CTA Section */}
       <section className="bg-white relative z-20 py-20 lg:py-28 xl:py-36 px-6 overflow-hidden">
         <div 
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute inset-0 z-0 pointer-events-none bg-[length:auto_250%] md:bg-cover bg-bottom md:bg-bottom"
           style={{
             backgroundImage: 'url(/assets/hero-bg.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center bottom',
             maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 100%)'
           }}
@@ -821,7 +819,7 @@ const Home = () => {
               SLUT MED AT BETALE <br />
               <span className="italic font-serif normal-case font-medium text-bison-pink">digital husleje.</span>
             </h2>
-            <p className="text-[9px] lg:text-[10.5px] xl:text-[13px] text-white/60 w-full mb-4 lg:mb-6 xl:mb-8 leading-relaxed max-w-[582px]">
+            <p className="text-[12px] md:text-[10px] lg:text-[10.5px] xl:text-[13px] text-white/60 w-full mb-4 lg:mb-6 xl:mb-8 leading-relaxed max-w-[582px]">
               Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et<br className="hidden md:block" />
               opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for<br className="hidden md:block"/>
               "vedligeholdelse". Book 15 minutter, og find ud af, om vi kan hjælpe.

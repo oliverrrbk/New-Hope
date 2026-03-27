@@ -194,8 +194,10 @@ const ShaderCanvas = () => {
     observer.observe(canvas);
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const isMobile = window.innerWidth <= 768;
+      // Tving et lukket uafhængigt kvadrat eksklusivt på telefon for at forhindre beskåret UV aspect bounds!
+      canvas.width = isMobile ? 600 : window.innerWidth;
+      canvas.height = isMobile ? 600 : window.innerHeight;
       gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
     };
     handleResize();
@@ -210,7 +212,12 @@ const ShaderCanvas = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full block z-0 bg-transparent opacity-[45%]" />;
+  return (
+    <canvas 
+      ref={canvasRef} 
+      className="absolute top-0 left-0 w-full h-full block z-0 bg-transparent opacity-[45%]" 
+    />
+  );
 };
 
 
@@ -344,7 +351,7 @@ export const ModernPricingPage = ({
       {showAnimatedBackground && (
         <motion.div 
           style={{ scale: backgroundScale, opacity: backgroundOpacity, transformOrigin: 'center center' }} 
-          className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center"
+          className="absolute inset-0 pointer-events-none z-0 hidden md:flex items-center justify-center"
         >
           <ShaderCanvas />
         </motion.div>
@@ -358,10 +365,97 @@ export const ModernPricingPage = ({
             {subtitle}
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-2 md:gap-2 2xl:gap-3 justify-center items-center w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
+        
+        {/* Desktop Version: Uændret layout ved siden af hinanden */}
+        <div className="hidden md:flex flex-row gap-2 2xl:gap-3 justify-center items-center w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
           {plans.map((plan) => <React.Fragment key={plan.planName}><PricingCard {...plan} /></React.Fragment>)}
         </div>
+        
+        {/* Mobil Version: Swipeable Stack */}
+        <div className="md:hidden w-full relative z-20">
+          <MobilePricingStack plans={plans} />
+        </div>
       </div>
+    </div>
+  );
+};
+
+import { AnimatePresence } from 'motion/react';
+
+const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleDragEnd = (event: any, info: any) => {
+    // 50px threshold for at registrere et swipe
+    const threshold = 50;
+    if (info.offset.x < -threshold) {
+      if (currentIndex < plans.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      }
+    } else if (info.offset.x > threshold) {
+      if (currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+    }
+  };
+
+  return (
+    <div className="w-full flex justify-center items-center h-[520px] relative overflow-hidden px-4">
+      {/* Statisk perfekt kugle forstørret og skubbet lidt mod højre for at dække de bagerste kort */}
+      <div className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] z-0 pointer-events-none">
+        <ShaderCanvas />
+      </div>
+      <AnimatePresence initial={false}>
+        {plans.map((plan, index) => {
+          if (index < currentIndex) return null; // Har allerede swipet dette kort væk
+
+          const isCurrent = index === currentIndex;
+          const isNext = index === currentIndex + 1;
+          const isNextNext = index === currentIndex + 2;
+
+          let zIndex = 30 - index;
+          let x = 0;
+          let scale = 1;
+          let opacity = 1;
+          let rotate = 0;
+
+          if (isCurrent) {
+            x = 0; scale = 1; opacity = 1; rotate = 0;
+          } else if (isNext) {
+            // Næste kort kigger lidt frem i højre side
+            x = 45; scale = 0.92; opacity = 0.8; zIndex = 20; rotate = 3;
+          } else if (isNextNext) {
+            // Næste-næste kort ligger bagerst og er mørkere
+            x = 80; scale = 0.85; opacity = 0.4; zIndex = 10; rotate = 6;
+          } else {
+            // Hvis der var flere end 3
+            x = 100; scale = 0.8; opacity = 0; zIndex = 0;
+          }
+
+          return (
+            <motion.div
+              key={plan.planName}
+              drag={isCurrent ? "x" : false}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={isCurrent ? handleDragEnd : undefined}
+              initial={{ x: 150, opacity: 0, scale: 0.8 }}
+              animate={{ x, opacity, scale, rotate, zIndex }}
+              exit={{ x: -300, opacity: 0, rotate: -15, transition: { duration: 0.3 } }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="absolute w-full flex justify-center items-center"
+            >
+              {/* For at brugeren bare kan tappe intuitivt på det næste kort for at se det */}
+              <div 
+                 onClick={() => { if (!isCurrent) setCurrentIndex(index); }}
+                 className="pointer-events-auto"
+              >
+                 <PricingCard {...plan} />
+              </div>
+            </motion.div>
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 };
