@@ -179,8 +179,8 @@ const Hero = () => {
 
           {/* NY NATIVE SKALERET OVERSKRIFT */}
           <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-6 xl:mb-10 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
-            <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br className="hidden md:block"/>hjemmesider</span>
-            <span className="block text-[4vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
+            <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br />hjemmesider</span>
+            <span className="block text-[5.5vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
               uden besvær og månedlige betalinger
             </span>
           </h1>
@@ -211,7 +211,7 @@ const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-bison-brown/0 group-hover:bg-bison-brown/90 transition-colors duration-700 pointer-events-none" />
 
                 {/* Hoved-skyen: Ligger og trækker vejret langsomt, men FYDER FULDSTÆNDIGT UD på hover */}
-                <div className="absolute w-[102%] h-[105%] blur-[10px] group-hover:w-full group-hover:h-full group-hover:blur-[0px] opacity-50 group-hover:opacity-0 group-hover:rounded-full group-hover:overflow-hidden transition-all duration-700 pointer-events-none flex items-center justify-center">
+                <div className="absolute w-[108%] h-[115%] md:w-[102%] md:h-[105%] blur-[8px] md:blur-[10px] opacity-80 md:opacity-50 group-hover:w-full group-hover:h-full group-hover:blur-[0px] group-hover:opacity-0 group-hover:rounded-full group-hover:overflow-hidden transition-all duration-700 pointer-events-none flex items-center justify-center">
                   <motion.div 
                      animate={{ scale: [0.98, 1.02] }} 
                      transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }} 
@@ -249,7 +249,7 @@ const Hero = () => {
                 </div>
               </div>
               
-              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-5 py-2 lg:px-6 lg:py-3 xl:px-10 xl:py-4 rounded-full text-xs lg:text-sm xl:text-lg font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
+              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-8 py-3.5 md:px-5 md:py-2 lg:px-6 lg:py-3 xl:px-10 xl:py-4 rounded-full text-[15px] md:text-xs lg:text-sm xl:text-lg font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
                 <Magnetic intensity={0.15} springOptions={{ bounce: 0.15 }} actionArea='global' range={250}>
                   <span className="relative z-10 inline-block pointer-events-none">Start her</span>
                 </Magnetic>
@@ -263,6 +263,8 @@ const Hero = () => {
 };
 
 const Services = () => {
+  const [activeService, setActiveService] = useState<number | null>(null);
+  
   const services = [
     {
       title: "DEJLIGT NEMT",
@@ -281,7 +283,7 @@ const Services = () => {
             strokeWidth="2" 
             strokeLinecap="round" 
             strokeLinejoin="round" 
-            className="text-[#0284c7] drop-shadow-sm relative z-10 transition-transform duration-500 group-hover:scale-[1.15]"
+            className="text-[#0284c7] drop-shadow-sm relative z-10 transition-transform duration-500 group-hover:scale-[1.15] group-data-[active=true]:scale-[1.15]"
           >
             {/* Urets ramme */}
             <circle cx="12" cy="12" r="10" />
@@ -291,7 +293,7 @@ const Services = () => {
             <line 
               x1="12" y1="12" 
               x2="12" y2="16.5" 
-              className="origin-[12px_12px] -rotate-[35deg] group-hover:-rotate-[100deg] transition-all duration-[1500ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
+              className="origin-[12px_12px] -rotate-[35deg] group-hover:-rotate-[100deg] group-data-[active=true]:-rotate-[100deg] transition-all duration-[1500ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
             />
           </svg>
         </div>
@@ -304,8 +306,8 @@ const Services = () => {
       cloudColor: "bg-[#db2777]",
       icon: (
         <div className="relative flex items-center justify-center">
-          <div className="absolute bottom-1 left-1 w-3 h-3 bg-gradient-to-tr from-pink-500 to-yellow-300 rounded-full blur-sm opacity-0 group-hover:opacity-100 group-hover:scale-[2] transition-all duration-500 translate-y-1 -translate-x-1" />
-          <Sparkles className="text-[#db2777] drop-shadow-sm relative z-10 transition-all duration-700 group-hover:-translate-y-1.5 group-hover:translate-x-1.5 group-hover:scale-110 group-hover:rotate-12" size={32} />
+          <div className="absolute bottom-1 left-1 w-3 h-3 bg-gradient-to-tr from-pink-500 to-yellow-300 rounded-full blur-sm opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100 group-hover:scale-[2] group-data-[active=true]:scale-[2] transition-all duration-500 translate-y-1 -translate-x-1" />
+          <Sparkles className="text-[#db2777] drop-shadow-sm relative z-10 transition-all duration-700 group-hover:-translate-y-1.5 group-data-[active=true]:-translate-y-1.5 group-hover:translate-x-1.5 group-data-[active=true]:translate-x-1.5 group-hover:scale-110 group-data-[active=true]:scale-110 group-hover:rotate-12 group-data-[active=true]:rotate-12" size={32} />
         </div>
       )
     },
@@ -318,9 +320,9 @@ const Services = () => {
         <div className="relative flex items-center justify-center">
           <style>{`
             .lock-shackle { stroke-dasharray: 23; stroke-dashoffset: 0; transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-            .group:hover .lock-shackle { stroke-dashoffset: 17; }
+            .group:hover .lock-shackle, .group[data-active="true"] .lock-shackle { stroke-dashoffset: 17; }
           `}</style>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#4d7c0f] drop-shadow-sm relative z-10 transition-all duration-500 group-hover:scale-[1.1] group-hover:-translate-y-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#4d7c0f] drop-shadow-sm relative z-10 transition-all duration-500 group-hover:scale-[1.1] group-data-[active=true]:scale-[1.1] group-hover:-translate-y-1 group-data-[active=true]:-translate-y-1">
             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
             {/* Stregen udviskes over i låsen fra den højre løse ende - præcis ligesom uret! */}
             <path d="M7 11V7a5 5 0 0 1 9.9-1" className="lock-shackle" />
@@ -347,27 +349,29 @@ const Services = () => {
           {services.map((s, i) => (
             <motion.div
               key={i}
+              data-active={activeService === i}
+              onClick={() => setActiveService(activeService === i ? null : i)}
               initial={{ x: -20, y: -20 }}
               whileInView={{ x: 0, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.05, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative isolate"
+              className="group relative isolate mx-auto w-full max-w-[280px] sm:max-w-[320px] md:max-w-none md:mx-0 cursor-pointer md:cursor-default"
             >
               {/* Fuzzy svævende skyer UDENOM kortet */}
-              <div className="absolute -inset-6 md:-inset-8 pointer-events-none opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70">
-                <div className={`absolute top-[-10%] left-[-15%] w-[80%] h-[80%] rounded-full blur-[30px] md:blur-[40px] ${s.cloudColor} animate-cloud-1 group-hover:[animation-play-state:paused]`} />
-                <div className={`absolute bottom-[-10%] right-[-15%] w-[90%] h-[90%] rounded-full blur-[40px] md:blur-[50px] ${s.cloudColor} animate-cloud-2 group-hover:[animation-play-state:paused]`} />
+              <div className="absolute -inset-6 md:-inset-8 pointer-events-none opacity-20 md:opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70 group-data-[active=true]:opacity-70">
+                <div className={`absolute top-[-10%] left-[-15%] w-[80%] h-[80%] rounded-full blur-[30px] md:blur-[40px] ${s.cloudColor} animate-cloud-1 group-hover:[animation-play-state:paused] group-data-[active=true]:[animation-play-state:paused]`} />
+                <div className={`absolute bottom-[-10%] right-[-15%] w-[90%] h-[90%] rounded-full blur-[40px] md:blur-[50px] ${s.cloudColor} animate-cloud-2 group-hover:[animation-play-state:paused] group-data-[active=true]:[animation-play-state:paused]`} />
               </div>
 
               {/* Selve kortkroppen, der hviler 'på' skyerne */}
-              <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col items-center text-center gap-3 lg:gap-4 transition-shadow duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)]`}>
-                <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10">
+              <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col justify-center items-center text-center gap-3 lg:gap-4 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-data-[active=true]:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] md:group-hover:scale-100 group-data-[active=true]:scale-[1.03] md:group-data-[active=true]:scale-100 group-hover:bg-white/30 group-data-[active=true]:bg-white/30 aspect-[5/4] sm:aspect-auto`}>
+                <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10 transition-transform duration-300 group-hover:scale-110 group-data-[active=true]:scale-110">
                   <div className="scale-75 md:scale-90">{s.icon}</div>
                 </div>
-                <h3 className="text-sm md:text-base lg:text-lg font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap">{s.title}</h3>
-                <p className="text-[0.65rem] md:text-[0.7rem] lg:text-xs text-bison-dark/70 leading-relaxed relative z-10 font-medium max-w-[12rem] md:max-w-none">{s.desc}</p>
+                <h3 className="text-sm md:text-base lg:text-lg font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.05] group-data-[active=true]:scale-[1.05]">{s.title}</h3>
+                <p className="text-[0.65rem] md:text-[0.7rem] lg:text-xs text-bison-dark/70 transition-colors duration-300 group-hover:text-bison-dark group-data-[active=true]:text-bison-dark leading-relaxed relative z-10 font-medium max-w-[12rem] md:max-w-none">{s.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -404,21 +408,20 @@ const Mission = () => {
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
         }}
       />
-      <div className="max-w-xl lg:max-w-2xl mx-auto px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
-        {/* Togskinner: Nu bundet internt til kortet så afstanden er ens og zoom-skaleret. z-10 på wrapperen forhindrer dem i at forsvinde om bag sidens baggrund. */}
-        {/* Togskinner: Dynamisk fadet og tapered ud mod skærmens kanter. w-[100vw] bryder ud af den smalle max-w-xl container og trækker stregen hele vejen kant-til-kant. */}
+      <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
+        {/* Togskinner: Dynamisk positioneret så de altid sidder tæt mod over/underkanten af kortet. w-[100vw] bryder containeren, så de løber helt ud. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-16 md:top-20 lg:top-24 w-[100vw] h-[3px] md:h-[4px] opacity-50 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
-            maskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)"
+            maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-16 md:bottom-20 lg:bottom-24 w-[100vw] h-[3px] md:h-[4px] opacity-50 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
-            maskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)"
+            maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
           }}
         />
 
@@ -427,7 +430,7 @@ const Mission = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white p-6 md:p-8 lg:p-12 rounded-[1.2rem] lg:rounded-2xl shadow-xl relative w-full"
+          className="bg-white p-6 md:p-8 lg:p-12 rounded-[1.2rem] lg:rounded-2xl shadow-xl relative w-full max-w-[380px] md:max-w-none mx-auto"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 backdrop-blur-2xl bg-bison-brown/30 border border-white/50 rounded-lg lg:rounded-xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.1)] rotate-3 hover:scale-105 hover:rotate-6 transition-all duration-300 z-20 group">
             <div className="relative flex items-center justify-center -rotate-[24deg] translate-y-[1px]">
@@ -573,7 +576,7 @@ const SmoothLiftoff = () => {
       />
       <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-32 xl:pt-56 pb-32" style={{ zoom: "65%" }}>
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-40 z-10 relative">
+        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-40 z-10 relative">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -596,7 +599,7 @@ const SmoothLiftoff = () => {
         </div>
 
         {/* Workflow steps */}
-        <div ref={containerRef} className="relative max-w-5xl mx-auto py-12">
+        <div ref={containerRef} className="relative max-w-5xl mx-auto pt-4 pb-12 md:py-12">
           {/* subtle background track */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-black/5 hidden md:block" />
           
@@ -619,10 +622,10 @@ const SmoothLiftoff = () => {
             }}
           />
           
-          <div className="flex flex-col gap-32 md:gap-40 lg:gap-48 relative z-10 md:py-24">
+          <div className="flex flex-col gap-20 md:gap-40 lg:gap-48 relative z-10 md:py-24">
             <StepItem 
               step="01" 
-              title1={<>45 minutters<br className="hidden md:block" /></>} 
+              title1={<>45 minutters <br className="hidden md:block" /></>} 
               title2="interview" 
               desc={<>Vi mødes (over telefon eller kaffe) og<br className="hidden md:block" />trækker din viden ud af hovedet på dig.<br className="hidden md:block" />Det er alt, vi skal bruge for at skrive<br className="hidden md:block" />dine tekster og designe din side.</>}
               align="left"
@@ -774,7 +777,7 @@ const Home = () => {
           </ContainerScroll>
           
 
-          <div className="flex justify-center mt-8 md:mt-16 lg:mt-24 xl:mt-28 relative z-30">
+          <div className="flex justify-center mt-2 md:mt-16 lg:mt-24 xl:mt-28 mb-32 md:mb-0 relative z-30">
             <Link 
               to="/cases" 
               className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"

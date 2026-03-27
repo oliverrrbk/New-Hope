@@ -16,10 +16,9 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   // Det fælles Scroll hook til tidsstyringen af både iPad og Tekst!
   // 'offset' betyder at animationen starter allerede 300px FØR ankomst,
-  // hvilket spreder forløbet over en lækker, lang periode.
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["-300px end", "end start"]
+    offset: ["-650px end", "end start"]
   });
   
   const [isMobile, setIsMobile] = React.useState(false);
@@ -39,21 +38,36 @@ export const ContainerScroll = ({
     return isMobile ? [0.8, 1] : [1.05, 1];
   };
 
-  // 1) Animationen starter NU idet du scroller (ved 0 i stedet for 0.05) 
+  // Vi definerer et dynamisk startpunkt! På mobiler hviler scroll-progressen stille længere, så animationen starter synligt senere.
+  const mobileStart = isMobile ? 0.45 : 0;
+  const mobileEnd = isMobile ? 0.75 : 0.7;
+
+  // 1) Animationen starter NU idet du scroller (ved mobileStart i stedet for 0.05) 
   // og den strækkes nu blødt og jævnt LAAANGT ud til 70% markøren (0.7). 
   // Dette fjerner *fuldstændig* det sudden "vippe punkt", og skaber et reelt smooth landing.
-  const rotate = useTransform(scrollYProgress, [0, 0.7, 1], [45, 0, 0]);
+  const rotate = useTransform(scrollYProgress, [mobileStart, mobileEnd, 1], [45, 0, 0]);
   const scaleVals = scaleDimensions();
-  const scale = useTransform(scrollYProgress, [0, 0.7, 1], [scaleVals[0], scaleVals[1], scaleVals[1]]);
+  const scale = useTransform(scrollYProgress, [mobileStart, mobileEnd, 1], [scaleVals[0], scaleVals[1], scaleVals[1]]);
   
   // 2) Det Ekstra Push (Push ned under blød afrunding)
-  const translateCard = useTransform(scrollYProgress, [0, 0.7, 1], [0, 70, 70]);
+  const translateCard = useTransform(scrollYProgress, [mobileStart, mobileEnd, 1], [0, 70, 70]);
 
-  // 1) 0 -> 0.1: Skjult lavt bag iPad'en (150px nede). Så snart vi ser toppen af teksten, er den bagved iPaden.
-  // 2) 0.1 -> 0.25: Ligesom vi ruller ned over, hæver den sig til at stå klart PÅ iPaden (0px).
-  // 3) 0.25 -> 0.55: The final sweet spot: Starter rejsen op mod Headeren ved 55%
-  // 4) 0.55 -> 0.78: Opsluges og forsvinder i Navigationsbaren!
-  const translate = useTransform(scrollYProgress, [0, 0.1, 0.25, 0.55, 0.78, 1], [150, 150, 0, -30, -250, -250]);
+  // 3) Den vertikale rejse for Overskriften ("Solidt Håndværk")
+  // For at sikre modstridende scroll-intervaller defineres to separate, sekventielt stigende forløb.
+  // Mobilen starter højere (120px), hviler til 0.35, og udskyder nu forsvindingen dybere ned på siden (0.75 - 0.95).
+  const translateDesktop = useTransform(
+    scrollYProgress, 
+    [0, 0.1, 0.25, 0.55, 0.78, 1], 
+    [150, 150, 0, -30, -250, -250]
+  );
+
+  const translateMobile = useTransform(
+    scrollYProgress, 
+    [0, 0.5, 0.6, 0.62, 0.75, 1], 
+    [80, 80, 0, -30, -250, -250]
+  );
+  
+  const translate = isMobile ? translateMobile : translateDesktop;
 
   return (
     <div
