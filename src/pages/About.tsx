@@ -10,6 +10,7 @@ const About = () => {
   const metodeRef = useRef<HTMLDivElement>(null);
   const isMetodeInViewRaw = useInView(metodeRef, { once: true, amount: 0.2 });
   const [isMetodeInView, setIsMetodeInView] = useState(false);
+  const [activeMember, setActiveMember] = useState<number | null>(null);
 
   useEffect(() => {
     if (isMetodeInViewRaw) {
@@ -176,8 +177,8 @@ const About = () => {
 
                 {/* Text Content */}
                 <div className="relative z-10 px-2 mt-6">
-                  <h4 className="font-black font-display uppercase text-[14px] md:text-[16px] tracking-tight text-bison-dark mb-2 drop-shadow-md bg-white/50 md:bg-transparent rounded-lg">{f.title}</h4>
-                  <p className="text-[10px] text-bison-dark/60 font-bold leading-relaxed max-w-[210px] mx-auto drop-shadow-md bg-white/50 md:bg-transparent rounded-lg px-1">{f.desc}</p>
+                  <h4 className="font-black font-display uppercase text-[14px] md:text-[16px] tracking-tight text-bison-dark mb-2">{f.title}</h4>
+                  <p className="text-[10px] text-bison-dark/60 font-bold leading-relaxed max-w-[210px] mx-auto">{f.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -191,19 +192,19 @@ const About = () => {
                 animate={isMetodeInView ? { scale: [1, 1.1, 1], x: [-20, 20, -20], y: [-5, 5, -5] } : {}}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 style={{ willChange: "transform" }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 w-40 h-40 md:w-64 md:h-64 bg-bison-pink/30 rounded-full blur-[50px] md:blur-[65px] mix-blend-multiply"
+                className="absolute left-0 lg:left-10 top-1/2 -translate-y-1/2 w-64 h-64 md:w-[22rem] md:h-[22rem] bg-bison-pink/40 md:bg-bison-pink/30 rounded-full blur-[40px] md:blur-[65px] mix-blend-multiply transform-gpu"
               />
               <motion.div
                 animate={isMetodeInView ? { scale: [1.1, 1, 1.1], x: [20, -20, 20], y: [5, -5, 5] } : {}}
                 transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
                 style={{ willChange: "transform" }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 w-40 h-40 md:w-64 md:h-64 bg-bison-green/30 rounded-full blur-[50px] md:blur-[65px] mix-blend-multiply"
+                className="absolute right-0 lg:right-10 top-1/2 -translate-y-1/2 w-64 h-64 md:w-[22rem] md:h-[22rem] bg-bison-green/40 md:bg-bison-green/30 rounded-full blur-[40px] md:blur-[65px] mix-blend-multiply transform-gpu"
               />
               <motion.div
-                animate={isMetodeInView ? { scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] } : {}}
+                animate={isMetodeInView ? { scale: [1, 1.2, 1], opacity: [0.6, 0.9, 0.6] } : {}}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 style={{ willChange: "transform, opacity" }}
-                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-48 h-48 md:w-[18rem] md:h-[18rem] bg-bison-blue/30 rounded-full blur-[50px] md:blur-[65px] mix-blend-multiply"
+                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-72 h-72 md:w-[26rem] md:h-[26rem] bg-bison-blue/40 md:bg-bison-blue/30 rounded-full blur-[40px] md:blur-[65px] mix-blend-multiply transform-gpu"
               />
             </div>
 
@@ -220,18 +221,18 @@ const About = () => {
                   <span className="text-bison-brown italic font-serif normal-case font-medium">digitale autoritet</span>
                 </h3>
               </div>
-              <div className="lg:w-2/3 flex flex-wrap sm:flex-nowrap justify-center lg:justify-end gap-8 w-full">
+              <div className="lg:w-2/3 flex flex-nowrap justify-center gap-6 md:gap-10 w-full overflow-visible">
                 {[
                   { val: "100%", label: "EJERSKAB FRA DAG 1" },
                   { val: "0 KR.", label: "MÅNEDLIGE GEBYRER" },
                   { val: "45", suffix: "MIN.", label: "ARBEJDE FRA DIN SIDE" }
                 ].map((stat, idx) => (
-                  <div key={idx} className="text-center flex-1 flex flex-col items-center justify-center -mt-1">
-                     <div className="flex items-baseline gap-[2px] whitespace-nowrap text-bison-dark mb-1">
-                       <span className="text-[36px] md:text-[42px] font-black font-display tracking-tighter">{stat.val}</span>
-                       {stat.suffix && <span className="text-[20px] md:text-[26px] font-black font-display tracking-tighter">{stat.suffix}</span>}
+                  <div key={idx} className="text-center flex flex-col items-center justify-center -mt-1 px-1 shrink-0">
+                     <div className="flex items-baseline gap-[1px] md:gap-[2px] whitespace-nowrap text-bison-dark mb-1">
+                       <span className="text-[26px] sm:text-[32px] md:text-[42px] font-black font-display tracking-tighter">{stat.val}</span>
+                       {stat.suffix && <span className="text-[16px] sm:text-[20px] md:text-[26px] font-black font-display tracking-tighter">{stat.suffix}</span>}
                      </div>
-                    <div className="text-[7px] sm:text-[8px] font-bold uppercase tracking-widest text-bison-dark/60">{stat.label}</div>
+                    <div className="text-[6.5px] sm:text-[7.5px] md:text-[8px] font-bold uppercase tracking-widest whitespace-nowrap text-bison-dark/60">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -243,12 +244,12 @@ const About = () => {
       {/* IMAGE 3: Executive Team */}
       <section className="py-20 md:py-24 bg-white px-6">
         <div className="max-w-[750px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-5">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-5 text-center md:text-left">
             <motion.h2 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight text-bison-dark"
+              className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight text-bison-dark text-center md:text-left"
             >
               MENNESKERNE <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">bagved</span>
             </motion.h2>
@@ -256,7 +257,7 @@ const About = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="text-bison-dark/60 max-w-[340px] text-[9px] md:text-[10px] font-bold leading-relaxed text-left md:text-right"
+              className="text-bison-dark/60 max-w-[340px] md:max-w-md text-[9px] md:text-[10px] font-bold leading-relaxed text-center md:text-right"
             >
               Vi er ikke et stort, tungt bureau med projektledere og kaffemøder. Vi er et lille hold af specialister, der har fokus på én ting: At gøre det virkelig godt, uden det er bøvlet for dig.
             </motion.p>
@@ -267,7 +268,7 @@ const About = () => {
               {
                 name: "Oliver Rørbæk",
                 role: "Adm. Direktør / Ejer",
-                desc: "Founder og husets perfektionistiske designnørd. Kombinerer tung salgserfaring med en kompromisløs jagt på visuel perfektion. Jeg vil bryde industristandarden og bevise, at en hjemmeside kan bygges smukkere og simplere uden alt besværet.",
+                desc: "Husets perfektionistiske designnørd. Kombinerer tung salgserfaring med en kompromisløs jagt på visuel perfektion. Jeg vil bryde industristandarden og bevise, at en hjemmeside kan bygges smukkere og simplere uden alt besværet.",
                 img: "/assets/1.png",
                 color: "bg-bison-green",
                 imgClassName: "w-full h-full object-cover grayscale mix-blend-normal opacity-95 transition-transform duration-700 group-hover:scale-[1.05] group-hover:opacity-100"
@@ -295,7 +296,8 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: i * 0.15 }}
-                className="group cursor-pointer relative"
+                className="group cursor-pointer relative mx-auto w-full max-w-[260px] md:max-w-none md:mx-0"
+                onClick={() => setActiveMember(activeMember === i ? null : i)}
               >
                 <div className={`aspect-[4/5] rounded-[12px] overflow-hidden mb-3 relative ${member.color}/20`}>
                   <img 
@@ -305,8 +307,8 @@ const About = () => {
                     referrerPolicy="no-referrer"
                   />
                   {/* Hover Description Overlay */}
-                  <div className="absolute inset-0 bg-bison-dark/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-5">
-                    <p className="text-white text-[9.5px] leading-relaxed font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                  <div className={`absolute inset-0 bg-bison-dark/80 transition-all duration-500 flex flex-col justify-end p-5 ${activeMember === i ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'}`}>
+                    <p className={`text-white text-[9.5px] leading-relaxed font-medium transition-transform duration-500 delay-100 ${activeMember === i ? 'translate-y-0' : 'translate-y-4 md:group-hover:translate-y-0'}`}>
                       {member.desc}
                     </p>
                   </div>

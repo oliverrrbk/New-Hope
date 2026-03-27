@@ -256,21 +256,20 @@ const Blog = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-32 px-6">
+      <section className="py-20 px-6">
         <div
-          className="max-w-5xl mx-auto bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.03)] rounded-[3rem] p-12 md:p-20 text-center relative group transition-all duration-500"
-          style={{ zoom: "65%" }}
+          className="max-w-[665px] mx-auto bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.03)] rounded-[2rem] p-8 md:p-12 text-center relative group transition-all duration-500"
         >
           {/* Internal Content wrapping */}
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-black font-display uppercase tracking-tighter mb-6">Få de nyeste insights direkte i din indbakke</h2>
-            <p className="text-lg text-bison-dark/60 mb-10 max-w-xl mx-auto">Vi sender kun guld. Ingen spam, kun viden der hjælper din forretning med at vokse.</p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onSubmit={handleSubscribe}>
+            <h2 className="text-[24px] md:text-[31px] font-black font-display uppercase tracking-tighter mb-4 leading-tight">Få de nyeste insights direkte i din <br className="hidden md:block" /> indbakke</h2>
+            <p className="text-[12px] text-bison-dark/60 mb-8 max-w-[374px] mx-auto leading-relaxed">Vi sender kun guld. Ingen spam, kun viden der hjælper din <br className="hidden md:block" /> forretning med at vokse.</p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-[320px] mx-auto" onSubmit={handleSubscribe}>
               {subscribeStatus === 'success' ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="w-full bg-[#163321] text-[#fbfbf9] px-6 py-4 rounded-full font-bold flex items-center justify-center shadow-lg border border-[#163321]/20"
+                  className="w-full bg-[#163321] text-[#fbfbf9] px-4 py-3 rounded-full font-bold flex items-center justify-center shadow-lg border border-[#163321]/20 text-[12px]"
                 >
                   <span className="flex items-center gap-2">Du er tilmeldt! <span className="text-bison-green">✔</span></span>
                 </motion.div>
@@ -283,17 +282,17 @@ const Blog = () => {
                     disabled={subscribeStatus === 'loading'}
                     placeholder="Din e-mail adresse"
                     required
-                    className="flex-1 bg-white/70 backdrop-blur-sm border border-white focus:border-bison-brown px-6 py-4 rounded-full text-bison-dark focus:ring-4 focus:ring-bison-brown/20 outline-none font-bold shadow-sm transition-all disabled:opacity-50"
+                    className="flex-1 bg-white/70 backdrop-blur-sm border border-white focus:border-bison-brown px-4 py-3 rounded-full text-bison-dark text-[12px] focus:ring-4 focus:ring-bison-brown/20 outline-none font-bold shadow-sm transition-all disabled:opacity-50"
                   />
                   <motion.button
                     type="submit"
                     disabled={subscribeStatus === 'loading'}
                     whileHover={subscribeStatus !== 'loading' ? { scale: 1.05 } : {}}
                     whileTap={subscribeStatus !== 'loading' ? { scale: 0.95 } : {}}
-                    className="bg-bison-dark text-white px-8 py-4 rounded-full font-bold shadow-lg transition-all hover:shadow-xl border border-bison-dark/10 min-w-[140px] disabled:opacity-70 flex items-center justify-center"
+                    className="bg-bison-dark text-white px-6 py-3 rounded-full text-[12px] font-bold shadow-lg transition-all hover:shadow-xl border border-bison-dark/10 min-w-[100px] disabled:opacity-70 flex items-center justify-center"
                   >
                     {subscribeStatus === 'loading' ? (
-                      <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                     ) : (
                       "Tilmeld"
                     )}
@@ -305,17 +304,17 @@ const Blog = () => {
           {/* Background Ambient Blobs */}
           <div className="absolute inset-0 z-[-1] pointer-events-none opacity-60 transition-all duration-1000 group-hover:opacity-100 saturate-150">
             {/* Pink - Top Left corner */}
-            <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[60%] rounded-full blur-[60px] bg-bison-pink animate-cloud-1 [animation-play-state:paused] group-hover:[animation-play-state:running] transition-transform duration-1000 group-hover:translate-x-[40%] group-hover:translate-y-[20%] group-hover:scale-75" />
+            <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[60%] rounded-full blur-[40px] bg-bison-pink animate-cloud-1 [animation-play-state:paused] group-hover:[animation-play-state:running] transition-transform duration-1000 group-hover:translate-x-[40%] group-hover:translate-y-[20%] group-hover:scale-75" />
             {/* Green - Bottom Right corner */}
-            <div className="absolute -bottom-[10%] -right-[5%] w-[40%] h-[60%] rounded-full blur-[60px] bg-bison-green animate-cloud-2 [animation-play-state:paused] group-hover:[animation-play-state:running] transition-transform duration-1000 group-hover:-translate-x-[40%] group-hover:-translate-y-[20%] group-hover:scale-75" />
+            <div className="absolute -bottom-[10%] -right-[5%] w-[40%] h-[60%] rounded-full blur-[40px] bg-bison-green animate-cloud-2 [animation-play-state:paused] group-hover:[animation-play-state:running] transition-transform duration-1000 group-hover:-translate-x-[40%] group-hover:-translate-y-[20%] group-hover:scale-75" />
             {/* Blue - Top Right / Middle Right area */}
-            <div className="absolute top-[10%] -right-[10%] w-[35%] h-[50%] rounded-full blur-[60px] bg-bison-blue animate-cloud-1 [animation-play-state:paused] group-hover:[animation-play-state:running] transition-transform duration-1000 group-hover:-translate-x-[60%] group-hover:translate-y-[10%] group-hover:scale-75" style={{ animationDirection: 'reverse', animationDuration: '20s' }} />
+            <div className="absolute top-[10%] -right-[10%] w-[35%] h-[50%] rounded-full blur-[40px] bg-bison-blue animate-cloud-1 [animation-play-state:paused] group-hover:[animation-play-state:running] transition-transform duration-1000 group-hover:-translate-x-[60%] group-hover:translate-y-[10%] group-hover:scale-75" style={{ animationDirection: 'reverse', animationDuration: '20s' }} />
           </div>
         </div>
       </section>
 
       {/* Spacing before footer */}
-      <div className="h-16 md:h-20" />
+      <div className="h-10 md:h-16" />
     </main>
   );
 };

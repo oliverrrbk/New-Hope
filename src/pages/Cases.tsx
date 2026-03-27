@@ -9,12 +9,12 @@ import { GrassWind } from '../components/ui/grass-wind';
 
 const Cases = () => {
   const caseVariants = {
-    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+    hidden: { opacity: 0, scale: 0.85, filter: "blur(20px)" },
     visible: (i: number) => ({
       opacity: 1, 
-      y: 0, 
+      scale: 1, 
       filter: "blur(0px)",
-      transition: { delay: 0.1 + (i % 2) * 0.15, duration: 0.8, ease: "easeOut" }
+      transition: { delay: 1.2 + (i * 0.2), duration: 1.4, ease: [0.16, 1, 0.3, 1] }
     })
   };
   const cases = [
@@ -115,8 +115,7 @@ const Cases = () => {
                   custom={i}
                   variants={caseVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0 }}
+                  animate="visible"
                   className="group relative h-full min-h-[260px]"
                 >
                    {c.link === "#" ? (
@@ -153,8 +152,7 @@ const Cases = () => {
                   custom={i}
                   variants={caseVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0 }}
+                  animate="visible"
                   className="group"
                 >
                   <div className="aspect-video bg-bison-dark/5 rounded-[1.6rem] overflow-hidden mb-5 relative border-2 border-dashed border-bison-dark/20 flex flex-col items-center justify-center text-center p-5">
@@ -188,8 +186,7 @@ const Cases = () => {
                   custom={i}
                   variants={caseVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0 }}
+                  animate="visible"
                   whileHover={{ y: -6, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="group block cursor-pointer"
