@@ -526,18 +526,20 @@ const StepItem = ({ step, title1, title2, desc, align, bgColor, textColor }) => 
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`flex w-full ${align === 'left' ? 'justify-start' : 'justify-end'} relative`}
     >
-       <div className={`w-full md:w-[45%] flex flex-col items-start ${align === 'right' ? 'md:pl-16 md:pr-4' : 'md:pr-16 md:pl-4'}`}>
-         <div className="mb-6">
-           <span className="px-3 py-1.5 text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.05)]" style={{ backgroundColor: bgColor, color: textColor }}>
-             Step {step}
-           </span>
-         </div>
+       <div className={`w-full md:w-1/2 flex ${align === 'left' ? 'justify-end md:pr-16 lg:pr-24' : 'justify-start md:pl-16 lg:pl-24'}`}>
+         <div className="flex flex-col items-start w-fit">
+           <div className="mb-6">
+             <span className="px-3 py-1.5 text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.05)]" style={{ backgroundColor: bgColor, color: textColor }}>
+               Step {step}
+             </span>
+           </div>
          <h3 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 text-[#1b1b1b]">
            <span className="italic font-serif normal-case font-medium">{title1}</span>{title2}
          </h3>
-         <p className="text-lg md:text-xl text-black/50 font-medium leading-relaxed max-w-[400px]">
+         <p className="text-lg md:text-xl text-black/50 font-medium leading-relaxed w-full">
            {desc}
          </p>
+         </div>
        </div>
     </motion.div>
   )
@@ -589,7 +591,7 @@ const SmoothLiftoff = () => {
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-[21px] text-black/60 font-medium leading-relaxed"
           >
-            Glem alt om langhårede processer. Vi har kogt forløbet ned til tre simple trin, så du kan få en professionel side uden at miste fokus på din forretning.
+            Glem alt om langhårede processer. Vi har kogt forløbet ned til tre<br className="hidden md:block" /> simple trin, så du kan få en professionel side uden at miste fokus<br className="hidden md:block" /> på din forretning.
           </motion.p>
         </div>
 
@@ -620,8 +622,9 @@ const SmoothLiftoff = () => {
           <div className="flex flex-col gap-32 md:gap-40 lg:gap-48 relative z-10 md:py-24">
             <StepItem 
               step="01" 
-              title1="45 minutters " title2="interview" 
-              desc="Vi mødes (over telefon eller kaffe) og trækker din viden ud af hovedet på dig. Det er alt, vi skal bruge for at skrive dine tekster og designe din side."
+              title1={<>45 minutters<br className="hidden md:block" /></>} 
+              title2="interview" 
+              desc={<>Vi mødes (over telefon eller kaffe) og<br className="hidden md:block" />trækker din viden ud af hovedet på dig.<br className="hidden md:block" />Det er alt, vi skal bruge for at skrive<br className="hidden md:block" />dine tekster og designe din side.</>}
               align="left"
               bgColor="#b2d08d"
               textColor="#000"
@@ -629,7 +632,7 @@ const SmoothLiftoff = () => {
             <StepItem 
               step="02" 
               title1="Vi bygger " title2="det hele" 
-              desc="Mens du passer dit arbejde, designer og koder vi din side. Vi sørger for alt det tekniske, tekstforfatningen og de detaljer, der får dig til at skille dig ud."
+              desc={<>Mens du passer dit arbejde, designer<br className="hidden md:block" />og koder vi din side. Vi sørger for alt<br className="hidden md:block" />det tekniske, tekstforfatningen og de<br className="hidden md:block" />detaljer, der får dig til at skille dig ud.</>}
               align="right"
               bgColor="#e5aad8"
               textColor="#000"
@@ -637,7 +640,7 @@ const SmoothLiftoff = () => {
             <StepItem 
               step="03" 
               title1="Fuldt " title2="ejerskab" 
-              desc="Efter præcis en uge går vi live. Du ejer siden 100%. Det betyder ingen binding, ingen månedlige gebyrer og ingen 'digital husleje' til os."
+              desc={<>Efter præcis en uge går vi live. Du ejer<br className="hidden md:block" />siden 100%. Det betyder ingen binding,<br className="hidden md:block" />ingen månedlige gebyrer og ingen<br className="hidden md:block" />'digital husleje' til os.</>}
               align="left"
               bgColor="#1095ed"
               textColor="#fff"
@@ -809,14 +812,16 @@ const Home = () => {
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 100%)'
           }}
         />
-        <div className="max-w-7xl mx-auto bg-white/5 backdrop-blur-[40px] border border-white/20 rounded-[1.5rem] lg:rounded-[2rem] xl:rounded-[3rem] p-8 lg:p-12 xl:p-24 text-center relative z-10 shadow-[0_8px_30px_rgb(0,0,0,0.2)]" style={{ zoom: "65%" }}>
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-8xl font-black font-display uppercase tracking-tighter text-white leading-[0.9] mb-5 lg:mb-8 xl:mb-10">
+        <div className="max-w-[832px] mx-auto bg-white/5 backdrop-blur-[40px] border border-white/20 rounded-[1rem] lg:rounded-[1.5rem] xl:rounded-[2rem] p-5 md:p-8 xl:p-16 text-center relative z-10 shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
+          <div className="relative z-10 flex flex-col items-center">
+            <h2 className="text-2xl md:text-3xl lg:text-[31px] xl:text-[62px] font-black font-display uppercase tracking-tighter text-white leading-[0.9] mb-3 lg:mb-5 xl:mb-6">
               SLUT MED AT BETALE <br />
               <span className="italic font-serif normal-case font-medium text-bison-pink">digital husleje.</span>
             </h2>
-            <p className="text-sm lg:text-base xl:text-xl text-white/60 max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto mb-6 lg:mb-10 xl:mb-12 leading-relaxed">
-              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for "vedligeholdelse". Book 15 minutter, og find ud af, om vi kan hjælpe.
+            <p className="text-[9px] lg:text-[10.5px] xl:text-[13px] text-white/60 w-full mb-4 lg:mb-6 xl:mb-8 leading-relaxed max-w-[582px]">
+              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et<br className="hidden md:block" />
+              opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for<br className="hidden md:block"/>
+              "vedligeholdelse". Book 15 minutter, og find ud af, om vi kan hjælpe.
             </p>
             <Magnetic
               intensity={0.2}
@@ -825,7 +830,7 @@ const Home = () => {
               range={200}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-                <Link to="/book-et-opkald" className="relative group overflow-hidden bg-white text-bison-dark px-6 py-3 lg:px-8 lg:py-4 xl:px-12 xl:py-5 rounded-full text-base lg:text-lg xl:text-xl font-black uppercase tracking-tight shadow-xl xl:shadow-2xl transition-all duration-300 flex items-center justify-center">
+                <Link to="/book-et-opkald" className="relative group overflow-hidden bg-white text-bison-dark px-4 py-2 lg:px-5 lg:py-2.5 xl:px-8 xl:py-[13px] rounded-full text-[10px] lg:text-[11.5px] xl:text-[13px] font-black uppercase tracking-tight shadow-xl xl:shadow-2xl transition-all duration-300 flex items-center justify-center">
                   <Magnetic
                     intensity={0.1}
                     springOptions={{ bounce: 0.1 }}

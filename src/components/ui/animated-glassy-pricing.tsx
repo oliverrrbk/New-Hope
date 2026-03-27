@@ -246,8 +246,8 @@ export const PricingCard = ({
     },
     pink: {
       bg: 'bg-bison-pink',
-      text: 'text-[#d996cb]', // Lidt mørkere pink til tekst og ikoner i lys mode
-      glow: '!border-0 ring-[3px] ring-white shadow-[0_0_40px_rgba(255,255,255,0.7)] group-hover:shadow-[0_0_60px_rgba(255,255,255,1)]', // Tykkere hvid kant, ingen sort border, kraftig glow
+      text: 'text-[#bd5c9a]', // Mørkere pink til tekst og ikoner for læsbarhed
+      glow: '!border-0 ring-2 ring-white shadow-[0_0_40px_rgba(255,255,255,0.7)] group-hover:shadow-[0_0_60px_rgba(255,255,255,1)]', // Tykkere hvid kant, ingen sort border, kraftig glow
       badgeBg: 'bg-white text-bison-dark ring-2 ring-white shadow-[0_0_20px_rgba(255,255,255,0.7)]'
     },
     blue: {
@@ -261,36 +261,38 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/10 bg-gradient-to-br rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 max-w-[360px] 2xl:max-w-[420px] px-8 py-10 2xl:px-10 2xl:py-12 flex flex-col transition-all duration-300
+    backdrop-blur-2xl bg-white/10 bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     from-white/60 to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
-    ${isPopular ? `scale-[1.03] 2xl:scale-105 relative z-10 ${t.glow}` : ''}
+    ${isPopular 
+      ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}` 
+      : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8`}
   `;
   const buttonClasses = `
-    mt-auto w-full py-3.5 2xl:py-4 rounded-xl font-bold uppercase tracking-wider text-[14px] 2xl:text-[16px] transition-all duration-300 font-sans
+    mt-auto w-full py-2 2xl:py-2.5 rounded-lg font-bold uppercase tracking-wider text-[9px] 2xl:text-[10px] transition-all duration-300 font-sans
     ${t.bg} text-black border border-black/10 shadow-sm hover:scale-105 hover:-translate-y-1 hover:shadow-xl
   `;
 
   return (
     <div className={cardClasses.trim()}>
       {isPopular && (
-        <div className={`absolute -top-4 -right-2 2xl:-top-5 2xl:right-5 px-3 py-1 2xl:px-4 2xl:py-1.5 text-[12px] 2xl:text-[14px] font-semibold rounded-full ${t.badgeBg}`}>
+        <div className={`absolute -top-2.5 -right-1 2xl:-top-3 2xl:right-3 px-2 py-0.5 2xl:px-2.5 2xl:py-1 text-[8px] 2xl:text-[9px] font-semibold rounded-full ${t.badgeBg}`}>
           Mest populær
         </div>
       )}
-      <div className="mb-5 2xl:mb-6">
-        <h2 className="text-[42px] 2xl:text-[56px] font-extralight tracking-[-0.03em] text-black font-display leading-[1.1]">{planName}</h2>
-        <p className="text-[16px] 2xl:text-[18px] text-black/70 mt-2 2xl:mt-3 font-sans leading-relaxed">{description}</p>
+      <div className="mb-3 2xl:mb-4">
+        <h2 className="text-[27px] 2xl:text-[36px] font-extralight tracking-[-0.03em] text-black font-display leading-[1.1]">{planName}</h2>
+        <p className="text-[10.5px] 2xl:text-[11.5px] text-black/70 mt-1 2xl:mt-2 font-sans leading-relaxed">{description}</p>
       </div>
-      <div className="mt-6 mb-8 2xl:mt-8 2xl:mb-10 flex flex-wrap items-baseline gap-x-2 2xl:gap-x-3 gap-y-1 2xl:gap-y-2 min-h-[56px] 2xl:min-h-[64px]">
-        <span className="text-[40px] 2xl:text-[56px] font-extralight text-bison-brown font-display leading-none">{price}</span>
-        {priceSuffix && <span className="text-[14px] 2xl:text-[16px] text-black/70 font-sans">{priceSuffix}</span>}
+      <div className="mt-4 mb-5 2xl:mt-5 2xl:mb-6 flex flex-wrap items-baseline gap-x-1.5 2xl:gap-x-2 min-h-[36px] 2xl:min-h-[41px]">
+        <span className="text-[26px] 2xl:text-[36px] font-extralight text-bison-brown font-display leading-none">{price}</span>
+        {priceSuffix && <span className="text-[9px] 2xl:text-[10.5px] text-black/70 font-sans">{priceSuffix}</span>}
       </div>
-      <div className="card-divider w-full mb-8 h-px bg-[linear-gradient(90deg,transparent,rgba(0,0,0,0.1)_50%,transparent)] dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.09)_20%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.09)_80%,transparent)]"></div>
-      <ul className="flex flex-col gap-5 text-[16px] text-black/90 mb-10 font-sans">
+      <div className="card-divider w-full mb-5 h-px bg-[linear-gradient(90deg,transparent,rgba(0,0,0,0.1)_50%,transparent)] dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.09)_20%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.09)_80%,transparent)]"></div>
+      <ul className="flex flex-col gap-2 text-[10.5px] text-black/90 mb-6 font-sans">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-4">
-            <CheckIcon className={`${t.text} w-5 h-5 shrink-0 mt-0.5`} /> 
+          <li key={index} className="flex items-start gap-2 2xl:gap-3">
+            <CheckIcon className={`${t.text} w-3 h-3 shrink-0 mt-0.5`} /> 
             <span className="leading-snug">{feature}</span>
           </li>
         ))}
@@ -347,16 +349,16 @@ export const ModernPricingPage = ({
           <ShaderCanvas />
         </motion.div>
       )}
-      <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 pt-32 md:pt-40 2xl:pt-48 pb-32 md:pb-48 2xl:pb-64" style={{ zoom: "65%" }}>
-        <div className="w-full max-w-4xl 2xl:max-w-5xl mx-auto text-center mb-16 2xl:mb-20">
-          <h1 className="text-[40px] md:text-[56px] 2xl:text-[64px] font-extralight leading-tight tracking-[-0.03em] text-black font-display">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 pt-20 md:pt-24 2xl:pt-32 pb-20 md:pb-28 2xl:pb-40">
+        <div className="w-full max-w-xl 2xl:max-w-2xl mx-auto text-center mb-10 2xl:mb-12">
+          <h1 className="text-[26px] md:text-[36px] 2xl:text-[41px] font-extralight leading-tight tracking-[-0.03em] text-black font-display">
             {title}
           </h1>
-          <p className="mt-4 2xl:mt-5 text-[16px] md:text-[18px] 2xl:text-[20px] text-black/80 max-w-3xl 2xl:max-w-4xl mx-auto font-sans leading-relaxed">
+          <p className="mt-2.5 2xl:mt-3 text-[10px] md:text-[12px] 2xl:text-[13px] text-black/80 max-w-lg 2xl:max-w-xl mx-auto font-sans leading-relaxed">
             {subtitle}
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-5 md:gap-6 2xl:gap-8 justify-center items-center w-full max-w-[1100px] 2xl:max-w-[1360px] relative z-20">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-2 2xl:gap-3 justify-center items-center w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
           {plans.map((plan) => <React.Fragment key={plan.planName}><PricingCard {...plan} /></React.Fragment>)}
         </div>
       </div>
