@@ -51,13 +51,13 @@ export const ContainerScroll = ({
 
   // 1) 0 -> 0.1: Skjult lavt bag iPad'en (150px nede). Så snart vi ser toppen af teksten, er den bagved iPaden.
   // 2) 0.1 -> 0.25: Ligesom vi ruller ned over, hæver den sig til at stå klart PÅ iPaden (0px).
-  // 3) 0.25 -> 0.45: Langsomt svæv opad (0 -> -30). Den bevæger sig langsomt op ad, i mens man scroller lidt.
-  // 4) 0.45 -> 0.7: Acceleration! Teksten flyver HELT væk (-400px), præcis idet iPad'en lander lodret.
-  const translate = useTransform(scrollYProgress, [0, 0.1, 0.25, 0.45, 0.7, 1], [150, 150, 0, -30, -400, -400]);
+  // 3) 0.25 -> 0.55: The final sweet spot: Starter rejsen op mod Headeren ved 55%
+  // 4) 0.55 -> 0.78: Opsluges og forsvinder i Navigationsbaren!
+  const translate = useTransform(scrollYProgress, [0, 0.1, 0.25, 0.55, 0.78, 1], [150, 150, 0, -30, -250, -250]);
 
   return (
     <div
-      className="h-[55rem] md:h-[62rem] xl:h-[75rem] flex items-center justify-center relative p-2 py-4 md:py-8"
+      className="h-[35rem] md:h-[40rem] lg:h-[42rem] xl:h-[45rem] flex items-center justify-center relative p-2 py-4 md:py-8"
       ref={containerRef}
     >
       <div
@@ -82,7 +82,7 @@ export const Header = ({ translate, titleComponent }: any) => {
         translateY: translate,
         willChange: "transform"
       }}
-      className="max-w-[90rem] mx-auto text-center relative z-10"
+      className="max-w-[40rem] md:max-w-[50rem] lg:max-w-[60rem] mx-auto text-center relative z-10"
     >
       {titleComponent}
     </motion.div>
@@ -114,20 +114,20 @@ export const Card = ({
           "0 0 0 1px rgba(0,0,0,0.05), 0 20px 40px rgba(0,0,0,0.12), 0 10px 20px rgba(0,0,0,0.08)",
         willChange: "transform"
       }}
-      className="max-w-[50rem] lg:max-w-[66rem] xl:max-w-[90rem] -mt-12 mx-auto aspect-[1194/740] w-full rounded-[24px] md:rounded-[30px] xl:rounded-[40px] relative z-20"
+      className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl -mt-8 md:-mt-12 mx-auto aspect-[1194/740] w-full rounded-[16px] md:rounded-[24px] lg:rounded-[30px] relative z-20"
     >
-      <div className="h-full w-full overflow-hidden rounded-[24px] md:rounded-[30px] xl:rounded-[40px] relative z-10">
+      <div className="h-full w-full overflow-hidden rounded-[16px] md:rounded-[24px] lg:rounded-[30px] relative z-10">
         {children}
       </div>
       
       {/* Absolute placerede pile UDENFOR skærmens klippe-felt */}
       {leftArrow && (
-        <div className="absolute top-1/2 -left-6 md:-left-16 lg:-left-24 xl:-left-32 -translate-y-1/2 z-30">
+        <div className="absolute top-1/2 -left-4 md:-left-8 lg:-left-12 xl:-left-16 -translate-y-1/2 z-30">
           {leftArrow}
         </div>
       )}
       {rightArrow && (
-        <div className="absolute top-1/2 -right-6 md:-right-16 lg:-right-24 xl:-right-32 -translate-y-1/2 z-30">
+        <div className="absolute top-1/2 -right-4 md:-right-8 lg:-right-12 xl:-right-16 -translate-y-1/2 z-30">
           {rightArrow}
         </div>
       )}

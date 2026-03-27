@@ -404,80 +404,78 @@ const Mission = () => {
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
         }}
       />
-      <div className="max-w-3xl xl:max-w-4xl mx-auto px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center" style={{ zoom: "65%" }}>
+      <div className="max-w-xl lg:max-w-2xl mx-auto px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
         {/* Togskinner: Nu bundet internt til kortet så afstanden er ens og zoom-skaleret. z-10 på wrapperen forhindrer dem i at forsvinde om bag sidens baggrund. */}
-        {/* Togskinner: Dynamisk fadet og tapered ud mod skærmens kanter. w-[160vw] sikrer edge-to-edge i 65% zoom miljøet. */}
+        {/* Togskinner: Dynamisk fadet og tapered ud mod skærmens kanter. w-[100vw] bryder ud af den smalle max-w-xl container og trækker stregen hele vejen kant-til-kant. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-24 xl:top-36 w-[160vw] h-[6px] opacity-90 -z-10"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-16 md:top-20 lg:top-24 w-[100vw] h-[3px] md:h-[4px] opacity-50 z-0"
           style={{
-            clipPath: "polygon(0 50%, 35% 0, 65% 0, 100% 50%, 65% 100%, 35% 100%)",
-            maskImage: "linear-gradient(to right, transparent 5%, black 40%, black 60%, transparent 95%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 5%, black 40%, black 60%, transparent 95%)"
+            maskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)"
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-24 xl:bottom-36 w-[160vw] h-[6px] opacity-90 -z-10"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-16 md:bottom-20 lg:bottom-24 w-[100vw] h-[3px] md:h-[4px] opacity-50 z-0"
           style={{
-            clipPath: "polygon(0 50%, 35% 0, 65% 0, 100% 50%, 65% 100%, 35% 100%)",
-            maskImage: "linear-gradient(to right, transparent 5%, black 40%, black 60%, transparent 95%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 5%, black 40%, black 60%, transparent 95%)"
+            maskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 10%, black 22%, black 78%, transparent 90%, transparent 100%)"
           }}
         />
 
         <motion.div
           style={{ x: xScroll }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-white p-6 md:p-8 lg:p-10 xl:p-20 rounded-2xl xl:rounded-3xl shadow-xl relative"
-      >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 backdrop-blur-2xl bg-bison-brown/30 border border-white/50 rounded-[0.8rem] xl:rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.1)] rotate-3 hover:scale-105 hover:rotate-6 transition-all duration-300 z-20 group">
-          <div className="relative flex items-center justify-center -rotate-[24deg] translate-y-0.5">
-            <Megaphone className="text-white drop-shadow-sm relative z-10 w-5 h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8" />
-            {/* Single animated, flattish sound wave, centered on the mouth */}
-            <motion.div 
-              animate={{ opacity: [0, 0.8, 0], scale: [0.6, 1.1], x: [0, 10] }} 
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeOut" }}
-              className="absolute -right-1 top-1/2 -translate-y-[65%] w-1 h-3 lg:w-1.5 lg:h-4 xl:w-2 xl:h-5 rounded-[100%] border-r-[2.5px] border-white/80 z-0"
-            />
-          </div>
-        </div>
-
-        <div className="mb-5 lg:mb-8 xl:mb-10">
-          <div className="inline-block bg-bison-dark/5 px-3 py-1 xl:px-4 xl:py-1 rounded-full text-[9px] lg:text-[10px] xl:text-xs font-bold uppercase tracking-widest text-bison-dark/60 mb-3 xl:mb-4">Vores filosofi</div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-black font-display uppercase tracking-tighter leading-tight">
-            Med ærlighed <br />
-            kommer <span className="italic font-serif normal-case font-medium text-bison-brown">man længst</span>
-          </h2>
-        </div>
-
-        <div className="space-y-3 lg:space-y-4 xl:space-y-6 text-sm lg:text-base xl:text-lg text-bison-dark/70 leading-relaxed">
-          <p>Mange bureauer bruger udmattede processer, beder om at få tilsendt alt skrivearbejdet og putter dig alligevel bare i en standard skabelon. Derudover betaler man hver måned flere hundrede kroner for "hosting og vedligehold", selvom der - for de fleste - ikke er noget af hoste og vedligeholde, når først siden er sat op.</p>
-          <p>Hos Bison har vi en "no bullshit"-metode. Her får du et rigtig godt stykke ærligt arbejde, uden at blive ved med at betale for det. Processen er også ukompliceret: Du svarer mundtligt på nogle grundige spørgsmål, og derfra bygger vi en platform, der afspejler jeres virksomhed på en, faktisk, fed måde.</p>
-          <p>Vi bruger aldrig skabeloner. Alt bygges fra bunden med skarpt fokus på konvertering. Hjemmesiden får sit eget liv gennem dynamiske animationer og interaktive elementer, der sikrer, at ingen glemmer jer.</p>
-          <p className="font-bold text-bison-dark">Hos Bison kommer man længst med ærlighed. Hvis vi selv skulle have bygget en hjemmeside, ville vi ønske, det var præcis, som vi tilbyder det nu.</p>
-        </div>
-
-        <div className="mt-6 lg:mt-8 xl:mt-12 pt-6 lg:pt-8 xl:pt-12 border-t border-bison-dark/5 flex items-center gap-3 lg:gap-4 xl:gap-5">
-          <div className="flex -space-x-2 xl:-space-x-3">
-            <div className="w-8 h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full overflow-hidden ring-2 xl:ring-4 ring-white bg-white relative z-30 shadow-sm">
-              <img src="/assets/1.png" alt="Oliver" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
-            </div>
-            <div className="w-8 h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full overflow-hidden ring-2 xl:ring-4 ring-white bg-white relative z-20 shadow-sm">
-              <img src="/assets/2.png" alt="Mads" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
-            </div>
-            <div className="w-8 h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full overflow-hidden ring-2 xl:ring-4 ring-white bg-white relative z-10 shadow-sm">
-              <img src="/assets/3.png" alt="Jens" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-white p-6 md:p-8 lg:p-12 rounded-[1.2rem] lg:rounded-2xl shadow-xl relative w-full"
+        >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 backdrop-blur-2xl bg-bison-brown/30 border border-white/50 rounded-lg lg:rounded-xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.1)] rotate-3 hover:scale-105 hover:rotate-6 transition-all duration-300 z-20 group">
+            <div className="relative flex items-center justify-center -rotate-[24deg] translate-y-[1px]">
+              <Megaphone className="text-white drop-shadow-sm relative z-10 w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+              {/* Single animated, flattish sound wave, centered on the mouth */}
+              <motion.div 
+                animate={{ opacity: [0, 0.8, 0], scale: [0.6, 1.1], x: [0, 10] }} 
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeOut" }}
+                className="absolute -right-1 top-1/2 -translate-y-[65%] w-1 h-3 lg:w-1.5 lg:h-4 rounded-[100%] border-r-[2.5px] border-white/80 z-0"
+              />
             </div>
           </div>
-          <div>
-            <p className="font-black font-display uppercase tracking-wide text-[10px] lg:text-xs xl:text-sm text-bison-dark">Bison Company</p>
-            <p className="text-[9px] lg:text-[10px] xl:text-xs text-bison-dark/40 font-bold uppercase tracking-widest mt-0.5">Vi står bag hvert et ord</p>
+
+          <div className="mb-4 lg:mb-6">
+            <div className="inline-block bg-bison-dark/5 px-2 py-0.5 lg:px-3 lg:py-1 rounded-full text-[8px] md:text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60 mb-2 md:mb-3">Vores filosofi</div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase tracking-tighter leading-tight">
+              Med ærlighed <br />
+              kommer <span className="italic font-serif normal-case font-medium text-bison-brown">man længst</span>
+            </h2>
           </div>
-        </div>
-      </motion.div>
-    </div>
-  </section>
+
+          <div className="space-y-3 lg:space-y-4 text-xs lg:text-sm text-bison-dark/70 leading-relaxed">
+            <p>Mange bureauer bruger udmattede processer, beder om at få tilsendt alt skrivearbejdet og putter dig alligevel bare i en standard skabelon. Derudover betaler man hver måned flere hundrede kroner for "hosting og vedligehold", selvom der - for de fleste - ikke er noget af hoste og vedligeholde, når først siden er sat op.</p>
+            <p>Hos Bison har vi en "no bullshit"-metode. Her får du et rigtig godt stykke ærligt arbejde, uden at blive ved med at betale for det. Processen er også ukompliceret: Du svarer mundtligt på nogle grundige spørgsmål, og derfra bygger vi en platform, der afspejler jeres virksomhed på en, faktisk, fed måde.</p>
+            <p>Vi bruger aldrig skabeloner. Alt bygges fra bunden med skarpt fokus på konvertering. Hjemmesiden får sit eget liv gennem dynamiske animationer og interaktive elementer, der sikrer, at ingen glemmer jer.</p>
+            <p className="font-bold text-bison-dark">Hos Bison kommer man længst med ærlighed. Hvis vi selv skulle have bygget en hjemmeside, ville vi ønske, det var præcis, som vi tilbyder det nu.</p>
+          </div>
+
+          <div className="mt-5 md:mt-6 lg:mt-8 pt-5 md:pt-6 lg:pt-8 border-t border-bison-dark/5 flex items-center gap-3 lg:gap-4">
+            <div className="flex -space-x-1.5 md:-space-x-2">
+              <div className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-30 shadow-sm">
+                <img src="/assets/1.png" alt="Oliver" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
+              </div>
+              <div className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-20 shadow-sm">
+                <img src="/assets/2.png" alt="Mads" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
+              </div>
+              <div className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-10 shadow-sm">
+                <img src="/assets/3.png" alt="Jens" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
+              </div>
+            </div>
+            <div>
+              <p className="font-black font-display uppercase tracking-wide text-[9px] md:text-[10px] lg:text-xs text-bison-dark">Bison Company</p>
+              <p className="text-[8px] md:text-[9px] lg:text-[10px] text-bison-dark/40 font-bold uppercase tracking-widest mt-px">Vi står bag hvert et ord</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
@@ -693,11 +691,11 @@ const Home = () => {
 
       {/* Case Preview Section via Container Scroll Animation */}
       <section className="bg-white overflow-hidden relative z-20">
-        <div className="flex flex-col overflow-hidden py-4 md:py-6" style={{ zoom: "65%" }}>
+        <div className="flex flex-col overflow-hidden py-4 md:py-6">
           <ContainerScroll
             titleComponent={
               <div className="text-center drop-shadow-sm pb-8 xl:pb-0">
-                <h2 className="text-5xl md:text-6xl lg:text-[5rem] xl:text-[8rem] font-black tracking-tighter font-display uppercase text-bison-dark whitespace-nowrap">
+                <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tighter font-display uppercase text-bison-dark whitespace-nowrap">
                   Solidt <span className="italic font-serif normal-case text-bison-brown">håndværk</span>
                 </h2>
               </div>
@@ -705,17 +703,17 @@ const Home = () => {
             leftArrow={
               <button 
                 onClick={prevCase}
-                className="w-16 h-16 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
+                className="w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
               >
-                <ChevronLeft size={32} strokeWidth={2.5} />
+                <ChevronLeft size={24} strokeWidth={2.5} />
               </button>
             }
             rightArrow={
               <button 
                 onClick={nextCase}
-                className="w-16 h-16 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
+                className="w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
               >
-                <ChevronRight size={32} strokeWidth={2.5} />
+                <ChevronRight size={24} strokeWidth={2.5} />
               </button>
             }
           >
@@ -729,13 +727,13 @@ const Home = () => {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 overflow-hidden bg-[#f4f5f7] flex flex-col items-center justify-center w-full h-full border border-dashed border-bison-dark/10 text-center px-6 z-50 rounded-[24px] md:rounded-[30px] xl:rounded-[40px]"
+                  className="absolute inset-0 overflow-hidden bg-[#f4f5f7] flex flex-col items-center justify-center w-full h-full border border-dashed border-bison-dark/10 text-center px-6 z-50 rounded-[16px] md:rounded-[24px] lg:rounded-[30px]"
                 >
-                  <div className="w-16 h-16 bg-bison-dark/5 rounded-full flex items-center justify-center mb-6 bg-clip-padding backdrop-filter backdrop-blur-sm">
-                    <Rocket className="text-bison-dark/40" size={32} />
+                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-bison-dark/5 rounded-full flex items-center justify-center mb-4 lg:mb-6 bg-clip-padding backdrop-filter backdrop-blur-sm">
+                    <Rocket className="text-bison-dark/40 w-5 h-5 lg:w-8 lg:h-8" />
                   </div>
-                  <h3 className="text-3xl md:text-5xl font-black font-display uppercase tracking-widest text-bison-dark/40 drop-shadow-sm mb-4">Næste Case</h3>
-                  <p className="text-bison-dark/30 font-bold uppercase tracking-widest text-sm">Under konstruktion. Kommer snart.</p>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-black font-display uppercase tracking-widest text-bison-dark/40 drop-shadow-sm mb-2 lg:mb-4">Næste Case</h3>
+                  <p className="text-bison-dark/30 font-bold uppercase tracking-widest text-[10px] lg:text-xs">Under konstruktion. Kommer snart.</p>
                 </motion.div>
               ) : (
                 <motion.a
@@ -755,15 +753,15 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.04] transition-transform duration-700 group-hover:scale-[1.08] rounded-[24px] md:rounded-[30px] xl:rounded-[40px]"
+                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.04] transition-transform duration-700 group-hover:scale-[1.08] rounded-[16px] md:rounded-[24px] lg:rounded-[30px]"
                     draggable={false}
                   />
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[24px] md:rounded-[30px] xl:rounded-[40px] flex items-center justify-center backdrop-blur-sm z-50">
-                    <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-10 py-5 rounded-full font-black text-xl md:text-2xl uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-4 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-out hover:bg-white/30 hover:scale-105 active:scale-95">
+                  <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[16px] md:rounded-[24px] lg:rounded-[30px] flex items-center justify-center backdrop-blur-sm z-50">
+                    <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-black text-sm lg:text-lg uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-3 lg:gap-4 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-out hover:bg-white/30 hover:scale-105 active:scale-95">
                       <span>Besøg Siden</span>
                       <div className="bg-white/20 p-2 rounded-full border border-white/20 shadow-sm">
-                        <ExternalLink size={24} className="text-bison-blue drop-shadow-md" />
+                        <ExternalLink className="text-bison-blue drop-shadow-md w-4 h-4 lg:w-5 lg:h-5" />
                       </div>
                     </div>
                   </div>
@@ -773,13 +771,13 @@ const Home = () => {
           </ContainerScroll>
           
 
-          <div className="flex justify-center mt-6 md:mt-12 lg:mt-16 xl:mt-24 relative z-30">
+          <div className="flex justify-center mt-8 md:mt-16 lg:mt-24 xl:mt-28 relative z-30">
             <Link 
               to="/cases" 
-              className="group px-8 py-4 lg:px-10 lg:py-5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-base lg:text-lg hover:bg-bison-brown/40 hover:border-white/60 hover:scale-105 active:scale-95 transition-all shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 hover:gap-5 relative z-30"
+              className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"
             >
               Se mere arbejde
-              <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
