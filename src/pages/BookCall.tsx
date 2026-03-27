@@ -117,8 +117,8 @@ const BookCall = () => {
     <main className="pt-32">
       <PageSkyHeader />
       <section className="py-20 px-6 relative z-[100]">
-        <div className="max-w-7xl mx-auto" style={{ zoom: "65%" }}>
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="max-w-[832px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             
             {/* Left Column: Mission & Features */}
             <div className="relative z-20">
@@ -126,7 +126,7 @@ const BookCall = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="inline-block bg-bison-dark/5 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-bison-dark/60 mb-6"
+                className="inline-block bg-bison-dark/5 px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest text-bison-dark/60 mb-4"
               >
                 Book en snak
               </motion.div>
@@ -135,11 +135,11 @@ const BookCall = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 0.6 }}
-                className="text-6xl md:text-8xl font-black tracking-tighter font-display uppercase leading-[0.9] mb-4 text-bison-dark"
+                className="text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[0.9] mb-2.5 text-bison-dark"
               >
                 Lad os se <br />
                 om vi <br />
-                <span className="italic font-serif normal-case font-medium text-bison-brown/60 pt-2 inline-block drop-shadow-sm">kan hjælpe</span>
+                <span className="italic font-serif normal-case font-medium text-bison-brown/60 pt-1.5 inline-block drop-shadow-sm">kan hjælpe</span>
               </motion.h1>
               
               {/* Expanding text section pushing items physically down */}
@@ -150,94 +150,94 @@ const BookCall = () => {
                 className="grid"
               >
                 <div className="overflow-hidden">
-                  <p className="text-xl text-bison-dark/60 max-w-md leading-relaxed mt-4 mb-12">
-                    Vælg et tidspunkt der passer dig, så tager vi en uforpligtende snak om dine mål og hvordan vi potentielt kan hjælpe dig med at nå dem.
+                  <p className="text-[13px] w-full text-bison-dark/60 leading-relaxed mt-2.5 mb-8">
+                    Vælg et tidspunkt der passer dig, så tager vi en<br className="hidden md:block"/>
+                    uforpligtende snak om dine mål og hvordan vi<br className="hidden md:block"/>
+                    potentielt kan hjælpe dig med at nå dem.
                   </p>
                 </div>
               </motion.div>
 
-              <div className="space-y-8 mb-12">
+              <div className="space-y-5 mb-8">
                 {[
-                  { icon: <Calendar strokeWidth={1.5} className="w-6 h-6 md:w-8 md:h-8 text-bison-green" />, title: "Gratis Strategisession", desc: "15 minutters fokuseret rådgivning." },
-                  { icon: <Video strokeWidth={1.5} className="w-6 h-6 md:w-8 md:h-8 text-bison-pink" />, title: "Online Møde", desc: "Vi mødes via Google Meet." },
-                  { icon: <MessageSquare strokeWidth={1.5} className="w-6 h-6 md:w-8 md:h-8 text-bison-blue" />, title: "Ingen Binding", desc: "Bare en god snak om dine muligheder." }
+                  { icon: <Calendar strokeWidth={1.5} className="w-4 h-4 md:w-5 md:h-5 text-bison-green" />, title: "Gratis Strategisession", desc: "15 minutters fokuseret rådgivning." },
+                  { icon: <Video strokeWidth={1.5} className="w-4 h-4 md:w-5 md:h-5 text-bison-pink" />, title: "Online Møde", desc: "Vi mødes via Google Meet." },
+                  { icon: <MessageSquare strokeWidth={1.5} className="w-4 h-4 md:w-5 md:h-5 text-bison-blue" />, title: "Ingen Binding", desc: "Bare en god snak om dine muligheder." }
                 ].map((item, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ delay: 2.0 + (i * 0.15), duration: 0.5, ease: "easeOut" }}
-                    className="flex gap-5 md:gap-6 items-start"
+                    className="flex gap-3 md:gap-4 items-start"
                   >
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-[1rem] md:rounded-[1.2rem] flex items-center justify-center shadow-lg border border-bison-dark/5 shrink-0 transform hover:scale-105 transition-transform duration-300">
+                    <div className="w-8 h-8 md:w-[36px] md:h-[36px] bg-white rounded-[10px] flex items-center justify-center shadow-lg border border-bison-dark/5 shrink-0 transform hover:scale-105 transition-transform duration-300">
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-black font-display uppercase tracking-tight">{item.title}</h3>
-                      <p className="text-base md:text-lg text-bison-dark/60 mt-1">{item.desc}</p>
+                      <h3 className="text-[16px] md:text-[20px] font-black font-display uppercase tracking-tight">{item.title}</h3>
+                      <p className="text-[10px] md:text-[12px] text-bison-dark/60 mt-0.5">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="p-8 bg-bison-bg rounded-3xl border border-bison-dark/5">
-                <h3 className="text-xl font-black font-display uppercase mb-4 tracking-tight">Hvad sker der nu?</h3>
-                <ul className="space-y-4">
-                  <li className="flex gap-3 text-sm text-bison-dark/60 items-start">
-                    <ArrowRight size={18} className="text-bison-brown shrink-0 mt-0.5" />
+              <div className="p-5 bg-bison-bg rounded-[1.2rem] border border-bison-dark/5">
+                <h3 className="text-[13px] font-black font-display uppercase mb-2.5 tracking-tight">Hvad sker der nu?</h3>
+                <ul className="space-y-2.5">
+                  <li className="flex gap-2 text-[9px] text-bison-dark/60 items-start">
+                    <ArrowRight size={12} className="text-bison-brown shrink-0 mt-0.5" />
                     Du vælger et tidspunkt der passer dig i kalenderen.
                   </li>
-                  <li className="flex gap-3 text-sm text-bison-dark/60 items-start">
-                    <ArrowRight size={18} className="text-bison-brown shrink-0 mt-0.5" />
+                  <li className="flex gap-2 text-[9px] text-bison-dark/60 items-start">
+                    <ArrowRight size={12} className="text-bison-brown shrink-0 mt-0.5" />
                     Du modtager en bekræftelse og et link til mødet.
                   </li>
-                  <li className="flex gap-3 text-sm text-bison-dark/60 items-start">
-                    <ArrowRight size={18} className="text-bison-brown shrink-0 mt-0.5" />
+                  <li className="flex gap-2 text-[9px] text-bison-dark/60 items-start">
+                    <ArrowRight size={12} className="text-bison-brown shrink-0 mt-0.5" />
                     Vi tager en snak om dine mål og lægger en plan.
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="space-y-8 relative w-full z-10">
+            <div className="space-y-5 relative w-full z-10">
               <div className="relative w-full">
                 {/* Main Calendar Widget */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2, duration: 0.5 }}
-                  className="bg-white rounded-[3rem] shadow-2xl relative z-10 w-full overflow-hidden border border-bison-dark/5 min-h-[500px] flex flex-col"
+                  className="bg-white rounded-[2rem] shadow-2xl relative z-10 w-full overflow-hidden border border-bison-dark/5 min-h-[325px] flex flex-col"
                 >
-                  <div className="p-8 bg-bison-dark text-white text-center">
-                    <h2 className="text-2xl font-black font-display uppercase tracking-tight">Vælg tidspunkt</h2>
-                    <div className="flex justify-center items-center gap-2.5 mt-2">
+                  <div className="p-5 bg-bison-dark text-white text-center">
+                    <h2 className="text-[16px] font-black font-display uppercase tracking-tight">Vælg tidspunkt</h2>
+                    <div className="flex justify-center items-center gap-1.5 mt-1.5">
                       <motion.div 
                         animate={{ opacity: [0.6, 1, 0.6] }} 
                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} 
-                        className="w-2.5 h-2.5 shrink-0 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" 
+                        className="w-1.5 h-1.5 shrink-0 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" 
                       />
-                      <span className="text-xs font-bold uppercase tracking-widest text-white/60">Ledige tider i dag</span>
+                      <span className="text-[8px] font-bold uppercase tracking-widest text-white/60">Ledige tider i dag</span>
                     </div>
                   </div>
 
                   <div 
                     id="book-snak-widget"
-                    className="w-full bg-[#fbfbf9] rounded-b-[3rem] border-t border-bison-dark/5 overflow-y-auto" 
-                    style={{ height: "550px" }}
+                    className="w-full bg-[#fbfbf9] border-t border-bison-dark/5 overflow-y-auto" 
+                    style={{ height: "360px" }}
                   >
-                    {/* min-h-full uden højderestriktioner på Cal, lader widgeten sprede sig internt,
-                        hvilket kvæler iFrame'ens egen stædige dobbelte scroll-hopmekanisme */}
                     <div className="w-full min-h-full">
                       <Cal
                         calLink="oliver-bison/15min"
-                        style={{ width: "100%" }}
+                        style={{ width: "100%", height: "100%" }}
                         config={{ layout: "month_view", theme: "light" }}
                       />
                     </div>
                   </div>
 
-                  <div className="p-6 bg-bison-bg border-t border-bison-dark/5 text-center">
-                    <p className="text-xs font-bold text-bison-dark/40 uppercase tracking-widest">Vi glæder os til at møde dig</p>
+                  <div className="p-4 bg-bison-bg border-t border-bison-dark/5 text-center">
+                    <p className="text-[8px] font-bold text-bison-dark/40 uppercase tracking-widest">Vi glæder os til at møde dig</p>
                   </div>
                 </motion.div>
 
@@ -248,7 +248,7 @@ const BookCall = () => {
                     animate={{ opacity: 1, x: 0, rotate: 6 }}
                     transition={{ delay: 2.2, type: "spring", bounce: 0.4, stiffness: 60 }}
                     style={{ borderRadius: "45% 55% 42% 58% / 55% 45% 58% 42%" }}
-                    className="absolute top-[5%] -right-12 md:-right-24 lg:-right-36 w-32 h-44 md:w-40 md:h-56 shadow-2xl overflow-hidden"
+                    className="absolute top-[8%] -right-8 md:-right-16 lg:-right-24 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_15px_30px_rgba(0,0,0,0.15)] overflow-hidden z-10"
                   >
                     <img src="/assets/1.png" className="w-full h-full object-cover scale-105 grayscale" alt="Oliver Rørbæk" referrerPolicy="no-referrer" />
                   </motion.div>
@@ -258,7 +258,7 @@ const BookCall = () => {
                     animate={{ opacity: 1, x: 0, rotate: -4 }}
                     transition={{ delay: 2.4, type: "spring", bounce: 0.4, stiffness: 60 }}
                     style={{ borderRadius: "55% 45% 60% 40% / 40% 60% 45% 55%" }}
-                    className="absolute top-[35%] -right-16 md:-right-32 lg:-right-44 w-32 h-44 md:w-40 md:h-56 shadow-2xl overflow-hidden"
+                    className="absolute top-[32%] -right-10 md:-right-20 lg:-right-30 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden z-20"
                   >
                     <img src="/assets/2.png" className="w-full h-full object-cover scale-105 grayscale" alt="Mads Brunsbjerg" referrerPolicy="no-referrer" />
                   </motion.div>
@@ -268,7 +268,7 @@ const BookCall = () => {
                     animate={{ opacity: 1, x: 0, rotate: 10 }}
                     transition={{ delay: 2.6, type: "spring", bounce: 0.4, stiffness: 60 }}
                     style={{ borderRadius: "50% 50% 40% 60% / 60% 40% 50% 50%" }}
-                    className="absolute top-[65%] -right-8 md:-right-20 lg:-right-28 w-32 h-44 md:w-40 md:h-56 shadow-2xl overflow-hidden"
+                    className="absolute top-[56%] -right-5 md:-right-13 lg:-right-18 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_25px_50px_rgba(0,0,0,0.25)] overflow-hidden z-30"
                   >
                     <img src="/assets/3.png" className="w-full h-full object-cover scale-105 grayscale" alt="Jens Godballe Madsen" referrerPolicy="no-referrer" />
                   </motion.div>
@@ -280,16 +280,16 @@ const BookCall = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-bison-blue/10 p-10 rounded-[2.5rem] border border-bison-blue/20"
+                className="bg-bison-blue/10 p-6 rounded-[1.6rem] border border-bison-blue/20"
               >
-                <h3 className="text-xl font-black font-display uppercase mb-4 tracking-tight">Passer tiderne ikke?</h3>
-                <p className="text-sm text-bison-dark/60 mb-6">Send os en direkte besked, så finder vi et tidspunkt der fungerer for dig.</p>
+                <h3 className="text-[13px] font-black font-display uppercase mb-2.5 tracking-tight">Passer tiderne ikke?</h3>
+                <p className="text-[9px] text-bison-dark/60 mb-4 w-[85%]">Send os en direkte besked, så finder vi et tidspunkt der fungerer for dig.</p>
                 <div className="relative inline-block">
                   <motion.button 
                     onClick={() => setShowMailPopup(!showMailPopup)} 
                     whileHover={{ scale: 1.05 }} 
                     whileTap={{ scale: 0.95 }} 
-                    className="inline-block bg-bison-dark text-white px-8 py-3 rounded-full font-bold text-sm shadow-md transition-shadow hover:shadow-lg focus:outline-none"
+                    className="inline-block bg-bison-dark text-white px-5 py-2 rounded-full font-bold text-[9px] shadow-md transition-shadow hover:shadow-lg focus:outline-none"
                   >
                     Send en mail
                   </motion.button>
@@ -300,15 +300,14 @@ const BookCall = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: -10 }}
                         transition={{ type: "spring", bounce: 0.35, duration: 0.5 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 p-5 rounded-3xl bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_15px_40px_rgba(0,0,0,0.12)] text-center flex flex-col items-center gap-2 z-50 origin-top"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 w-48 p-3 rounded-2xl bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_15px_40px_rgba(0,0,0,0.12)] text-center flex flex-col items-center gap-1.5 z-50 origin-top"
                       >
-                        {/* Taleboble spids OP mod knappen */}
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-px border-[10px] border-transparent border-b-white/70 drop-shadow-sm" />
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-px border-[6px] border-transparent border-b-white/70 drop-shadow-sm" />
                         
-                        <p className="text-xs font-bold uppercase tracking-widest text-bison-dark/50">Vores direkte e-mail</p>
-                        <p className="text-lg font-black font-display text-bison-dark selection:bg-bison-pink/30">team@bisoncompany.dk</p>
-                        <button onClick={handleCopy} className={`mt-2 text-xs font-bold uppercase tracking-widest text-white px-6 py-2.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-md focus:outline-none flex gap-2 items-center ${copiedMail ? 'bg-bison-dark' : 'bg-bison-green hover:bg-bison-green/90'}`}>
-                          {copiedMail ? <><Check size={14} strokeWidth={3} /> Kopieret</> : "Kopier"}
+                        <p className="text-[8px] font-bold uppercase tracking-widest text-bison-dark/50">Vores direkte e-mail</p>
+                        <p className="text-[12px] font-black font-display text-bison-dark selection:bg-bison-pink/30">team@bisoncompany.dk</p>
+                        <button onClick={handleCopy} className={`mt-1.5 text-[8px] font-bold uppercase tracking-widest text-white px-4 py-1.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-md focus:outline-none flex gap-1.5 items-center ${copiedMail ? 'bg-bison-dark' : 'bg-bison-green hover:bg-bison-green/90'}`}>
+                          {copiedMail ? <><Check size={10} strokeWidth={3} /> Kopieret</> : "Kopier"}
                         </button>
                       </motion.div>
                     )}

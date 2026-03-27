@@ -174,18 +174,18 @@ const Blog = () => {
       </AnimatePresence>
 
 
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto" style={{ zoom: "65%" }}>
-          <div className="text-center mb-20">
-            <div className="mb-6 overflow-hidden">
+      <section className="py-12 md:py-20 px-6">
+        <div className="max-w-[832px] mx-auto">
+          <div className="text-center mb-[52px]">
+            <div className="mb-4 overflow-hidden">
               <FadeText
                 direction="up"
                 text="Vores Tanker"
-                className="inline-block bg-bison-dark/5 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-bison-dark/60"
+                className="inline-block bg-bison-dark/5 px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest text-bison-dark/60"
                 framerProps={{ show: { transition: { delay: 0.8 } } }}
               />
             </div>
-            <div className="flex flex-wrap justify-center items-end gap-x-4 md:gap-x-5 text-6xl md:text-8xl font-black tracking-tighter font-display uppercase leading-[0.9] mb-8 text-bison-dark">
+            <div className="flex flex-wrap justify-center items-end gap-x-2.5 md:gap-x-3 text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[0.9] mb-5 text-bison-dark">
               <motion.span
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -206,49 +206,47 @@ const Blog = () => {
               per="word"
               preset="fade"
               delay={0.8}
-              className="text-xl text-bison-dark/60 max-w-2xl mx-auto leading-relaxed"
+              className="text-[13px] text-bison-dark/60 max-w-[436px] mx-auto leading-relaxed"
             >
               Vi deler vores viden om design, teknologi og vækst for at hjælpe dig med at blive klogere på den digitale verden.
             </TextEffect>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {posts.map((post, i) => (
               <motion.article
                 key={i}
                 initial={{ opacity: 0, x: -80, filter: "blur(15px)" }}
-                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-50px" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 transition={{ delay: 1.1 + (i * 0.8), duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                whileHover={{ y: -6, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedPost(post)}
                 className="group cursor-pointer flex flex-col"
               >
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden mb-8 relative shadow-lg">
+                <div className="aspect-[4/3] rounded-[1.2rem] overflow-hidden mb-5 relative shadow-lg">
                   <img src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" referrerPolicy="no-referrer" />
-                  <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm">
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[7px] font-black uppercase tracking-widest shadow-sm">
                     {post.category}
                   </div>
                 </div>
-                <div className="flex items-center gap-4 text-xs font-bold text-bison-dark/40 uppercase tracking-widest mb-4">
-                  <span className="flex items-center gap-1"><User size={14} /> {post.author}</span>
-                  <span className="flex items-center gap-1"><Clock size={14} /> {post.readTime}</span>
+                <div className="flex items-center gap-2.5 text-[8px] font-bold text-bison-dark/40 uppercase tracking-widest mb-2.5">
+                  <span className="flex items-center gap-1"><User size={10} /> {post.author}</span>
+                  <span className="flex items-center gap-1"><Clock size={10} /> {post.readTime}</span>
                 </div>
 
-                <h3 className="text-2xl font-black font-display uppercase tracking-tight mb-4 group-hover:text-bison-brown transition-colors leading-tight line-clamp-2 min-h-[3rem]">
+                <h3 className="text-[16px] font-black font-display uppercase tracking-tight mb-2.5 group-hover:text-bison-brown transition-colors leading-tight line-clamp-2 min-h-[2rem]">
                   {post.title}
                 </h3>
 
-                {/* 3 lines precisely, visually locked height */}
-                <p className="text-bison-dark/60 leading-relaxed mb-6 line-clamp-3 h-[4.875rem] overflow-hidden">
+                <p className="text-[10px] text-bison-dark/60 leading-relaxed mb-4 line-clamp-3 h-[3.2rem] overflow-hidden">
                   {post.excerpt}
                 </p>
 
-                <div className="mt-auto pt-4 border-t border-bison-dark/5 flex items-center justify-between font-bold text-bison-dark group-hover:text-bison-brown transition-colors">
+                <div className="mt-auto pt-2.5 border-t border-bison-dark/5 flex items-center justify-between text-[10px] font-bold text-bison-dark group-hover:text-bison-brown transition-colors">
                   Læs artiklen
-                  <div className="w-10 h-10 rounded-full bg-bison-dark/5 flex items-center justify-center group-hover:bg-bison-brown/10 transition-colors">
-                    <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                  <div className="w-6 h-6 rounded-full bg-bison-dark/5 flex items-center justify-center group-hover:bg-bison-brown/10 transition-colors">
+                    <ArrowRight size={12} className="transform group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </motion.article>
