@@ -33,27 +33,6 @@ const About = () => {
   const nextT = () => setTIndex((p) => (p + 1) % testimonials.length);
   const prevT = () => setTIndex((p) => (p - 1 + testimonials.length) % testimonials.length);
 
-  const [dynamicDelay, setDynamicDelay] = useState(true);
-
-  useEffect(() => {
-    // Fjern animation-delays automatisk efter 2.5 sek (når toppen er færdig)
-    const timer = setTimeout(() => setDynamicDelay(false), 2500);
-    
-    // Hvis brugeren har en lille skærm og scroller med det samme, dør forsinkelserne øjeblikkeligt
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setDynamicDelay(false);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <main className="pt-32">
       <PageSkyHeader />
@@ -99,9 +78,8 @@ const About = () => {
       <section className="px-6 mb-20 md:mb-24 relative z-10 -mt-16 md:-mt-20" style={{ perspective: "1500px" }}>
         <motion.div 
           initial={{ opacity: 0, rotateX: 25, y: 80, scale: 0.95 }}
-          whileInView={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: dynamicDelay ? 1.6 : 0.15, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          animate={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
+          transition={{ delay: 1.6, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-5xl mx-auto relative"
           style={{ zoom: "65%" }}
         >
@@ -141,10 +119,9 @@ const About = () => {
         <div className="max-w-[70rem] mx-auto" style={{ zoom: "65%" }}>
           <motion.div 
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            animate="visible"
             variants={{
-              visible: { transition: { staggerChildren: 0.15, delayChildren: dynamicDelay ? 1.8 : 0.15 } },
+              visible: { transition: { staggerChildren: 0.15, delayChildren: 1.8 } },
               hidden: {}
             }}
             className="text-center mb-20"
@@ -179,9 +156,8 @@ const About = () => {
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.0 + (i * 0.1) }}
                 className="flex-1 flex flex-col items-center text-center group relative overflow-visible py-8"
               >
                 {/* Large Background Icon */}
@@ -240,8 +216,8 @@ const About = () => {
             {/* Glassmorphism Container */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 2.2, duration: 0.8 }}
               className="relative z-10 w-full bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2.5rem] shadow-[0_20px_40px_rgba(0,0,0,0.05)] p-10 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12"
             >
               <div className="lg:w-1/3 text-center lg:text-left">

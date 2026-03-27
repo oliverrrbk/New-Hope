@@ -49,11 +49,12 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
               top: cloud.top,
               bottom: cloud.bottom,
               left: cloud.left,
-              filter: `blur(${cloud.blur})`,
+              WebkitTransform: "translateZ(0)",
+              willChange: "transform"
             }}
-            initial={{ x: '0vw' }}
-            animate={{ x: '-120vw', transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: cloud.delayIn } }}
-            exit={{ x: '0vw', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: cloud.delayOut } }}
+            initial={{ x: '0vw', visibility: 'visible', filter: `blur(${cloud.blur})` }}
+            animate={{ x: '-150vw', transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: cloud.delayIn }, transitionEnd: { visibility: "hidden", filter: "blur(0px)" } }}
+            exit={{ visibility: 'visible', filter: `blur(${cloud.blur})`, x: '0vw', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: cloud.delayOut } }}
           />
         ))}
 
@@ -68,11 +69,12 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
               top: cloud.top,
               bottom: cloud.bottom,
               right: cloud.right,
-              filter: `blur(${cloud.blur})`,
+              WebkitTransform: "translateZ(0)",
+              willChange: "transform"
             }}
-            initial={{ x: '0vw' }}
-            animate={{ x: '120vw', transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: cloud.delayIn } }}
-            exit={{ x: '0vw', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: cloud.delayOut } }}
+            initial={{ x: '0vw', visibility: 'visible', filter: `blur(${cloud.blur})` }}
+            animate={{ x: '150vw', transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: cloud.delayIn }, transitionEnd: { visibility: "hidden", filter: "blur(0px)" } }}
+            exit={{ visibility: 'visible', filter: `blur(${cloud.blur})`, x: '0vw', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: cloud.delayOut } }}
           />
         ))}
       </div>

@@ -5,17 +5,20 @@ import Footer from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
 import { AnimatedRoutes } from './components/AnimatedRoutes';
 
+import { ReactLenis } from 'lenis/react';
+
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen selection:bg-bison-blue selection:text-bison-dark flex flex-col md:cursor-none">
-        <CustomCursor />
-        <Navbar />
-        <div className="flex-1 flex flex-col">
-          <AnimatedRoutes />
+      <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
+        <div className="min-h-screen selection:bg-bison-blue selection:text-bison-dark flex flex-col">
+          <Navbar />
+          <div className="flex-1 flex flex-col">
+            <AnimatedRoutes />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </ReactLenis>
     </Router>
   );
 }

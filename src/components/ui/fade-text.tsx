@@ -49,8 +49,7 @@ function FadeText({
   return (
     <motion.div
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
+      animate="show"
       variants={FADE_ANIMATION_VARIANTS}
     >
       <motion.span className={className}>{text}</motion.span>

@@ -98,7 +98,7 @@ const Hero = () => {
       >
         <Meteors number={28} />
       </div>
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center text-center -mt-6 lg:-mt-10 xl:mt-0" style={{ zoom: "65%" }}>
+      <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 w-full flex flex-col items-center text-center -mt-6 lg:-mt-10 xl:mt-0">
         <BlurIn 
           delay={1.0}
           duration={0.8}
@@ -177,14 +177,14 @@ const Hero = () => {
           </h1>
           */}
 
-          {/* NY SIMPEL OVERSKRIFT */}
-          <h1 className="flex flex-col font-black tracking-tighter leading-[1.0] mb-5 lg:mb-6 xl:mb-12 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[90rem] mx-auto cursor-default text-center items-center">
-            <span className="block text-[11vw] sm:text-6xl md:text-[4rem] lg:text-[4.5rem] xl:text-[8rem] mb-2 md:mb-3 xl:mb-4 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte hjemmesider</span>
-            <span className="block text-[5vw] sm:text-3xl md:text-[2.25rem] lg:text-[2.75rem] xl:text-[5rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)]">
+          {/* NY NATIVE SKALERET OVERSKRIFT */}
+          <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-6 xl:mb-10 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
+            <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br className="hidden md:block"/>hjemmesider</span>
+            <span className="block text-[4vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
               uden besvær og månedlige betalinger
             </span>
           </h1>
-          <p className="text-sm md:text-base lg:text-base xl:text-2xl text-white/90 w-full max-w-[95vw] md:max-w-2xl lg:max-w-3xl xl:max-w-5xl mx-auto mb-6 lg:mb-8 xl:mb-16 leading-relaxed font-medium drop-shadow-md">
+          <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-8 xl:mb-12 leading-relaxed font-medium drop-shadow-md">
             Vi designer fra bunden, og laver noget, som faktisk er skræddersyet til din virksomhed og dens personlighed. Samtidig er vores proces så simpel så mulig for dig – vi har skåret alt fedtet fra. Og så betaler du kun én gang.
           </p>
 
@@ -249,7 +249,7 @@ const Hero = () => {
                 </div>
               </div>
               
-              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-6 py-2.5 lg:px-8 lg:py-3 xl:px-14 xl:py-6 rounded-full text-sm lg:text-base xl:text-2xl font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
+              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-5 py-2 lg:px-6 lg:py-3 xl:px-10 xl:py-4 rounded-full text-xs lg:text-sm xl:text-lg font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
                 <Magnetic intensity={0.15} springOptions={{ bounce: 0.15 }} actionArea='global' range={250}>
                   <span className="relative z-10 inline-block pointer-events-none">Start her</span>
                 </Magnetic>
@@ -333,37 +333,41 @@ const Services = () => {
   return (
     <section id="services" className="pt-20 lg:pt-24 pb-12 lg:pb-16 bg-white relative z-20 -mt-8 lg:-mt-12">
       <div className="absolute top-0 left-0 w-full h-2 bison-stripes" />
-      <div className="max-w-[85rem] mx-auto px-6" style={{ zoom: "65%" }}>
-        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24 xl:mb-28">
-          <h2 className="text-4xl md:text-5xl lg:text-5xl xl:text-7xl font-black tracking-tighter mb-4 lg:mb-6 font-display uppercase">Hvordan vi gør det <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">anderledes</span></h2>
-          <p className="text-sm lg:text-base xl:text-lg text-bison-dark/60">Vi har fjernet alt det, der normalt gør et webprojekt til en langsommelig hovedpine.</p>
+      <div className="max-w-[60rem] mx-auto px-4 md:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-2 md:mb-3 font-display uppercase leading-[1.1]">
+            Hvordan vi gør det 
+            <br className="hidden md:block"/>
+            <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">anderledes</span>
+          </h2>
+          <p className="text-xs md:text-sm text-bison-dark/60 font-medium max-w-lg mx-auto">Vi har fjernet alt det, der normalt gør et webprojekt til en langsommelig hovedpine.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
           {services.map((s, i) => (
             <motion.div
               key={i}
-              initial={{ x: -50, y: -50 }}
+              initial={{ x: -20, y: -20 }}
               whileInView={{ x: 0, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.05, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="group relative isolate"
             >
               {/* Fuzzy svævende skyer UDENOM kortet */}
-              <div className="absolute -inset-8 pointer-events-none opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70">
-                <div className={`absolute top-[-10%] left-[-15%] w-[80%] h-[80%] rounded-full blur-[40px] ${s.cloudColor} animate-cloud-1 group-hover:[animation-play-state:paused]`} />
-                <div className={`absolute bottom-[-10%] right-[-15%] w-[90%] h-[90%] rounded-full blur-[50px] ${s.cloudColor} animate-cloud-2 group-hover:[animation-play-state:paused]`} />
+              <div className="absolute -inset-6 md:-inset-8 pointer-events-none opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70">
+                <div className={`absolute top-[-10%] left-[-15%] w-[80%] h-[80%] rounded-full blur-[30px] md:blur-[40px] ${s.cloudColor} animate-cloud-1 group-hover:[animation-play-state:paused]`} />
+                <div className={`absolute bottom-[-10%] right-[-15%] w-[90%] h-[90%] rounded-full blur-[40px] md:blur-[50px] ${s.cloudColor} animate-cloud-2 group-hover:[animation-play-state:paused]`} />
               </div>
 
               {/* Selve kortkroppen, der hviler 'på' skyerne */}
-              <div className={`h-full ${s.color} p-5 lg:p-6 xl:p-10 rounded-[1.5rem] xl:rounded-[2.5rem] border flex flex-col items-center text-center gap-4 lg:gap-5 transition-shadow duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.1)]`}>
-                <div className="w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 bg-white/90 backdrop-blur-md rounded-[1rem] xl:rounded-2xl flex items-center justify-center shadow-lg relative z-10">
-                  {s.icon}
+              <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col items-center text-center gap-3 lg:gap-4 transition-shadow duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)]`}>
+                <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10">
+                  <div className="scale-75 md:scale-90">{s.icon}</div>
                 </div>
-                <h3 className="text-[1rem] lg:text-[1.1rem] xl:text-[1.6rem] font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap">{s.title}</h3>
-                <p className="text-xs lg:text-sm xl:text-lg text-bison-dark/70 leading-relaxed relative z-10 font-medium">{s.desc}</p>
+                <h3 className="text-sm md:text-base lg:text-lg font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap">{s.title}</h3>
+                <p className="text-[0.65rem] md:text-[0.7rem] lg:text-xs text-bison-dark/70 leading-relaxed relative z-10 font-medium max-w-[12rem] md:max-w-none">{s.desc}</p>
               </div>
             </motion.div>
           ))}
