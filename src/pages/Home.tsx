@@ -406,7 +406,7 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-32 lg:pt-40 xl:pt-56 pb-12 md:pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
+      className="pt-32 lg:pt-40 xl:pt-56 pb-3 md:pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
     >
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -639,7 +639,7 @@ const StepItem = ({ step, title1, title2, desc, align, bgColor, textColor }) => 
          <h3 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 text-[#1b1b1b]">
            <span className="italic font-serif normal-case font-medium">{title1}</span>{title2}
          </h3>
-         <p className="text-[15px] md:text-xl text-black/50 font-medium leading-relaxed w-full">
+         <p className="text-[13.5px] md:text-xl text-black/50 font-medium leading-relaxed w-full">
            {desc}
          </p>
          </div>
@@ -889,22 +889,24 @@ const Home = () => {
               )}
             </AnimatePresence>
           </ContainerScroll>
-          
-          {/* Mobil Swipe Indikator under glasset */}
-          <div className="md:hidden flex justify-center items-center gap-3 relative z-30 opacity-40 mt-4 mb-2">
-            <ChevronLeft size={16} strokeWidth={2.5} />
-            <span className="text-[10px] font-bold tracking-widest uppercase font-sans">Swipe for at se cases</span>
-            <ChevronRight size={16} strokeWidth={2.5} />
-          </div>
+          {/* Wrapper for at positionere 'Swipe for at see cases' tættere på vinduet (via negativ top-margin på mobil), mens den relative interne afstand til CTA knappen nedunder holdes 100% konsistent */}
+          <div className="-mt-14 md:mt-0 flex flex-col relative z-30">
+            {/* Mobil Swipe Indikator under glasset */}
+            <div className="md:hidden flex justify-center items-center gap-3 opacity-40 mb-14">
+              <ChevronLeft size={16} strokeWidth={2.5} />
+              <span className="text-[10px] font-bold tracking-widest uppercase font-sans">Swipe for at se cases</span>
+              <ChevronRight size={16} strokeWidth={2.5} />
+            </div>
 
-          <div className="flex justify-center mt-12 md:mt-16 lg:mt-24 xl:mt-28 mb-32 md:mb-0 relative z-30">
-            <Link 
-              to="/cases" 
-              className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"
-            >
-              Se mere arbejde
-              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            <div className="flex justify-center mt-0 md:mt-16 lg:mt-24 xl:mt-28 mb-32 md:mb-0">
+              <Link 
+                to="/cases" 
+                className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"
+              >
+                Se mere arbejde
+                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -384,16 +384,19 @@ import { AnimatePresence } from 'motion/react';
 
 const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const handleDragEnd = (event: any, info: any) => {
     // 50px threshold for at registrere et swipe
     const threshold = 50;
     if (info.offset.x < -threshold) {
       if (currentIndex < plans.length - 1) {
+        setDirection(1);
         setCurrentIndex(currentIndex + 1);
       }
     } else if (info.offset.x > threshold) {
       if (currentIndex > 0) {
+        setDirection(-1);
         setCurrentIndex(currentIndex - 1);
       }
     }
@@ -402,11 +405,14 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center relative overflow-hidden px-4">
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
-        {/* Statisk perfekt kugle forstørret og skubbet lidt mod højre for at dække de bagerste kort */}
-        <div className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] z-0 pointer-events-none">
+        {/* Statisk perfekt kugle reduceret i footprint m/ maske for at sløre ShaderCanvas-render kanterne */}
+        <div 
+          className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] z-0 pointer-events-none"
+          style={{ maskImage: "radial-gradient(circle, black 30%, transparent 65%)", WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 65%)" }}
+        >
           <ShaderCanvas />
         </div>
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} custom={direction}>
           {plans.map((plan, index) => {
           if (index < currentIndex) return null; // Har allerede swipet dette kort væk
 
@@ -436,11 +442,12 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
           return (
             <motion.div
               key={plan.planName}
+              custom={direction}
               drag={isCurrent ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.1}
               onDragEnd={isCurrent ? handleDragEnd : undefined}
-              initial={{ x: 150, opacity: 0, scale: 0.8 }}
+              initial={{ x: direction === -1 ? -300 : 150, opacity: 0, scale: direction === -1 ? 1 : 0.8, rotate: direction === -1 ? -15 : 0 }}
               animate={{ x, opacity, scale, rotate, zIndex }}
               exit={{ x: -300, opacity: 0, rotate: -15, transition: { duration: 0.3 } }}
               transition={{ type: "tween", duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
