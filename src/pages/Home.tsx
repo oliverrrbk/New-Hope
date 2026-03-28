@@ -406,7 +406,7 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-32 lg:pt-40 xl:pt-56 pb-3 md:pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
+      className="pt-16 md:pt-40 xl:pt-56 pb-6 md:pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
     >
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -416,14 +416,14 @@ const Mission = () => {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           opacity: 0.7,
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 40%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 40%, transparent 100%)'
         }}
       />
       <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
         {/* Togskinner: Dynamisk positioneret så de altid sidder tæt mod over/underkanten af kortet. w-[100vw] bryder containeren, så de løber helt ud. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-10 md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
@@ -674,7 +674,7 @@ const SmoothLiftoff = () => {
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
         }}
       />
-      <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-32 xl:pt-56 pb-32" style={{ zoom: "65%" }}>
+      <div className="max-w-7xl mx-auto px-6 pt-8 md:pt-32 xl:pt-56 pb-12 md:pb-32" style={{ zoom: "65%" }}>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-40 z-10 relative">
           <motion.h2 
@@ -796,7 +796,7 @@ const Home = () => {
       <Mission />
 
       {/* Case Preview Section via Container Scroll Animation */}
-      <section className="bg-white overflow-hidden relative z-20">
+      <section className="-mt-16 md:mt-0 bg-white overflow-hidden relative z-20">
         <div className="flex flex-col overflow-hidden py-4 md:py-6">
           <ContainerScroll
             titleComponent={
@@ -898,7 +898,7 @@ const Home = () => {
               <ChevronRight size={16} strokeWidth={2.5} />
             </div>
 
-            <div className="flex justify-center mt-0 md:mt-16 lg:mt-24 xl:mt-28 mb-32 md:mb-0">
+            <div className="flex justify-center mt-0 md:mt-16 lg:mt-24 xl:mt-28 mb-10 md:mb-0">
               <Link 
                 to="/cases" 
                 className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"

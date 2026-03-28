@@ -69,7 +69,7 @@ const Footer = () => {
 
         <div>
           <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Naviger</h4>
-          <ul className="space-y-4 font-bold">
+          <ul className="space-y-4">
             {[
               { name: 'Hjem', path: '/' },
               { name: 'Om os', path: '/om-os' },
@@ -88,7 +88,7 @@ const Footer = () => {
 
         <div>
           <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Kontakt</h4>
-          <ul className="space-y-4 font-bold">
+          <ul className="space-y-4">
             <li className="flex items-center gap-3 group">
               <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Mail size={20} className="text-bison-green group-hover:text-white transition-colors" /></motion.div>
               <a href="mailto:team@bisoncompany.dk" className="hover:text-bison-green transition-colors">team@bisoncompany.dk</a>
@@ -105,7 +105,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/40 font-bold">
+      <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/40">
         <p>© 2026 Bison Company ApS. Alle rettigheder forbeholdes.</p>
         <div className="flex gap-8">
           <button onClick={() => setIsPolicyOpen(true)} className="hover:text-white transition-colors cursor-pointer outline-none">Privatlivspolitik</button>

@@ -356,7 +356,7 @@ export const ModernPricingPage = ({
           <ShaderCanvas />
         </motion.div>
       )}
-      <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 pt-20 md:pt-24 2xl:pt-32 pb-20 md:pb-28 2xl:pb-40">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 pt-8 md:pt-24 2xl:pt-32 pb-20 md:pb-28 2xl:pb-40">
         <div className="w-full max-w-xl 2xl:max-w-2xl mx-auto text-center mb-10 2xl:mb-12">
           <h1 className="text-[32px] md:text-[36px] 2xl:text-[41px] font-extralight leading-tight tracking-[-0.03em] text-black font-display">
             {title}
@@ -405,12 +405,12 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center relative overflow-hidden px-4">
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
-        {/* Statisk perfekt kugle reduceret i footprint m/ maske for at sløre ShaderCanvas-render kanterne */}
+        {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
         <div 
-          className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] z-0 pointer-events-none"
-          style={{ maskImage: "radial-gradient(circle, black 30%, transparent 65%)", WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 65%)" }}
+          className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
+          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 30%, white 65%)" }} />
         </div>
         <AnimatePresence initial={false} custom={direction}>
           {plans.map((plan, index) => {
