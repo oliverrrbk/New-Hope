@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <>
-  <footer className="text-white pt-32 pb-12 overflow-hidden relative">
+  <footer className="text-white pt-20 md:pt-32 pb-12 overflow-hidden relative">
     {/* Background Mesh Gradient with Noise Texture */}
     <div className="absolute inset-0 z-0 overflow-hidden bg-[#2c1a11]">
       <div 
@@ -36,19 +36,19 @@ const Footer = () => {
     <div className="max-w-7xl mx-auto px-6 relative z-10" style={{ zoom: "65%" }}>
       <div className="grid md:grid-cols-4 gap-12 mb-20">
         <div className="col-span-2">
-          <Link to="/" className="flex items-center gap-4 mb-8 group inline-flex">
+          <Link to="/" className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group inline-flex">
             <motion.div
               whileHover={{ rotate: -10, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-white/20 transition-all duration-300 overflow-hidden"
+              className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-white/20 transition-all duration-300 overflow-hidden"
             >
               <img src="/assets/logo-clean.png" alt="Bison Logo" className="w-[130%] h-[130%] object-contain scale-110" />
             </motion.div>
-            <span className="text-2xl font-black tracking-tighter font-display uppercase group-hover:text-white/60 transition-colors duration-300 text-white/40">
+            <span className="text-xl md:text-2xl font-black tracking-tighter font-display uppercase group-hover:text-white/60 transition-colors duration-300 text-white/40">
               Bison Company
             </span>
           </Link>
-          <h2 className="text-4xl font-black font-display uppercase tracking-tighter leading-tight mb-8 max-w-md">
+          <h2 className="text-[26px] md:text-4xl font-black font-display uppercase tracking-tighter leading-tight mb-8 max-w-md">
             Med ærlighed <br />
             kommer <span className="italic font-serif normal-case font-medium text-bison-blue">man længst</span>
           </h2>

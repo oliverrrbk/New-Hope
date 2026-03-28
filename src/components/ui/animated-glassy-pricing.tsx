@@ -268,8 +268,8 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/10 bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
-    from-white/60 to-white/20 border border-white/60 group
+    md:backdrop-blur-2xl bg-white/95 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    md:from-white/60 md:to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
       ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}` 
@@ -358,10 +358,10 @@ export const ModernPricingPage = ({
       )}
       <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 pt-20 md:pt-24 2xl:pt-32 pb-20 md:pb-28 2xl:pb-40">
         <div className="w-full max-w-xl 2xl:max-w-2xl mx-auto text-center mb-10 2xl:mb-12">
-          <h1 className="text-[26px] md:text-[36px] 2xl:text-[41px] font-extralight leading-tight tracking-[-0.03em] text-black font-display">
+          <h1 className="text-[32px] md:text-[36px] 2xl:text-[41px] font-extralight leading-tight tracking-[-0.03em] text-black font-display">
             {title}
           </h1>
-          <p className="mt-2.5 2xl:mt-3 text-[10px] md:text-[12px] 2xl:text-[13px] text-black/80 max-w-lg 2xl:max-w-xl mx-auto font-sans leading-relaxed">
+          <p className="mt-2.5 2xl:mt-3 text-[13px] md:text-[12px] 2xl:text-[13px] text-black/80 max-w-lg 2xl:max-w-xl mx-auto font-sans leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -400,13 +400,14 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center h-[520px] relative overflow-hidden px-4">
-      {/* Statisk perfekt kugle forstørret og skubbet lidt mod højre for at dække de bagerste kort */}
-      <div className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] z-0 pointer-events-none">
-        <ShaderCanvas />
-      </div>
-      <AnimatePresence initial={false}>
-        {plans.map((plan, index) => {
+    <div className="w-full flex flex-col justify-center items-center relative overflow-hidden px-4">
+      <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
+        {/* Statisk perfekt kugle forstørret og skubbet lidt mod højre for at dække de bagerste kort */}
+        <div className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] z-0 pointer-events-none">
+          <ShaderCanvas />
+        </div>
+        <AnimatePresence initial={false}>
+          {plans.map((plan, index) => {
           if (index < currentIndex) return null; // Har allerede swipet dette kort væk
 
           const isCurrent = index === currentIndex;
@@ -437,12 +438,13 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
               key={plan.planName}
               drag={isCurrent ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
+              dragElastic={0.1}
               onDragEnd={isCurrent ? handleDragEnd : undefined}
               initial={{ x: 150, opacity: 0, scale: 0.8 }}
               animate={{ x, opacity, scale, rotate, zIndex }}
               exit={{ x: -300, opacity: 0, rotate: -15, transition: { duration: 0.3 } }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+              style={{ willChange: "transform" }}
               className="absolute w-full flex justify-center items-center"
             >
               {/* For at brugeren bare kan tappe intuitivt på det næste kort for at se det */}
@@ -456,6 +458,14 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
           );
         })}
       </AnimatePresence>
+      </div>
+      
+      {/* Mobil Swipe Indikator for priskortene */}
+      <div className="flex justify-center items-center gap-3 relative z-30 opacity-40 mt-4 mb-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        <span className="text-[10px] font-bold tracking-widest uppercase font-sans">Swipe for at se løsninger</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
     </div>
   );
 };

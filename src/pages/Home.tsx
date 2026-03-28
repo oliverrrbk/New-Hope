@@ -184,7 +184,7 @@ const Hero = () => {
               uden besvær og månedlige betalinger
             </span>
           </h1>
-          <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-8 xl:mb-12 leading-relaxed font-medium drop-shadow-md">
+          <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-8 xl:mb-12 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
             Vi designer fra bunden, og laver noget, som faktisk er skræddersyet til din virksomhed og dens personlighed. Samtidig er vores proces så simpel så mulig for dig – vi har skåret alt fedtet fra. Og så betaler du kun én gang.
           </p>
 
@@ -347,33 +347,34 @@ const Services = () => {
 
         <div className="grid md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
           {services.map((s, i) => (
-            <motion.div
-              key={i}
-              data-active={activeService === i}
-              onClick={() => setActiveService(activeService === i ? null : i)}
-              initial={{ x: -20, y: -20 }}
-              whileInView={{ x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.05, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative isolate mx-auto w-full max-w-[280px] sm:max-w-[320px] md:max-w-none md:mx-0 cursor-pointer md:cursor-default"
-            >
-              {/* Fuzzy svævende skyer UDENOM kortet */}
-              <div className="absolute -inset-6 md:-inset-8 pointer-events-none opacity-20 md:opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70 group-data-[active=true]:opacity-70">
-                <div className={`absolute top-[-10%] left-[-15%] w-[80%] h-[80%] rounded-full blur-[30px] md:blur-[40px] ${s.cloudColor} animate-cloud-1 group-hover:[animation-play-state:paused] group-data-[active=true]:[animation-play-state:paused]`} />
-                <div className={`absolute bottom-[-10%] right-[-15%] w-[90%] h-[90%] rounded-full blur-[40px] md:blur-[50px] ${s.cloudColor} animate-cloud-2 group-hover:[animation-play-state:paused] group-data-[active=true]:[animation-play-state:paused]`} />
-              </div>
-
-              {/* Selve kortkroppen, der hviler 'på' skyerne */}
-              <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col justify-center items-center text-center gap-3 lg:gap-4 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-data-[active=true]:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] md:group-hover:scale-100 group-data-[active=true]:scale-[1.03] md:group-data-[active=true]:scale-100 group-hover:bg-white/30 group-data-[active=true]:bg-white/30 aspect-[5/4] sm:aspect-auto`}>
-                <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10 transition-transform duration-300 group-hover:scale-110 group-data-[active=true]:scale-110">
-                  <div className="scale-75 md:scale-90">{s.icon}</div>
+            <div key={i} className={`w-full relative ${i === 1 ? 'translate-x-6 md:translate-x-0' : '-translate-x-6 md:translate-x-0'}`}>
+              <motion.div
+                data-active={activeService === i}
+                onClick={() => setActiveService(activeService === i ? null : i)}
+                initial={{ x: -20, y: -20 }}
+                whileInView={{ x: 0, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.05, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative isolate mx-auto w-full max-w-[280px] sm:max-w-[320px] md:max-w-none md:mx-0 cursor-pointer md:cursor-default"
+              >
+                {/* Fuzzy svævende skyer UDENOM kortet */}
+                <div className="absolute -inset-6 md:-inset-8 pointer-events-none opacity-20 md:opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70 group-data-[active=true]:opacity-70">
+                  <div className={`absolute top-[-10%] left-[-15%] w-[80%] h-[80%] rounded-full blur-[30px] md:blur-[40px] ${s.cloudColor} animate-cloud-1 group-hover:[animation-play-state:paused] group-data-[active=true]:[animation-play-state:paused]`} />
+                  <div className={`absolute bottom-[-10%] right-[-15%] w-[90%] h-[90%] rounded-full blur-[40px] md:blur-[50px] ${s.cloudColor} animate-cloud-2 group-hover:[animation-play-state:paused] group-data-[active=true]:[animation-play-state:paused]`} />
                 </div>
-                <h3 className="text-sm md:text-base lg:text-lg font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.05] group-data-[active=true]:scale-[1.05]">{s.title}</h3>
-                <p className="text-[0.65rem] md:text-[0.7rem] lg:text-xs text-bison-dark/70 transition-colors duration-300 group-hover:text-bison-dark group-data-[active=true]:text-bison-dark leading-relaxed relative z-10 font-medium max-w-[12rem] md:max-w-none">{s.desc}</p>
-              </div>
-            </motion.div>
+
+                {/* Selve kortkroppen, der hviler 'på' skyerne */}
+                <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col justify-center items-center text-center gap-3 lg:gap-4 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-data-[active=true]:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] md:group-hover:scale-100 group-data-[active=true]:scale-[1.03] md:group-data-[active=true]:scale-100 group-hover:bg-white/30 group-data-[active=true]:bg-white/30 aspect-[5/4] sm:aspect-auto`}>
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10 transition-transform duration-300 group-hover:scale-110 group-data-[active=true]:scale-110">
+                    <div className="scale-75 md:scale-90">{s.icon}</div>
+                  </div>
+                  <h3 className="text-sm md:text-base lg:text-lg font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.05] group-data-[active=true]:scale-[1.05]">{s.title}</h3>
+                  <p className="text-[0.65rem] md:text-[0.7rem] lg:text-xs text-bison-dark/70 transition-colors duration-300 group-hover:text-bison-dark group-data-[active=true]:text-bison-dark leading-relaxed relative z-10 font-medium max-w-[12rem] md:max-w-none">{s.desc}</p>
+                </div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -383,6 +384,17 @@ const Services = () => {
 
 const Mission = () => {
   const scrollRef = useRef<HTMLElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isCollapsing, setIsCollapsing] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: scrollRef,
     offset: ["start 80%", "end start"]
@@ -394,7 +406,7 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-32 lg:pt-40 xl:pt-56 pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
+      className="pt-32 lg:pt-40 xl:pt-56 pb-12 md:pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
     >
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -452,11 +464,99 @@ const Mission = () => {
             </h2>
           </div>
 
-          <div className="space-y-3 lg:space-y-4 text-xs lg:text-sm text-bison-dark/70 leading-relaxed">
-            <p>Mange bureauer bruger udmattede processer, beder om at få tilsendt alt skrivearbejdet og putter dig alligevel bare i en standard skabelon. Derudover betaler man hver måned flere hundrede kroner for "hosting og vedligehold", selvom der - for de fleste - ikke er noget af hoste og vedligeholde, når først siden er sat op.</p>
-            <p>Hos Bison har vi en "no bullshit"-metode. Her får du et rigtig godt stykke ærligt arbejde, uden at blive ved med at betale for det. Processen er også ukompliceret: Du svarer mundtligt på nogle grundige spørgsmål, og derfra bygger vi en platform, der afspejler jeres virksomhed på en, faktisk, fed måde.</p>
-            <p>Vi bruger aldrig skabeloner. Alt bygges fra bunden med skarpt fokus på konvertering. Hjemmesiden får sit eget liv gennem dynamiske animationer og interaktive elementer, der sikrer, at ingen glemmer jer.</p>
-            <p className="font-bold text-bison-dark">Hos Bison kommer man længst med ærlighed. Hvis vi selv skulle have bygget en hjemmeside, ville vi ønske, det var præcis, som vi tilbyder det nu.</p>
+          <div className="text-xs lg:text-sm text-bison-dark/70 leading-relaxed">
+            <p className="mb-3 lg:mb-4">
+              Mange bureauer bruger udmattede processer, beder om at få tilsendt alt skrivearbejdet og putter dig alligevel bare i en standard skabelon.
+              <AnimatePresence initial={false}>
+                {isMobile && !isExpanded && !isCollapsing && (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    ... <button onClick={() => setIsExpanded(true)} className="text-bison-brown font-bold ml-1 hover:underline uppercase tracking-widest text-[9px]">Læs mere</button>
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </p>
+            
+            <AnimatePresence initial={false}>
+              {(!isMobile || isExpanded) && (
+                <motion.div
+                  initial={isMobile ? { height: 0, opacity: 0 } : false}
+                  animate={isMobile ? { 
+                    height: "auto", 
+                    opacity: 1, 
+                    transition: { height: { duration: 1.0, ease: [0.04, 0.62, 0.23, 0.98] }, staggerChildren: 0.2, delayChildren: 0.15 } 
+                  } : false}
+                  exit={isMobile ? { 
+                    height: 0, 
+                    opacity: 0, 
+                    transition: { height: { duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }, opacity: { duration: 0.4, delay: 0.4 }, staggerChildren: 0.1, staggerDirection: -1 } 
+                  } : false}
+                  className="overflow-hidden"
+                >
+                  <div className="flex flex-col gap-3 lg:gap-4 pt-3 lg:pt-4">
+                    <motion.p 
+                      initial={isMobile ? { opacity: 0, y: 20 } : false} 
+                      animate={isMobile ? { opacity: 1, y: 0 } : false} 
+                      exit={isMobile ? { opacity: 0, y: 10 } : false} 
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      Derudover betaler man hver måned flere hundrede kroner for "hosting og vedligehold", selvom der - for de fleste - ikke er noget at hoste og vedligeholde, når først siden er sat op.
+                    </motion.p>
+                    <motion.p 
+                      initial={isMobile ? { opacity: 0, y: 20 } : false} 
+                      animate={isMobile ? { opacity: 1, y: 0 } : false} 
+                      exit={isMobile ? { opacity: 0, y: 10 } : false} 
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      Hos Bison har vi en "no bullshit"-metode. Her får du et rigtig godt stykke ærligt arbejde, uden at blive ved med at betale for det. Processen er også ukompliceret: Du svarer mundtligt på nogle grundige spørgsmål, og derfra bygger vi en platform, der afspejler jeres virksomhed på en, faktisk, fed måde.
+                    </motion.p>
+                    <motion.p 
+                      initial={isMobile ? { opacity: 0, y: 20 } : false} 
+                      animate={isMobile ? { opacity: 1, y: 0 } : false} 
+                      exit={isMobile ? { opacity: 0, y: 10 } : false} 
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      Vi bruger aldrig skabeloner. Alt bygges fra bunden med skarpt fokus på konvertering. Hjemmesiden får sit eget liv gennem dynamiske animationer og interaktive elementer, der sikrer, at ingen glemmer jer.
+                    </motion.p>
+                    <motion.p 
+                      initial={isMobile ? { opacity: 0, y: 20 } : false} 
+                      animate={isMobile ? { opacity: 1, y: 0 } : false} 
+                      exit={isMobile ? { opacity: 0, y: 10 } : false} 
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="font-bold text-bison-dark mb-1 lg:mb-2"
+                    >
+                      Hos Bison kommer man længst med ærlighed. Hvis vi selv skulle have bygget en hjemmeside, ville vi ønske, det var præcis, som vi tilbyder det nu.
+                    </motion.p>
+                    
+                    {isMobile && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        exit={{ opacity: 0, y: 10 }} 
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="pt-1 pb-1 flex justify-center"
+                      >
+                        <button 
+                          onClick={() => {
+                            setIsExpanded(false);
+                            setIsCollapsing(true);
+                            setTimeout(() => setIsCollapsing(false), 1000);
+                          }} 
+                          className="text-bison-dark/50 hover:text-bison-brown font-bold uppercase tracking-widest text-[9px] flex items-center gap-1.5 transition-colors"
+                        >
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                          Læs mindre
+                        </button>
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <div className="mt-5 md:mt-6 lg:mt-8 pt-5 md:pt-6 lg:pt-8 border-t border-bison-dark/5 flex items-center gap-3 lg:gap-4">
@@ -539,7 +639,7 @@ const StepItem = ({ step, title1, title2, desc, align, bgColor, textColor }) => 
          <h3 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 text-[#1b1b1b]">
            <span className="italic font-serif normal-case font-medium">{title1}</span>{title2}
          </h3>
-         <p className="text-lg md:text-xl text-black/50 font-medium leading-relaxed w-full">
+         <p className="text-[15px] md:text-xl text-black/50 font-medium leading-relaxed w-full">
            {desc}
          </p>
          </div>
@@ -627,7 +727,7 @@ const SmoothLiftoff = () => {
               step="01" 
               title1={<>45 minutters <br className="hidden md:block" /></>} 
               title2="interview" 
-              desc={<>Vi mødes (over telefon eller kaffe) og<br className="hidden md:block" />trækker din viden ud af hovedet på dig.<br className="hidden md:block" />Det er alt, vi skal bruge for at skrive<br className="hidden md:block" />dine tekster og designe din side.</>}
+              desc={<>Vi mødes (over telefon eller kaffe) og <br className="hidden md:block" />trækker din viden ud af hovedet på dig. <br className="hidden md:block" />Det er alt, vi skal bruge for at skrive <br className="hidden md:block" />dine tekster og designe din side.</>}
               align="left"
               bgColor="#b2d08d"
               textColor="#000"
@@ -635,7 +735,7 @@ const SmoothLiftoff = () => {
             <StepItem 
               step="02" 
               title1="Vi bygger " title2="det hele" 
-              desc={<>Mens du passer dit arbejde, designer<br className="hidden md:block" />og koder vi din side. Vi sørger for alt<br className="hidden md:block" />det tekniske, tekstforfatningen og de<br className="hidden md:block" />detaljer, der får dig til at skille dig ud.</>}
+              desc={<>Mens du passer dit arbejde, designer <br className="hidden md:block" />og koder vi din side. Vi sørger for alt <br className="hidden md:block" />det tekniske, tekstforfatningen og de <br className="hidden md:block" />detaljer, der får dig til at skille dig ud.</>}
               align="right"
               bgColor="#e5aad8"
               textColor="#000"
@@ -643,7 +743,7 @@ const SmoothLiftoff = () => {
             <StepItem 
               step="03" 
               title1="Fuldt " title2="ejerskab" 
-              desc={<>Efter præcis en uge går vi live. Du ejer<br className="hidden md:block" />siden 100%. Det betyder ingen binding,<br className="hidden md:block" />ingen månedlige gebyrer og ingen<br className="hidden md:block" />'digital husleje' til os.</>}
+              desc={<>Efter præcis en uge går vi live. Du ejer <br className="hidden md:block" />siden 100%. Det betyder ingen binding, <br className="hidden md:block" />ingen månedlige gebyrer og ingen <br className="hidden md:block" />'digital husleje' til os.</>}
               align="left"
               bgColor="#1095ed"
               textColor="#fff"
@@ -690,7 +790,7 @@ const Home = () => {
   };
 
   return (
-    <main>
+    <main className="overflow-x-hidden w-full relative">
       <Hero />
       <Services />
       <Mission />
@@ -709,7 +809,7 @@ const Home = () => {
             leftArrow={
               <button 
                 onClick={prevCase}
-                className="w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
+                className="hidden md:flex w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
               >
                 <ChevronLeft size={24} strokeWidth={2.5} />
               </button>
@@ -717,7 +817,7 @@ const Home = () => {
             rightArrow={
               <button 
                 onClick={nextCase}
-                className="w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
+                className="hidden md:flex w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-bison-dark/5 rounded-full items-center justify-center hover:scale-110 active:scale-95 transition-transform text-bison-dark hover:text-bison-brown z-50 cursor-pointer"
               >
                 <ChevronRight size={24} strokeWidth={2.5} />
               </button>
@@ -733,6 +833,13 @@ const Home = () => {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(e, { offset }) => {
+                    if (offset.x < -50) nextCase();
+                    else if (offset.x > 50) prevCase();
+                  }}
                   className="absolute inset-0 overflow-hidden bg-[#f4f5f7] flex flex-col items-center justify-center w-full h-full border border-dashed border-bison-dark/10 text-center px-6 z-50 rounded-[16px] md:rounded-[24px] lg:rounded-[30px]"
                 >
                   <div className="w-10 h-10 lg:w-16 lg:h-16 bg-bison-dark/5 rounded-full flex items-center justify-center mb-4 lg:mb-6 bg-clip-padding backdrop-filter backdrop-blur-sm">
@@ -753,6 +860,13 @@ const Home = () => {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(e, { offset }) => {
+                    if (offset.x < -50) nextCase();
+                    else if (offset.x > 50) prevCase();
+                  }}
                   style={{ WebkitMaskImage: "-webkit-radial-gradient(white, black)" }}
                   className="absolute inset-0 block w-full h-full group cursor-pointer overflow-hidden rounded-[24px] md:rounded-[30px] xl:rounded-[40px] bg-white"
                 >
@@ -776,8 +890,14 @@ const Home = () => {
             </AnimatePresence>
           </ContainerScroll>
           
+          {/* Mobil Swipe Indikator under glasset */}
+          <div className="md:hidden flex justify-center items-center gap-3 relative z-30 opacity-40 mt-4 mb-2">
+            <ChevronLeft size={16} strokeWidth={2.5} />
+            <span className="text-[10px] font-bold tracking-widest uppercase font-sans">Swipe for at se cases</span>
+            <ChevronRight size={16} strokeWidth={2.5} />
+          </div>
 
-          <div className="flex justify-center mt-2 md:mt-16 lg:mt-24 xl:mt-28 mb-32 md:mb-0 relative z-30">
+          <div className="flex justify-center mt-12 md:mt-16 lg:mt-24 xl:mt-28 mb-32 md:mb-0 relative z-30">
             <Link 
               to="/cases" 
               className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"
@@ -796,7 +916,9 @@ const Home = () => {
       <ModernPricingPage
         title={
           <>
-            Gennemsigtige priser. <span className="italic font-serif normal-case font-medium text-bison-brown">Nul abonnement.</span>
+            <span className="inline-block tracking-tight text-[30px] sm:text-[32px] md:text-[inherit] leading-[1.1] md:leading-tight">Gennemsigtige priser.</span>
+            <br className="block md:hidden" />
+            <span className="inline-block text-[28px] sm:text-[30px] md:text-[inherit] italic font-serif normal-case font-medium text-bison-brown leading-[1.1] md:leading-tight mt-1 md:mt-0 md:ml-2">Nul abonnement.</span>
           </>
         }
         subtitle="Samme elite-kvalitet og 7-dages levering på alle løsninger. Du betaler for omfanget af din side, ikke for dårligere håndværk. Du ejer det hele 100% fra dag ét."
@@ -820,8 +942,8 @@ const Home = () => {
               <span className="italic font-serif normal-case font-medium text-bison-pink">digital husleje.</span>
             </h2>
             <p className="text-[12px] md:text-[10px] lg:text-[10.5px] xl:text-[13px] text-white/60 w-full mb-4 lg:mb-6 xl:mb-8 leading-relaxed max-w-[582px]">
-              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et<br className="hidden md:block" />
-              opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for<br className="hidden md:block"/>
+              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et <br className="hidden md:block" />
+              opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for <br className="hidden md:block"/>
               "vedligeholdelse". Book 15 minutter, og find ud af, om vi kan hjælpe.
             </p>
             <Magnetic

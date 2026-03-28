@@ -63,8 +63,8 @@ export const ContainerScroll = ({
 
   const translateMobile = useTransform(
     scrollYProgress, 
-    [0, 0.5, 0.6, 0.62, 0.75, 1], 
-    [80, 80, 0, -30, -250, -250]
+    [0, 0.48, 0.55, 1], 
+    [80, 80, 40, 40]
   );
   
   const translate = isMobile ? translateMobile : translateDesktop;
