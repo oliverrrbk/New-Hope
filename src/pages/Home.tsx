@@ -409,7 +409,7 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-16 md:pt-40 xl:pt-56 pb-24 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
+      className="pt-32 md:pt-40 xl:pt-56 pb-10 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
     >
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -417,7 +417,7 @@ const Mission = () => {
           backgroundImage: 'url(/cloud-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: isMobile ? 'scroll' : 'fixed',
           opacity: 0.7,
           maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
@@ -426,14 +426,14 @@ const Mission = () => {
       <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
         {/* Togskinner: Dynamisk positioneret så de altid sidder tæt mod over/underkanten af kortet. w-[100vw] bryder containeren, så de løber helt ud. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[9.5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[6.5rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[4rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
@@ -660,6 +660,14 @@ const SmoothLiftoff = () => {
     offset: ["start 80%", "end 120%"]
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section 
       className="relative z-20 overflow-hidden bg-white" 
@@ -671,7 +679,7 @@ const SmoothLiftoff = () => {
           backgroundImage: 'url(/cloud-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: isMobile ? 'scroll' : 'fixed',
           opacity: 0.7,
           maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
