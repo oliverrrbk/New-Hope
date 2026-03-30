@@ -283,9 +283,9 @@ export const PricingCard = ({
   return (
     <div className={cardClasses.trim()}>
       {isPopular && (
-        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#3E2A20] to-[#E8C361] md:bg-none p-[2px] md:p-0`}>
-          <div className={`px-3 py-1 md:px-2 md:py-0.5 2xl:px-2.5 2xl:py-1 text-[10.5px] md:text-[8px] 2xl:text-[9px] font-black md:font-semibold rounded-full ${t.badgeBg} h-full w-full flex items-center justify-center bg-white`}>
-            <span className="md:hidden bg-gradient-to-r from-[#3E2A20] to-[#E8C361] bg-clip-text text-transparent">Mest populær</span>
+        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#3E2A20] to-[#FFD700] md:bg-none p-[2px] md:p-0 opacity-[0.85] md:opacity-100`}>
+          <div className={`px-3 py-1 md:px-2 md:py-0.5 2xl:px-2.5 2xl:py-1 text-[10.5px] md:text-[8px] 2xl:text-[9px] font-medium md:font-semibold rounded-full ${t.badgeBg} h-full w-full flex items-center justify-center bg-white`}>
+            <span className="md:hidden bg-gradient-to-r from-[#3E2A20] to-[#FFD700] bg-clip-text text-transparent">Mest populær</span>
             <span className="hidden md:block">Mest populær</span>
           </div>
         </div>
