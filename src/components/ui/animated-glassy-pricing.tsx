@@ -268,7 +268,7 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/60 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] md:shadow-none flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    backdrop-blur-3xl bg-white/40 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] md:shadow-none flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border-[1.5px] md:border border-white/90 md:border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
@@ -348,6 +348,7 @@ export const ModernPricingPage = ({
 
   return (
     <div ref={containerRef} className="bg-white w-full overflow-hidden relative flex flex-col items-center justify-center">
+      <div className="absolute top-0 left-0 w-full h-[6rem] bg-gradient-to-b from-bison-bg to-transparent pointer-events-none z-10 md:hidden" />
       {showAnimatedBackground && (
         <motion.div 
           style={{ scale: backgroundScale, opacity: backgroundOpacity, transformOrigin: 'center center' }} 
@@ -424,9 +425,9 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
           if (diff === 0) {
             x = 0; scale = 1; opacity = 1; rotate = 0; filter = "blur(0px)";
           } else if (diff === 1) { // Ligger til højre
-            x = 45; scale = 0.92; opacity = 1; zIndex = 20; rotate = 3; filter = "blur(2.5px)";
+            x = 45; scale = 0.92; opacity = 0.4; zIndex = 20; rotate = 3; filter = "blur(2.5px)";
           } else if (diff === -1) { // Ligger til venstre
-            x = -45; scale = 0.92; opacity = 1; zIndex = 20; rotate = -3; filter = "blur(2.5px)";
+            x = -45; scale = 0.92; opacity = 0.4; zIndex = 20; rotate = -3; filter = "blur(2.5px)";
           } else {
             // Hvis der var flere end 3
             x = diff > 0 ? 100 : -100; scale = 0.8; opacity = 0; zIndex = 0; filter = "blur(4px)";

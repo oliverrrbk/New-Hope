@@ -825,8 +825,9 @@ const Home = () => {
       <Mission />
 
       {/* Case Preview Section via Container Scroll Animation */}
-      <section className="bg-transparent md:bg-white overflow-visible md:overflow-hidden relative z-20">
-        <div className="flex flex-col py-4 md:py-6">
+      <section className="bg-transparent md:bg-white overflow-visible md:overflow-hidden relative z-20 -mt-12 md:mt-0 pt-12 md:pt-0">
+        <div className="absolute top-0 left-0 w-full h-[8rem] bg-gradient-to-b from-white to-transparent pointer-events-none z-10 md:hidden" />
+        <div className="flex flex-col py-4 md:py-6 relative z-20">
           <ContainerScroll
             titleComponent={
               <div className="text-center drop-shadow-sm pb-8 xl:pb-0">
