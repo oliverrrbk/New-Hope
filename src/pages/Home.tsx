@@ -687,8 +687,8 @@ const SmoothLiftoff = () => {
         style={{
           top: isMobile ? '-12rem' : '0',
           left: 0, right: 0, bottom: 0,
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 90%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 90%)'
         }}
       >
         <motion.div 
@@ -972,7 +972,7 @@ const Home = () => {
         showAnimatedBackground={true}
       />
       {/* Final CTA Section */}
-      <section className="bg-white relative z-20 py-20 lg:py-28 xl:py-36 px-6 overflow-hidden">
+      <section className="bg-white relative z-20 py-20 lg:py-20 xl:py-24 2xl:py-36 px-6 overflow-hidden">
         <div 
           className="absolute inset-0 z-0 pointer-events-none bg-[length:auto_250%] md:bg-cover bg-bottom md:bg-bottom"
           style={{
@@ -981,15 +981,15 @@ const Home = () => {
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 100%)'
           }}
         />
-        <div className="max-w-[832px] mx-auto bg-white/5 backdrop-blur-[40px] border border-white/20 rounded-[1rem] lg:rounded-[1.5rem] xl:rounded-[2rem] p-5 md:p-8 xl:p-16 text-center relative z-10 shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
+        <div className="max-w-[832px] mx-auto lg:max-w-[600px] xl:max-w-[650px] 2xl:max-w-[832px] bg-white/5 backdrop-blur-[40px] border border-white/20 rounded-[1rem] lg:rounded-[1.5rem] 2xl:rounded-[2rem] p-5 md:p-8 lg:p-6 xl:p-8 2xl:p-16 text-center relative z-10 shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
           <div className="relative z-10 flex flex-col items-center">
-            <h2 className="text-2xl md:text-3xl lg:text-[31px] xl:text-[62px] font-black font-display uppercase tracking-tighter text-white leading-[0.9] mb-3 lg:mb-5 xl:mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-[38px] xl:text-[44px] 2xl:text-[62px] font-black font-display uppercase tracking-tighter text-white leading-[0.9] mb-3 lg:mb-4 xl:mb-5 2xl:mb-6">
               SLUT MED AT BETALE <br />
               <span className="italic font-serif normal-case font-medium text-bison-pink">digital husleje.</span>
             </h2>
-            <p className="text-[12px] md:text-[10px] lg:text-[10.5px] xl:text-[13px] text-white/60 w-full mb-4 lg:mb-6 xl:mb-8 leading-relaxed max-w-[582px]">
-              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et <br className="hidden md:block" />
-              opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for <br className="hidden md:block"/>
+            <p className="text-[12px] md:text-[10px] lg:text-[13.5px] xl:text-[15px] 2xl:text-[14px] text-white/60 w-full mb-4 lg:mb-5 xl:mb-6 2xl:mb-8 leading-relaxed max-w-[582px]">
+              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et <br className="hidden 2xl:block" />
+              opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for <br className="hidden 2xl:block"/>
               "vedligeholdelse". Book 15 minutter, og find ud af, om vi kan hjælpe.
             </p>
             <Magnetic
@@ -999,7 +999,7 @@ const Home = () => {
               range={200}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-                <Link to="/book-et-opkald" className="relative group overflow-hidden bg-white text-bison-dark px-4 py-2 lg:px-5 lg:py-2.5 xl:px-8 xl:py-[13px] rounded-full text-[10px] lg:text-[11.5px] xl:text-[13px] font-black uppercase tracking-tight shadow-xl xl:shadow-2xl transition-all duration-300 flex items-center justify-center">
+                <Link to="/book-et-opkald" className="relative group overflow-hidden bg-white text-bison-dark px-4 py-2 lg:px-6 lg:py-3 xl:px-7 xl:py-3.5 2xl:px-8 2xl:py-[13px] rounded-full text-[10px] lg:text-[12px] xl:text-[13px] font-black uppercase tracking-tight shadow-xl 2xl:shadow-2xl transition-all duration-300 flex items-center justify-center">
                   <Magnetic
                     intensity={0.1}
                     springOptions={{ bounce: 0.1 }}
