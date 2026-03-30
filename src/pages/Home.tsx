@@ -977,8 +977,8 @@ const Home = () => {
           className="absolute inset-0 z-0 pointer-events-none bg-[length:auto_250%] md:bg-cover bg-bottom md:bg-bottom"
           style={{
             backgroundImage: 'url(/assets/hero-bg.png)',
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 50%, black 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 50%, black 100%)'
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 45%, black 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 45%, black 100%)'
           }}
         />
         <div className="max-w-[832px] mx-auto lg:max-w-[650px] xl:max-w-[700px] 2xl:max-w-[832px] bg-white/5 backdrop-blur-[40px] border border-white/20 rounded-[1rem] lg:rounded-[1.5rem] 2xl:rounded-[2rem] p-5 md:p-8 lg:p-6 xl:p-8 2xl:p-16 text-center relative z-10 shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
