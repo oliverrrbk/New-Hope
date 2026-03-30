@@ -426,14 +426,14 @@ const Mission = () => {
       <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
         {/* Togskinner: Dynamisk positioneret så de altid sidder tæt mod over/underkanten af kortet. w-[100vw] bryder containeren, så de løber helt ud. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-10 md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-32 md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[6.5rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
@@ -799,7 +799,7 @@ const Home = () => {
       <Mission />
 
       {/* Case Preview Section via Container Scroll Animation */}
-      <section className="-mt-16 md:mt-0 bg-white overflow-hidden relative z-20">
+      <section className="bg-white overflow-hidden relative z-20">
         <div className="flex flex-col overflow-hidden py-4 md:py-6">
           <ContainerScroll
             titleComponent={
