@@ -320,7 +320,7 @@ const About = () => {
               },
               { 
                 title: "STARTEN", 
-                text: "Bison opstod som en modreaktion på abonnements-fælder og langsomme processer. Vi gør det hurtigt, og vi gør det rigtigt.",
+                text: "Bison opstod som en modreaktion på abonnements-fælder og langsomme processer. Vi gør det gnidningsfrit, og vi gør det ordentligt.",
                 bg: "bg-bison-blue",
                 zIndex: "z-10"
               }
