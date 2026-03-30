@@ -409,7 +409,7 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-32 md:pt-40 xl:pt-56 pb-10 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
+      className="pt-[14rem] md:pt-40 xl:pt-56 pb-4 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
     >
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -418,22 +418,22 @@ const Mission = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: isMobile ? 'scroll' : 'fixed',
-          opacity: 0.7,
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+          opacity: isMobile ? 0.45 : 0.7,
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)'
         }}
       />
       <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
         {/* Togskinner: Dynamisk positioneret så de altid sidder tæt mod over/underkanten af kortet. w-[100vw] bryder containeren, så de løber helt ud. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[9.5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[15.5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[4rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[2.5rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
@@ -634,15 +634,15 @@ const StepItem = ({ step, title1, title2, desc, align, bgColor, textColor }) => 
     >
        <div className={`w-full md:w-1/2 flex ${align === 'left' ? 'justify-end md:pr-16 lg:pr-24' : 'justify-start md:pl-16 lg:pl-24'}`}>
          <div className="flex flex-col items-start w-fit">
-           <div className="mb-6">
-             <span className="px-3 py-1.5 text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.05)]" style={{ backgroundColor: bgColor, color: textColor }}>
+           <div className="mb-4 md:mb-6">
+             <span className="px-3 py-1.5 text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.05)]" style={{ backgroundColor: bgColor, color: textColor }}>
                Step {step}
              </span>
            </div>
-         <h3 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 text-[#1b1b1b]">
+         <h3 className="text-[26px] md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 text-[#1b1b1b]">
            <span className="italic font-serif normal-case font-medium">{title1}</span>{title2}
          </h3>
-         <p className="text-[13.5px] md:text-xl text-black/50 font-medium leading-relaxed w-full">
+         <p className="text-[12.5px] md:text-xl text-black/50 font-medium leading-relaxed w-full">
            {desc}
          </p>
          </div>
@@ -680,12 +680,12 @@ const SmoothLiftoff = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: isMobile ? 'scroll' : 'fixed',
-          opacity: 0.7,
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
+          opacity: isMobile ? 0.35 : 0.7,
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)'
         }}
       />
-      <div className="max-w-7xl mx-auto px-6 pt-8 md:pt-32 xl:pt-56 pb-12 md:pb-32" style={{ zoom: "65%" }}>
+      <div className="max-w-7xl mx-auto px-6 pt-56 md:pt-32 xl:pt-56 pb-12 md:pb-32" style={{ zoom: "65%" }}>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-40 z-10 relative">
           <motion.h2 
@@ -693,7 +693,7 @@ const SmoothLiftoff = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-5xl font-black font-display uppercase tracking-tight mb-6 text-[#1b1b1b]"
+            className="text-3xl md:text-5xl font-black font-display uppercase tracking-tight mb-6 text-[#1b1b1b]"
           >
             Fra start til slut <br />
             <span className="italic font-serif normal-case font-medium text-bison-brown">uden bøvl</span>
@@ -703,7 +703,7 @@ const SmoothLiftoff = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-[21px] text-black/60 font-medium leading-relaxed"
+            className="text-[15.5px] md:text-[21px] text-black/60 font-medium leading-relaxed"
           >
             Glem alt om langhårede processer. Vi har kogt forløbet ned til tre<br className="hidden md:block" /> simple trin, så du kan få en professionel side uden at miste fokus<br className="hidden md:block" /> på din forretning.
           </motion.p>
