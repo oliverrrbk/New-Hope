@@ -211,7 +211,7 @@ const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-bison-brown/0 group-hover:bg-bison-brown/90 transition-colors duration-700 pointer-events-none" />
 
                 {/* Hoved-skyen: Ligger og trækker vejret langsomt, men FYDER FULDSTÆNDIGT UD på hover */}
-                <div className="absolute w-[108%] h-[115%] md:w-[102%] md:h-[105%] blur-[8px] md:blur-[10px] opacity-80 md:opacity-50 group-hover:w-full group-hover:h-full group-hover:blur-[0px] group-hover:opacity-0 group-hover:rounded-full group-hover:overflow-hidden transition-all duration-700 pointer-events-none flex items-center justify-center">
+                <div className="absolute w-[108%] h-[115%] md:w-[102%] md:h-[105%] lg:w-[105%] blur-[8px] md:blur-[10px] lg:blur-[6px] opacity-80 md:opacity-50 lg:opacity-90 xl:opacity-100 group-hover:w-full group-hover:h-full group-hover:blur-[0px] group-hover:opacity-0 group-hover:rounded-full group-hover:overflow-hidden transition-all duration-700 pointer-events-none flex items-center justify-center">
                   <motion.div 
                      animate={{ scale: [0.98, 1.02] }} 
                      transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }} 
@@ -320,7 +320,10 @@ const Services = () => {
         <div className="relative flex items-center justify-center">
           <style>{`
             .lock-shackle { stroke-dasharray: 23; stroke-dashoffset: 0; transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-            .group:hover .lock-shackle, .group[data-active="true"] .lock-shackle { stroke-dashoffset: 17; }
+            .group[data-active="true"] .lock-shackle { stroke-dashoffset: 17; }
+            @media (hover: hover) {
+              .group:hover .lock-shackle { stroke-dashoffset: 17; }
+            }
           `}</style>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#4d7c0f] drop-shadow-sm relative z-10 transition-all duration-500 group-hover:scale-[1.1] group-data-[active=true]:scale-[1.1] group-hover:-translate-y-1 group-data-[active=true]:-translate-y-1">
             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
@@ -345,9 +348,9 @@ const Services = () => {
           <p className="text-xs md:text-sm text-bison-dark/60 font-medium max-w-lg mx-auto">Vi har fjernet alt det, der normalt gør et webprojekt til en langsommelig hovedpine.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-5 lg:gap-6">
           {services.map((s, i) => (
-            <div key={i} className={`w-full relative ${i === 1 ? 'translate-x-6 md:translate-x-0' : '-translate-x-6 md:translate-x-0'}`}>
+            <div key={i} className="w-full relative">
               <motion.div
                 data-active={activeService === i}
                 onClick={() => setActiveService(activeService === i ? null : i)}
@@ -406,7 +409,7 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-16 md:pt-40 xl:pt-56 pb-6 md:pb-20 lg:pb-24 xl:pb-32 relative overflow-hidden bg-white"
+      className="pt-16 md:pt-40 xl:pt-56 pb-24 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
     >
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -416,8 +419,8 @@ const Mission = () => {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           opacity: 0.7,
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 40%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 40%, transparent 100%)'
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
         }}
       />
       <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
@@ -430,7 +433,7 @@ const Mission = () => {
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-32 md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
@@ -589,7 +592,7 @@ const myPricingPlans: PricingCardProps[] = [
     price: '7.500', 
     priceSuffix: 'kr. (Én gang)',
     features: ['45 min. behovsinterview', 'High-end design & animationer', 'Professionel tekstforfatning', 'Færdig på 7 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
-    buttonText: 'Start her', 
+    buttonText: 'Kom i gang', 
     buttonVariant: 'secondary',
     themeColor: 'green'
   },

@@ -109,13 +109,13 @@ const Blog = () => {
       {/* Blog Modal Popup */}
       <AnimatePresence>
         {selectedPost && (
-          <div className="fixed inset-0 z-[999] flex items-center justify-center px-4 pb-4 pt-24 md:p-12">
+          <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-12">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedPost(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
+              className="absolute inset-0 cursor-pointer"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}

@@ -8,6 +8,10 @@ import { FadeText } from '../components/ui/fade-text';
 import { GrassWind } from '../components/ui/grass-wind';
 
 const Cases = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const caseVariants = {
     hidden: { opacity: 0, scale: 0.85, filter: "blur(20px)" },
     visible: (i: number) => ({
