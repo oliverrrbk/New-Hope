@@ -895,11 +895,26 @@ const Home = () => {
           {/* Wrapper for at positionere 'Swipe for at see cases' tættere på vinduet (via negativ top-margin på mobil), mens den relative interne afstand til CTA knappen nedunder holdes 100% konsistent */}
           <div className="-mt-14 md:mt-0 flex flex-col relative z-30">
             {/* Mobil Swipe Indikator under glasset */}
-            <div className="md:hidden flex justify-center items-center gap-3 opacity-40 mb-14">
-              <ChevronLeft size={16} strokeWidth={2.5} />
-              <span className="text-[10px] font-bold tracking-widest uppercase font-sans">Swipe for at se cases</span>
-              <ChevronRight size={16} strokeWidth={2.5} />
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activeCaseIndex}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 0.55, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden flex justify-center items-center gap-3 relative z-30 mb-14 h-[20px]"
+              >
+                {activeCaseIndex > 0 && (
+                  <motion.svg animate={{ x: [-3, 0, -3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></motion.svg>
+                )}
+                <span className="text-[10px] font-bold tracking-widest uppercase font-sans">
+                  {activeCaseIndex === 0 ? "Swipe for at se cases" : activeCaseIndex === cases.length - 1 ? "Swipe for at gå tilbage" : "Swipe for næste case"}
+                </span>
+                {activeCaseIndex < cases.length - 1 && (
+                  <motion.svg animate={{ x: [3, 0, 3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></motion.svg>
+                )}
+              </motion.div>
+            </AnimatePresence>
 
             <div className="flex justify-center mt-0 md:mt-16 lg:mt-24 xl:mt-28 mb-10 md:mb-0">
               <Link 

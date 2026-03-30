@@ -268,7 +268,7 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/85 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    backdrop-blur-2xl bg-white/60 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
@@ -407,10 +407,10 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
         {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
         <div 
-          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] z-0 pointer-events-none"
+          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
-          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 30%, white 72%)" }} />
+          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 20%, white 75%)" }} />
         </div>
         <AnimatePresence initial={false} custom={direction}>
           {plans.map((plan, index) => {
@@ -468,11 +468,26 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       </div>
       
       {/* Mobil Swipe Indikator for priskortene */}
-      <div className="flex justify-center items-center gap-3 relative z-30 opacity-40 mt-4 mb-2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        <span className="text-[10px] font-bold tracking-widest uppercase font-sans">Swipe for at se løsninger</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={currentIndex}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.55, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="flex justify-center items-center gap-3 relative z-30 mt-4 mb-2 h-[20px]"
+        >
+          {currentIndex > 0 && (
+             <motion.svg animate={{ x: [-3, 0, -3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></motion.svg>
+          )}
+          <span className="text-[10px] font-bold tracking-widest uppercase font-sans">
+            {currentIndex === 0 ? "Swipe for at se løsninger" : currentIndex === plans.length - 1 ? "Swipe for at gå tilbage" : "Swipe for sidste løsning"}
+          </span>
+          {currentIndex < plans.length - 1 && (
+             <motion.svg animate={{ x: [3, 0, 3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></motion.svg>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
