@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
-import { Paintbrush, Unlock, Zap as ZapIcon, Quote, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Paintbrush, Unlock, Zap as ZapIcon, Quote } from 'lucide-react';
 import { PageSkyHeader } from '../components/ui/page-sky-header';
 import { FadeText } from '../components/ui/fade-text';
 import { GrassWind } from '../components/ui/grass-wind';
 
 const About = () => {
-  const [tIndex, setTIndex] = useState<number>(0);
   const metodeRef = useRef<HTMLDivElement>(null);
   const isMetodeInViewRaw = useInView(metodeRef, { once: true, amount: 0.2 });
   const [isMetodeInView, setIsMetodeInView] = useState(false);
@@ -26,27 +25,6 @@ const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const testimonials = [
-    {
-      quote: "Før Bison undskyldte jeg for min hjemmeside. Nu sender jeg links til kunder med rank ryg. Det vildeste er, at jeg stort set ikke selv rørte en finger.",
-      name: "Tilfreds Kunde",
-      title: "Virksomhedsejer"
-    },
-    {
-      quote: "Det nye design har fuldstændig transformeret vores konvertering. Teamet formåede at oversætte vores komplekse ydelser til et simpelt og utroligt fængende univers, brugerne endelig forstår.",
-      name: "Marcus Halberg",
-      title: "Founder, Nordic Scale"
-    },
-    {
-      quote: "Bison Company leverer ikke bare flotte pixels; de bygger strategiske løsninger der kan mærkes direkte på bundlinjen. Niveauet af gennemsigtighed og eksekvering er uovertruffet.",
-      name: "Sarah Lind",
-      title: "Global CEO, Glowhaus & Partner"
-    }
-  ];
-
-  const nextT = () => setTIndex((p) => (p + 1) % testimonials.length);
-  const prevT = () => setTIndex((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
     <main className="pt-32 overflow-x-hidden w-full relative">
@@ -402,18 +380,14 @@ const About = () => {
           </motion.div>
           
           <div className="min-h-[140px] md:min-h-[120px] relative">
-            <AnimatePresence mode="wait">
-              <motion.p 
-                key={tIndex}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="text-[16px] md:text-[20px] lg:text-[24px] font-medium font-serif italic text-bison-dark/60 leading-relaxed max-w-[640px] tracking-tight"
-              >
-                "{testimonials[tIndex].quote}"
-              </motion.p>
-            </AnimatePresence>
+            <motion.p 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-[16px] md:text-[20px] lg:text-[24px] font-medium font-serif italic text-bison-dark/60 leading-relaxed max-w-[660px] tracking-tight"
+            >
+              "Lige nu er kalenderen faktisk fuldstændig booket op med sindssygt spændende projekter for nye kunder. Så indtil vi får dem skudt i luften – og samlet de uundgåelige femstjernede anmeldelser ind – må vi bede dig om selv at vurdere, hvad folk mon kommer til at sige om os..."
+            </motion.p>
           </div>
           
           <motion.div 
@@ -424,29 +398,15 @@ const About = () => {
             className="border-t border-bison-dark/10 pt-6 flex flex-col md:flex-row gap-4 justify-between items-center"
           >
             {/* Reviewer info */}
-            <div className="flex flex-col w-full md:w-auto text-center md:text-left h-10 justify-center">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={tIndex}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <p className="font-black font-display uppercase tracking-tight text-[13px] text-bison-dark mb-[2px]">{testimonials[tIndex].name}</p>
-                  <p className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-bison-dark/40">{testimonials[tIndex].title}</p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            
-            {/* Clean arrow buttons without glass background */}
-            <div className="flex gap-4 w-full md:w-auto justify-center md:justify-end cursor-pointer">
-              <button onClick={prevT} aria-label="Forrige" className="flex items-center justify-center hover:scale-125 hover:-translate-x-2 transition-all text-bison-blue opacity-90 px-2 py-1">
-                <ArrowLeft size={21} strokeWidth={2.5} />
-              </button>
-              <button onClick={nextT} aria-label="Næste" className="flex items-center justify-center hover:scale-125 hover:translate-x-2 transition-all text-bison-pink opacity-90 px-2 py-1">
-                <ArrowRight size={21} strokeWidth={2.5} />
-              </button>
+            <div className="flex flex-col w-full text-center md:text-left h-10 justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <p className="font-black font-display uppercase tracking-tight text-[13px] text-bison-dark mb-[2px]">Oliver Rørbæk</p>
+                <p className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-bison-dark/40">Adm. Direktør & Stifter, Bison Company</p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
