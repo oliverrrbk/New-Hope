@@ -213,9 +213,9 @@ const ShaderCanvas = () => {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="absolute top-0 left-0 w-full h-full block z-0 bg-transparent opacity-[45%]" 
+    <canvas
+      ref={canvasRef}
+      className="absolute top-0 left-0 w-full h-full block z-0 bg-transparent opacity-[45%]"
     />
   );
 };
@@ -271,8 +271,8 @@ export const PricingCard = ({
     backdrop-blur-3xl bg-white/40 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] md:shadow-none flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border-[1.5px] md:border border-white/90 md:border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
-    ${isPopular 
-      ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}` 
+    ${isPopular
+      ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}`
       : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8`}
   `;
   const buttonClasses = `
@@ -283,9 +283,9 @@ export const PricingCard = ({
   return (
     <div className={cardClasses.trim()}>
       {isPopular && (
-        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#3E2A20] to-[#FFD700] md:bg-none p-[2px] md:p-0 opacity-70 md:opacity-100`}>
+        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#705545] to-[#FFE44D] md:bg-none p-[2px] md:p-0 opacity-70 md:opacity-100`}>
           <div className={`px-3 py-1 md:px-2 md:py-0.5 2xl:px-2.5 2xl:py-1 text-[10.5px] md:text-[8px] 2xl:text-[9px] font-medium md:font-semibold rounded-full ${t.badgeBg} h-full w-full flex items-center justify-center bg-white`}>
-            <span className="md:hidden bg-gradient-to-r from-[#3E2A20] to-[#FFD700] bg-clip-text text-transparent">Mest populær</span>
+            <span className="md:hidden bg-gradient-to-r from-[#705545] to-[#FFE44D] bg-clip-text text-transparent">Mest populær</span>
             <span className="hidden md:block">Mest populær</span>
           </div>
         </div>
@@ -302,14 +302,14 @@ export const PricingCard = ({
       <ul className="flex flex-col gap-2 text-[10.5px] text-black/90 mb-6 font-sans">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-2 2xl:gap-3">
-            <CheckIcon className={`${t.text} w-3 h-3 shrink-0 mt-0.5`} /> 
+            <CheckIcon className={`${t.text} w-3 h-3 shrink-0 mt-0.5`} />
             <span className="leading-snug">{feature}</span>
           </li>
         ))}
       </ul>
-      <RippleButton 
-        className={buttonClasses.trim()} 
-        variant="default" 
+      <RippleButton
+        className={buttonClasses.trim()}
+        variant="default"
         rippleColor="rgba(255,255,255,0.4)"
         rippleDuration={800}
       >
@@ -344,7 +344,7 @@ export const ModernPricingPage = ({
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  
+
   // Animation: Canvas starter lille og bliver større fra midten af, indtil den når sin fulde størrelse (scale 1) når man er ca. midt på sektionen.
   const backgroundScale = useTransform(scrollYProgress, [0, 0.5], [0.2, 1]);
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
@@ -353,8 +353,8 @@ export const ModernPricingPage = ({
     <div ref={containerRef} className="bg-white w-full overflow-hidden relative flex flex-col items-center justify-center">
       <div className="absolute top-0 left-0 w-full h-[6rem] bg-gradient-to-b from-bison-bg to-transparent pointer-events-none z-10 md:hidden" />
       {showAnimatedBackground && (
-        <motion.div 
-          style={{ scale: backgroundScale, opacity: backgroundOpacity, transformOrigin: 'center center' }} 
+        <motion.div
+          style={{ scale: backgroundScale, opacity: backgroundOpacity, transformOrigin: 'center center' }}
           className="absolute inset-0 pointer-events-none z-0 hidden md:flex items-center justify-center"
         >
           <ShaderCanvas />
@@ -369,12 +369,12 @@ export const ModernPricingPage = ({
             {subtitle}
           </p>
         </div>
-        
+
         {/* Desktop Version: Uændret layout ved siden af hinanden */}
         <div className="hidden md:flex flex-row gap-2 2xl:gap-3 justify-center items-center w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
           {plans.map((plan) => <React.Fragment key={plan.planName}><PricingCard {...plan} /></React.Fragment>)}
         </div>
-        
+
         {/* Mobil Version: Swipeable Stack */}
         <div className="md:hidden w-full relative z-20">
           <MobilePricingStack plans={plans} />
@@ -407,7 +407,7 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
     <div className="w-full flex flex-col justify-center items-center relative overflow-hidden px-4">
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
         {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
-        <div 
+        <div
           className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
@@ -415,66 +415,66 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
         </div>
         <AnimatePresence initial={false}>
           {plans.map((plan, index) => {
-          const diff = index - currentIndex;
-          const isCurrent = diff === 0;
+            const diff = index - currentIndex;
+            const isCurrent = diff === 0;
 
-          let zIndex = 30 - Math.abs(diff);
-          let x = 0;
-          let scale = 1;
-          let opacity = 1;
-          let rotate = 0;
-          let filter = "blur(0px)";
+            let zIndex = 30 - Math.abs(diff);
+            let x = 0;
+            let scale = 1;
+            let opacity = 1;
+            let rotate = 0;
+            let filter = "blur(0px)";
 
-          if (diff === 0) {
-            x = 0; scale = 1; opacity = 1; rotate = 0; filter = "blur(0px)";
-          } else if (diff === 1) { // Ligger til højre
-            x = 45; scale = 0.92; opacity = 0.4; zIndex = 20; rotate = 3; filter = "blur(2.5px)";
-          } else if (diff === -1) { // Ligger til venstre
-            x = -45; scale = 0.92; opacity = 0.4; zIndex = 20; rotate = -3; filter = "blur(2.5px)";
-          } else {
-            // Hvis der var flere end 3
-            x = diff > 0 ? 100 : -100; scale = 0.8; opacity = 0; zIndex = 0; filter = "blur(4px)";
-          }
+            if (diff === 0) {
+              x = 0; scale = 1; opacity = 1; rotate = 0; filter = "blur(0px)";
+            } else if (diff === 1) { // Ligger til højre
+              x = 45; scale = 0.92; opacity = 0.4; zIndex = 20; rotate = 3; filter = "blur(2.5px)";
+            } else if (diff === -1) { // Ligger til venstre
+              x = -45; scale = 0.92; opacity = 0.4; zIndex = 20; rotate = -3; filter = "blur(2.5px)";
+            } else {
+              // Hvis der var flere end 3
+              x = diff > 0 ? 100 : -100; scale = 0.8; opacity = 0; zIndex = 0; filter = "blur(4px)";
+            }
 
-          return (
-            <motion.div
-              key={plan.planName}
-              drag={isCurrent ? "x" : false}
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.1}
-              onDragEnd={isCurrent ? handleDragEnd : undefined}
-              animate={{ x, opacity, scale, rotate, zIndex, filter }}
-              transition={{ type: "tween", duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
-              style={{ willChange: "transform", pointerEvents: isCurrent || Math.abs(diff) === 1 ? 'auto' : 'none' }}
-              className="absolute w-full flex justify-center items-center"
-            >
-              {/* For at brugeren bare kan tappe intuitivt på ethvert synligt kort for at se det */}
-              <div 
-                 onClick={() => { if (!isCurrent) setCurrentIndex(index); }}
-                 className="w-full flex justify-center cursor-pointer"
+            return (
+              <motion.div
+                key={plan.planName}
+                drag={isCurrent ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.1}
+                onDragEnd={isCurrent ? handleDragEnd : undefined}
+                animate={{ x, opacity, scale, rotate, zIndex, filter }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+                style={{ willChange: "transform", pointerEvents: isCurrent || Math.abs(diff) === 1 ? 'auto' : 'none' }}
+                className="absolute w-full flex justify-center items-center"
               >
-                 <PricingCard {...plan} />
-              </div>
-            </motion.div>
-          );
-        })}
-      </AnimatePresence>
+                {/* For at brugeren bare kan tappe intuitivt på ethvert synligt kort for at se det */}
+                <div
+                  onClick={() => { if (!isCurrent) setCurrentIndex(index); }}
+                  className="w-full flex justify-center cursor-pointer"
+                >
+                  <PricingCard {...plan} />
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
-      
+
       {/* Mobil Swipe Indikator for priskortene */}
       <div className="flex justify-center items-center gap-3 relative z-30 mt-4 mb-2 h-[20px] opacity-70">
         <div className="w-[14px] h-[14px] relative flex justify-center items-center">
           <AnimatePresence>
             {currentIndex > 0 && (
-               <motion.div 
-                 initial={{ opacity: 0, scale: 0.5, x: 5 }} 
-                 animate={{ opacity: 1, scale: 1, x: 0 }} 
-                 exit={{ opacity: 0, scale: 0.5, x: 5 }} 
-                 transition={{ duration: 0.25 }}
-                 className="absolute"
-               >
-                 <motion.svg animate={{ x: [-3, 0, -3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></motion.svg>
-               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, x: 5 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.5, x: 5 }}
+                transition={{ duration: 0.25 }}
+                className="absolute"
+              >
+                <motion.svg animate={{ x: [-3, 0, -3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></motion.svg>
+              </motion.div>
             )}
           </AnimatePresence>
         </div>
@@ -484,15 +484,15 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
         <div className="w-[14px] h-[14px] relative flex justify-center items-center">
           <AnimatePresence>
             {currentIndex < plans.length - 1 && (
-               <motion.div 
-                 initial={{ opacity: 0, scale: 0.5, x: -5 }} 
-                 animate={{ opacity: 1, scale: 1, x: 0 }} 
-                 exit={{ opacity: 0, scale: 0.5, x: -5 }} 
-                 transition={{ duration: 0.25 }}
-                 className="absolute"
-               >
-                 <motion.svg animate={{ x: [3, 0, 3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></motion.svg>
-               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, x: -5 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.5, x: -5 }}
+                transition={{ duration: 0.25 }}
+                className="absolute"
+              >
+                <motion.svg animate={{ x: [3, 0, 3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></motion.svg>
+              </motion.div>
             )}
           </AnimatePresence>
         </div>
