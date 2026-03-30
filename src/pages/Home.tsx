@@ -185,7 +185,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-5 xl:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
-            Vi designer fra bunden, og laver noget, som faktisk er skræddersyet til din virksomhed og dens personlighed. Samtidig er vores proces så simpel som mulig for dig – vi har skåret alt fedtet fra. Og så betaler du kun én gang.
+            Vi designer fra bunden, og laver noget, som faktisk er skræddersyet til din virksomhed og dens personlighed. Samtidig er vores proces så simpel som muligt for dig – vi har skåret alt fedtet fra. Og så betaler du kun én gang.
           </p>
 
           <Magnetic intensity={0.2} springOptions={{ bounce: 0.1 }} actionArea='global' range={200}>
