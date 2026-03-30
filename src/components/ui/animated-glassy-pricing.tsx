@@ -268,7 +268,7 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/60 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    backdrop-blur-2xl bg-white/40 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
@@ -419,16 +419,17 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
           let scale = 1;
           let opacity = 1;
           let rotate = 0;
+          let filter = "blur(0px)";
 
           if (diff === 0) {
-            x = 0; scale = 1; opacity = 1; rotate = 0;
+            x = 0; scale = 1; opacity = 1; rotate = 0; filter = "blur(0px)";
           } else if (diff === 1) { // Ligger til højre
-            x = 45; scale = 0.92; opacity = 1; zIndex = 20; rotate = 3;
+            x = 45; scale = 0.92; opacity = 1; zIndex = 20; rotate = 3; filter = "blur(2.5px)";
           } else if (diff === -1) { // Ligger til venstre
-            x = -45; scale = 0.92; opacity = 1; zIndex = 20; rotate = -3;
+            x = -45; scale = 0.92; opacity = 1; zIndex = 20; rotate = -3; filter = "blur(2.5px)";
           } else {
             // Hvis der var flere end 3
-            x = diff > 0 ? 100 : -100; scale = 0.8; opacity = 0; zIndex = 0;
+            x = diff > 0 ? 100 : -100; scale = 0.8; opacity = 0; zIndex = 0; filter = "blur(4px)";
           }
 
           return (
@@ -438,7 +439,7 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.1}
               onDragEnd={isCurrent ? handleDragEnd : undefined}
-              animate={{ x, opacity, scale, rotate, zIndex }}
+              animate={{ x, opacity, scale, rotate, zIndex, filter }}
               transition={{ type: "tween", duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
               style={{ willChange: "transform", pointerEvents: isCurrent || Math.abs(diff) === 1 ? 'auto' : 'none' }}
               className="absolute w-full flex justify-center items-center"
@@ -457,26 +458,21 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       </div>
       
       {/* Mobil Swipe Indikator for priskortene */}
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={currentIndex}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 0.55, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-          className="flex justify-center items-center gap-3 relative z-30 mt-4 mb-2 h-[20px]"
-        >
+      <div className="flex justify-center items-center gap-3 relative z-30 mt-4 mb-2 h-[20px] opacity-70">
+        <div className="w-[14px]">
           {currentIndex > 0 && (
              <motion.svg animate={{ x: [-3, 0, -3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></motion.svg>
           )}
-          <span className="text-[10px] font-bold tracking-widest uppercase font-sans">
-            {currentIndex === 1 ? "Swipe for flere løsninger" : currentIndex === 0 ? "Swipe for næste løsning" : "Swipe for at gå tilbage"}
-          </span>
+        </div>
+        <span className="text-[10px] font-bold tracking-widest uppercase font-sans">
+          Swipe for flere løsninger
+        </span>
+        <div className="w-[14px]">
           {currentIndex < plans.length - 1 && (
              <motion.svg animate={{ x: [3, 0, 3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></motion.svg>
           )}
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 };

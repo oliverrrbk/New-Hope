@@ -73,7 +73,7 @@ const About = () => {
             <FadeText
               direction="down"
               text="Bare ungt, råt håndværk."
-              className="text-[26px] md:text-[62px] italic font-serif normal-case font-medium text-bison-green block mt-1"
+              className="text-[30px] md:text-[62px] italic font-serif normal-case font-medium text-bison-green block mt-3 md:mt-0"
               framerProps={{ show: { transition: { delay: 1.2 } } }}
             />
           </h1>
