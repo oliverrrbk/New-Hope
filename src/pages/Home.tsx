@@ -411,7 +411,7 @@ const Mission = () => {
       ref={scrollRef} 
       className="pt-[6rem] md:pt-40 xl:pt-56 pb-0 md:pb-16 lg:pb-20 xl:pb-24 relative"
       style={{
-        background: isMobile ? "linear-gradient(to bottom, #ffffff 0%, #ffffff 85%, #F7F5F2 100%)" : "#ffffff"
+        background: isMobile ? "linear-gradient(to bottom, #ffffff 0%, #ffffff 85%, #FAFAFA 100%)" : "#ffffff"
       }}
     >
       <div 
@@ -789,8 +789,14 @@ const SmoothLiftoff = () => {
 };
 
 const Home = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
     window.scrollTo(0, 0);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -828,8 +834,13 @@ const Home = () => {
       <Mission />
 
       {/* Case Preview Section via Container Scroll Animation */}
-      <section className="bg-transparent md:bg-white overflow-visible md:overflow-hidden relative z-20">
-        <div className="flex flex-col py-4 md:py-6 relative z-20">
+      <section 
+        className="md:bg-white overflow-visible md:overflow-hidden relative z-20"
+        style={{
+          background: isMobile ? "linear-gradient(to bottom, #FAFAFA 0%, #FAFAFA 90%, transparent 100%)" : undefined
+        }}
+      >
+        <div className="flex flex-col pb-4 pt-0 md:py-6 relative z-20">
           <ContainerScroll
             titleComponent={
               <div className="text-center drop-shadow-sm pb-8 xl:pb-0">
