@@ -115,7 +115,7 @@ const Blog = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedPost(null)}
-              className="absolute inset-0 cursor-pointer bg-bison-dark/60 backdrop-blur-sm"
+              className="absolute inset-0 cursor-pointer bg-black/30 backdrop-blur-sm"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}

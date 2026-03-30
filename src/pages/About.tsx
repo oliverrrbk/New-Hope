@@ -67,7 +67,7 @@ const About = () => {
           <h1 className="text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[1.1] mb-5 w-full">
             <FadeText
               direction="right"
-              text="NUL FLUFF. NUL SPILDTID."
+              text="INGEN SPILDTID ELLER TOMME ORD."
               framerProps={{ show: { transition: { delay: 1.0 } } }}
             />
             <FadeText
