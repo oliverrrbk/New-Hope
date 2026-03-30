@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Instagram, Linkedin, Twitter, Mail, Phone, MapPin, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
@@ -10,8 +10,32 @@ const StripeDecorator = ({ vertical = false, className = "" }) => (
 const Footer = () => {
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
 
+  useEffect(() => {
+    if (isPolicyOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isPolicyOpen]);
+
   return (
     <>
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: rgba(59, 45, 40, 0.15);
+          border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(59, 45, 40, 0.3);
+        }
+      `}</style>
   <footer className="text-white pt-20 md:pt-32 pb-12 overflow-hidden relative">
     {/* Background Mesh Gradient with Noise Texture */}
     <div className="absolute inset-0 z-0 overflow-hidden bg-[#2c1a11]">
@@ -124,31 +148,32 @@ const Footer = () => {
 
       <AnimatePresence>
         {isPolicyOpen && (
-          <>
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-12">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsPolicyOpen(false)}
-              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm cursor-pointer"
+              className="absolute inset-0 cursor-pointer bg-black/30 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 z-[101] w-full max-w-2xl h-full bg-white text-bison-dark shadow-2xl overflow-y-auto flex flex-col"
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+              data-lenis-prevent
+              className="overscroll-contain custom-scrollbar w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative z-10 flex flex-col"
             >
-              <div className="flex items-center justify-between p-8 border-b border-bison-dark/5 sticky top-0 bg-white/90 backdrop-blur-md z-10 shadow-sm">
-                <h2 className="text-3xl font-black font-display uppercase tracking-tighter">Privatlivspolitik</h2>
+              <div className="flex items-center justify-between p-6 md:p-8 border-b border-bison-dark/5 sticky top-0 bg-white/90 backdrop-blur-md z-10 shadow-sm shrink-0">
+                <h2 className="text-2xl md:text-3xl font-black font-display uppercase tracking-tighter">Privatlivspolitik</h2>
                 <button 
                   onClick={() => setIsPolicyOpen(false)}
                   className="p-2 hover:bg-bison-dark/5 rounded-full transition-colors outline-none"
                 >
-                  <X size={28} />
+                  <X size={24} className="text-bison-dark" />
                 </button>
               </div>
-              <div className="p-8 pb-32 space-y-6 max-w-none text-bison-dark/80 font-medium leading-relaxed">
+              <div className="p-6 md:p-8 space-y-6 max-w-none text-bison-dark/80 font-medium leading-relaxed">
                 <p>Hos Bison Company ApS tager vi beskyttelsen af dine personoplysninger alvorligt. I denne privatlivspolitik kan du læse, hvordan vi indsamler, behandler og opbevarer dine data, når du besøger vores hjemmeside eller benytter vores kontaktformular.</p>
                 
                 <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">1. Dataansvarlig</h3>
@@ -205,9 +230,17 @@ const Footer = () => {
                   <li><strong>Ret til dataportabilitet:</strong> Du har i visse tilfælde ret til at modtage dine personoplysninger i et struktureret, almindeligt anvendt og maskinlæsbart format.</li>
                 </ul>
                 <p className="mt-8 pt-6 border-t border-bison-dark/10">Ønsker du at gøre brug af dine rettigheder, bedes du kontakte os på team@bisoncompany.dk. Du har også ret til at indgive en klage til Datatilsynet, hvis du er utilfreds med den måde, vi behandler dine personoplysninger på. Du finder Datatilsynets kontaktoplysninger på <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer" className="text-bison-blue hover:underline">www.datatilsynet.dk</a>.</p>
+                <div className="mt-12 pt-12 flex justify-center border-t border-bison-dark/10">
+                  <button
+                    onClick={() => setIsPolicyOpen(false)}
+                    className="px-10 py-4 rounded-full bg-bison-dark text-white font-bold tracking-wide hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-3 outline-none"
+                  >
+                    Luk politikken <X size={20} />
+                  </button>
+                </div>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </>
