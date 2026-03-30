@@ -268,7 +268,7 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/40 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    backdrop-blur-2xl bg-white/80 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
@@ -407,10 +407,10 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
         {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
         <div 
-          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] z-0 pointer-events-none"
+          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
-          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 10%, white 65%)" }} />
+          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 10%, white 68%)" }} />
         </div>
         <AnimatePresence initial={false} custom={direction}>
           {plans.map((plan, index) => {
@@ -430,10 +430,10 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
             x = 0; scale = 1; opacity = 1; rotate = 0;
           } else if (isNext) {
             // Næste kort kigger lidt frem i højre side
-            x = 45; scale = 0.92; opacity = 0.8; zIndex = 20; rotate = 3;
+            x = 45; scale = 0.92; opacity = 1; zIndex = 20; rotate = 3;
           } else if (isNextNext) {
             // Næste-næste kort ligger bagerst og er mørkere
-            x = 80; scale = 0.85; opacity = 0.4; zIndex = 10; rotate = 6;
+            x = 80; scale = 0.85; opacity = 1; zIndex = 10; rotate = 6;
           } else {
             // Hvis der var flere end 3
             x = 100; scale = 0.8; opacity = 0; zIndex = 0;
@@ -457,15 +457,8 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
               {/* For at brugeren bare kan tappe intuitivt på det næste kort for at se det */}
               <div 
                  onClick={() => { if (!isCurrent) setCurrentIndex(index); }}
-                 className="pointer-events-auto relative w-full flex justify-center"
+                 className="pointer-events-auto w-full flex justify-center"
               >
-                 {/* Dette animerede baggrundslag udfylder kortet *smooth* når det rulles frem */}
-                 <motion.div 
-                   initial={false}
-                   animate={{ opacity: isCurrent ? 0.7 : 0 }}
-                   transition={{ duration: 0.6, ease: "easeOut" }}
-                   className="absolute inset-[0] w-full h-full max-w-[250px] mx-auto bg-white/90 rounded-[1.2rem] z-[-1] pointer-events-none"
-                 />
                  <PricingCard {...plan} />
               </div>
             </motion.div>
