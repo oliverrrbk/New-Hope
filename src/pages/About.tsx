@@ -49,7 +49,7 @@ const About = () => {
   const prevT = () => setTIndex((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <main className="pt-32">
+    <main className="pt-32 overflow-x-hidden w-full relative">
       <PageSkyHeader />
       
       {/* 1. Hero Section (Kept exactly as it was) */}
