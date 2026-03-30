@@ -442,7 +442,7 @@ const Mission = () => {
           }}
         />
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[2.5rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 bottom-[2.5rem] md:bottom-24 lg:bottom-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0 hidden md:block"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
@@ -454,7 +454,7 @@ const Mission = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white p-6 md:p-8 lg:p-12 rounded-[1.2rem] lg:rounded-2xl shadow-xl relative w-full max-w-[380px] md:max-w-none mx-auto"
+          className="bg-white p-6 md:p-8 lg:p-12 rounded-[1.2rem] lg:rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] md:shadow-xl relative w-full max-w-[380px] md:max-w-none mx-auto"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 backdrop-blur-2xl bg-bison-brown/30 border border-white/50 rounded-lg lg:rounded-xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.1)] rotate-3 hover:scale-105 hover:rotate-6 transition-all duration-300 z-20 group">
             <div className="relative flex items-center justify-center -rotate-[24deg] translate-y-[1px]">
@@ -679,13 +679,13 @@ const SmoothLiftoff = () => {
 
   return (
     <section 
-      className="relative z-20 overflow-hidden bg-white" 
+      className="relative z-20 overflow-visible md:overflow-hidden bg-transparent md:bg-white" 
       id="smooth-liftoff"
     >
       <div 
         className="absolute z-0 pointer-events-none overflow-hidden"
         style={{
-          top: isMobile ? '5rem' : '0',
+          top: isMobile ? '-12rem' : '0',
           left: 0, right: 0, bottom: 0,
           maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'

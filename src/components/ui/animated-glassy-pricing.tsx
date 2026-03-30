@@ -404,7 +404,7 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
         {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
         <div 
-          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] z-[25] pointer-events-none"
+          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
           <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 8%, white 65%)" }} />
