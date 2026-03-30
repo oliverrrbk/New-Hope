@@ -273,7 +273,7 @@ export const PricingCard = ({
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
       ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}` 
-      : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8`}
+      : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8 h-[440px] 2xl:h-[500px]`}
   `;
   const buttonClasses = `
     mt-auto w-full py-2 2xl:py-2.5 rounded-lg font-bold uppercase tracking-wider text-[9px] 2xl:text-[10px] transition-all duration-300 font-sans
@@ -367,7 +367,7 @@ export const ModernPricingPage = ({
         </div>
         
         {/* Desktop Version: Uændret layout ved siden af hinanden */}
-        <div className="hidden md:flex flex-row gap-2 2xl:gap-3 justify-center items-stretch w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
+        <div className="hidden md:flex flex-row gap-2 2xl:gap-3 justify-center items-center w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
           {plans.map((plan) => <React.Fragment key={plan.planName}><PricingCard {...plan} /></React.Fragment>)}
         </div>
         
