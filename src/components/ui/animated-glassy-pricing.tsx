@@ -255,7 +255,7 @@ export const PricingCard = ({
       bg: 'bg-bison-pink',
       text: 'text-[#bd5c9a]', // Mørkere pink til tekst og ikoner for læsbarhed
       glow: '!border-0 ring-[4px] md:ring-2 ring-white shadow-[0_0_40px_rgba(255,255,255,0.7)] group-hover:shadow-[0_0_60px_rgba(255,255,255,1)]', // Tykkere hvid kant, ingen sort border, kraftig glow
-      badgeBg: 'bg-white text-[#Bf953F] md:text-bison-dark ring-2 ring-white shadow-[0_0_20px_rgba(255,255,255,0.7)]'
+      badgeBg: 'bg-white md:text-bison-dark md:ring-2 md:ring-white shadow-[0_0_20px_rgba(255,255,255,0.7)]'
     },
     blue: {
       bg: 'bg-bison-blue',
@@ -283,8 +283,11 @@ export const PricingCard = ({
   return (
     <div className={cardClasses.trim()}>
       {isPopular && (
-        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 px-3 py-1 md:px-2 md:py-0.5 2xl:px-2.5 2xl:py-1 text-[10px] md:text-[8px] 2xl:text-[9px] font-bold md:font-semibold rounded-full ${t.badgeBg}`}>
-          Mest populær
+        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#3E2A20] to-[#E8C361] md:bg-none p-[2px] md:p-0`}>
+          <div className={`px-3 py-1 md:px-2 md:py-0.5 2xl:px-2.5 2xl:py-1 text-[10.5px] md:text-[8px] 2xl:text-[9px] font-black md:font-semibold rounded-full ${t.badgeBg} h-full w-full flex items-center justify-center bg-white`}>
+            <span className="md:hidden bg-gradient-to-r from-[#3E2A20] to-[#E8C361] bg-clip-text text-transparent">Mest populær</span>
+            <span className="hidden md:block">Mest populær</span>
+          </div>
         </div>
       )}
       <div className="mb-3 2xl:mb-4">
