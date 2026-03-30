@@ -7,6 +7,7 @@ import About from '../pages/About';
 import Cases from '../pages/Cases';
 import Blog from '../pages/Blog';
 import BookCall from '../pages/BookCall';
+import BekreftAftale from '../pages/BekreftAftale';
 
 const leftClouds = [
   { w: '120vw', h: '120vh', top: '-10%', left: '-50vw', blur: '80px', delayIn: 0.05, delayOut: 0.1, bg: '#FDFCF8' },
@@ -94,6 +95,7 @@ export const AnimatedRoutes = () => {
         <Route path="/cases" element={<PageWrapper><Cases /></PageWrapper>} />
         <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
         <Route path="/book-et-opkald" element={<PageWrapper><BookCall /></PageWrapper>} />
+        <Route path="/bekraeft-aftale" element={<PageWrapper><BekreftAftale /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );

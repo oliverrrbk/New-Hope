@@ -148,24 +148,24 @@ const Footer = () => {
 
       <AnimatePresence>
         {isPolicyOpen && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-12">
+          <div className="fixed inset-0 z-[9999] flex justify-end">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsPolicyOpen(false)}
-              className="absolute inset-0 cursor-pointer bg-black/30 backdrop-blur-sm"
+              className="absolute inset-0 cursor-pointer bg-black/60 backdrop-blur-md"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 30 }}
-              transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               data-lenis-prevent
-              className="overscroll-contain custom-scrollbar w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative z-10 flex flex-col"
+              className="overscroll-contain custom-scrollbar w-full max-w-2xl h-full overflow-y-auto bg-white shadow-2xl relative z-10 flex flex-col"
             >
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-bison-dark/5 sticky top-0 bg-white/90 backdrop-blur-md z-10 shadow-sm shrink-0">
-                <h2 className="text-2xl md:text-3xl font-black font-display uppercase tracking-tighter">Privatlivspolitik</h2>
+                <h2 className="text-2xl md:text-3xl font-black font-display uppercase tracking-tighter text-bison-dark">Privatlivspolitik</h2>
                 <button 
                   onClick={() => setIsPolicyOpen(false)}
                   className="p-2 hover:bg-bison-dark/5 rounded-full transition-colors outline-none"
