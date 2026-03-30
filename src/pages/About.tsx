@@ -379,7 +379,7 @@ const About = () => {
             </div>
           </motion.div>
           
-          <div className="min-h-[140px] md:min-h-[120px] relative">
+          <div className="relative mb-10 md:mb-12">
             <motion.p 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -405,7 +405,7 @@ const About = () => {
                 transition={{ duration: 0.2 }}
               >
                 <p className="font-black font-display uppercase tracking-tight text-[13px] text-bison-dark mb-[2px]">Oliver Rørbæk</p>
-                <p className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-bison-dark/40">Adm. Direktør & Stifter, Bison Company</p>
+                <p className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-bison-dark/40">Administrerende direktør / ejer, Bison Company</p>
               </motion.div>
             </div>
           </motion.div>
