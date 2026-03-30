@@ -115,7 +115,7 @@ const Blog = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedPost(null)}
-              className="absolute inset-0 cursor-pointer"
+              className="absolute inset-0 cursor-pointer bg-bison-dark/60 backdrop-blur-sm"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
@@ -134,7 +134,7 @@ const Blog = () => {
 
               <div className="aspect-video w-full relative shrink-0">
                 <img src={selectedPost.img} alt={selectedPost.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-bison-dark/20" />
+                <div className="absolute inset-0 bg-bison-dark/5" />
                 <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white px-3 py-1.5 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-sm">
                   {selectedPost.category}
                 </div>
