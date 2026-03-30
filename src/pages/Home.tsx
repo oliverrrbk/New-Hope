@@ -409,13 +409,13 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-[14rem] md:pt-40 xl:pt-56 pb-4 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
+      className="pt-[6rem] md:pt-40 xl:pt-56 pb-4 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
     >
       <div 
         className="absolute z-0 pointer-events-none overflow-hidden"
         style={{
-          top: isMobile ? '10rem' : '0',  
-          left: 0, right: 0, bottom: isMobile ? '-12rem' : 0,
+          top: isMobile ? '2rem' : '0',  
+          left: 0, right: 0, bottom: isMobile ? '-4rem' : 0,
           maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%)'
         }}
@@ -435,7 +435,7 @@ const Mission = () => {
       <div className="max-w-xl lg:max-w-2xl mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full overflow-visible flex flex-col items-center justify-center">
         {/* Togskinner: Dynamisk positioneret så de altid sidder tæt mod over/underkanten af kortet. w-[100vw] bryder containeren, så de løber helt ud. */}
         <div 
-          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[15.5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
+          className="bison-stripes absolute left-1/2 -translate-x-1/2 top-[7.5rem] md:top-24 lg:top-28 w-[100vw] h-[3px] md:h-[4px] opacity-70 z-0"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)"
