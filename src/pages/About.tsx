@@ -64,7 +64,7 @@ const About = () => {
             />
           </div>
           
-          <h1 className="text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[1.1] mb-5 w-full">
+          <h1 className="text-[34px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[1.1] mb-5 w-full">
             <FadeText
               direction="right"
               text="INGEN SPILDTID ELLER TOMME ORD."
@@ -73,7 +73,7 @@ const About = () => {
             <FadeText
               direction="down"
               text="Bare ungt, råt håndværk."
-              className="italic font-serif normal-case font-medium text-bison-green brightness-90"
+              className="text-[26px] md:text-[62px] italic font-serif normal-case font-medium text-bison-green block mt-1"
               framerProps={{ show: { transition: { delay: 1.2 } } }}
             />
           </h1>

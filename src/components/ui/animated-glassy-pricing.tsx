@@ -268,7 +268,7 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/80 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    backdrop-blur-2xl bg-white/60 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
@@ -383,20 +383,17 @@ export const ModernPricingPage = ({
 import { AnimatePresence } from 'motion/react';
 
 const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   const handleDragEnd = (event: any, info: any) => {
     // 50px threshold for at registrere et swipe
     const threshold = 50;
     if (info.offset.x < -threshold) {
       if (currentIndex < plans.length - 1) {
-        setDirection(1);
         setCurrentIndex(currentIndex + 1);
       }
     } else if (info.offset.x > threshold) {
       if (currentIndex > 0) {
-        setDirection(-1);
         setCurrentIndex(currentIndex - 1);
       }
     }
@@ -407,57 +404,49 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
         {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
         <div 
-          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 pointer-events-none"
+          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
-          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 10%, white 68%)" }} />
+          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 8%, white 65%)" }} />
         </div>
-        <AnimatePresence initial={false} custom={direction}>
+        <AnimatePresence initial={false}>
           {plans.map((plan, index) => {
-          if (index < currentIndex) return null; // Har allerede swipet dette kort væk
+          const diff = index - currentIndex;
+          const isCurrent = diff === 0;
 
-          const isCurrent = index === currentIndex;
-          const isNext = index === currentIndex + 1;
-          const isNextNext = index === currentIndex + 2;
-
-          let zIndex = 30 - index;
+          let zIndex = 30 - Math.abs(diff);
           let x = 0;
           let scale = 1;
           let opacity = 1;
           let rotate = 0;
 
-          if (isCurrent) {
+          if (diff === 0) {
             x = 0; scale = 1; opacity = 1; rotate = 0;
-          } else if (isNext) {
-            // Næste kort kigger lidt frem i højre side
+          } else if (diff === 1) { // Ligger til højre
             x = 45; scale = 0.92; opacity = 1; zIndex = 20; rotate = 3;
-          } else if (isNextNext) {
-            // Næste-næste kort ligger bagerst og er mørkere
-            x = 80; scale = 0.85; opacity = 1; zIndex = 10; rotate = 6;
+          } else if (diff === -1) { // Ligger til venstre
+            x = -45; scale = 0.92; opacity = 1; zIndex = 20; rotate = -3;
           } else {
             // Hvis der var flere end 3
-            x = 100; scale = 0.8; opacity = 0; zIndex = 0;
+            x = diff > 0 ? 100 : -100; scale = 0.8; opacity = 0; zIndex = 0;
           }
 
           return (
             <motion.div
               key={plan.planName}
-              custom={direction}
               drag={isCurrent ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.1}
               onDragEnd={isCurrent ? handleDragEnd : undefined}
-              initial={{ x: direction === -1 ? -300 : 150, opacity: 0, scale: direction === -1 ? 1 : 0.8, rotate: direction === -1 ? -15 : 0 }}
               animate={{ x, opacity, scale, rotate, zIndex }}
-              exit={{ x: -300, opacity: 0, rotate: -15, transition: { duration: 0.3 } }}
               transition={{ type: "tween", duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
-              style={{ willChange: "transform" }}
+              style={{ willChange: "transform", pointerEvents: isCurrent || Math.abs(diff) === 1 ? 'auto' : 'none' }}
               className="absolute w-full flex justify-center items-center"
             >
-              {/* For at brugeren bare kan tappe intuitivt på det næste kort for at se det */}
+              {/* For at brugeren bare kan tappe intuitivt på ethvert synligt kort for at se det */}
               <div 
                  onClick={() => { if (!isCurrent) setCurrentIndex(index); }}
-                 className="pointer-events-auto w-full flex justify-center"
+                 className="w-full flex justify-center cursor-pointer"
               >
                  <PricingCard {...plan} />
               </div>
@@ -481,7 +470,7 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
              <motion.svg animate={{ x: [-3, 0, -3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></motion.svg>
           )}
           <span className="text-[10px] font-bold tracking-widest uppercase font-sans">
-            {currentIndex === 0 ? "Swipe for at se løsninger" : currentIndex === plans.length - 1 ? "Swipe for at gå tilbage" : "Swipe for sidste løsning"}
+            {currentIndex === 1 ? "Swipe for flere løsninger" : currentIndex === 0 ? "Swipe for næste løsning" : "Swipe for at gå tilbage"}
           </span>
           {currentIndex < plans.length - 1 && (
              <motion.svg animate={{ x: [3, 0, 3] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></motion.svg>
