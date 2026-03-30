@@ -283,9 +283,9 @@ export const PricingCard = ({
   return (
     <div className={cardClasses.trim()}>
       {isPopular && (
-        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#8F715E] to-[#FFF080] md:bg-none p-[2px] md:p-0 opacity-60 md:opacity-100`}>
+        <div className={`absolute -top-3 -right-2 md:-top-2.5 md:-right-1 2xl:-top-3 2xl:right-3 rounded-full bg-gradient-to-r from-[#A68875] to-[#D8A629] md:bg-none p-[2px] md:p-0 opacity-60 md:opacity-100`}>
           <div className={`px-3 py-1 md:px-2 md:py-0.5 2xl:px-2.5 2xl:py-1 text-[10.5px] md:text-[8px] 2xl:text-[9px] font-medium md:font-semibold rounded-full ${t.badgeBg} h-full w-full flex items-center justify-center bg-white`}>
-            <span className="md:hidden bg-gradient-to-r from-[#8F715E] to-[#FFF080] bg-clip-text text-transparent">Mest populær</span>
+            <span className="md:hidden bg-gradient-to-r from-[#A68875] to-[#D8A629] bg-clip-text text-transparent">Mest populær</span>
             <span className="hidden md:block">Mest populær</span>
           </div>
         </div>
