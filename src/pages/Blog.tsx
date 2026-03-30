@@ -123,7 +123,7 @@ const Blog = () => {
               exit={{ opacity: 0, scale: 0.95, y: 30 }}
               transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
               data-lenis-prevent
-              className="overscroll-contain custom-scrollbar w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative z-10 flex flex-col"
+              className="overscroll-contain custom-scrollbar w-full max-w-xl max-h-[85vh] overflow-y-auto bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative z-10 flex flex-col"
             >
               <button
                 onClick={() => setSelectedPost(null)}
@@ -132,7 +132,7 @@ const Blog = () => {
                 <X size={20} className="text-bison-dark" />
               </button>
 
-              <div className="aspect-[21/9] md:aspect-[25/9] w-full relative shrink-0">
+              <div className="aspect-video w-full relative shrink-0">
                 <img src={selectedPost.img} alt={selectedPost.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-bison-dark/20" />
                 <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white px-3 py-1.5 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-sm">
