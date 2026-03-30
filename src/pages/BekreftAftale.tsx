@@ -363,32 +363,62 @@ const BekreftAftale = () => {
               <div className="p-6 md:p-8 space-y-6 max-w-none text-bison-dark/80 font-medium leading-relaxed text-sm">
                 <p className="font-bold mb-4">Standardvilkår for samarbejde med Bison Company ApS</p>
                 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">1. Leverance</h3>
-                <p>Bison Company ApS leverer udvikling og igangsættelse af hjemmeside baseret på kundens behovsinterview samt efterfølgende opsummering og forventningsafstemning. Hosting kan også afholdes, hvis kunden ønsker det. Prisen heraf afhænger af prisen på aktuelle domæne. Konkret omfang, type af løsning, pris og øvrige vilkår fremgår af den skriftlige aftale mellem parterne.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">1. Leverance</h3>
+                  <p>Bison Company ApS leverer udvikling og igangsættelse af hjemmeside baseret på kundens behovsinterview samt efterfølgende opsummering og forventningsafstemning.</p>
+                  <p>Hosting kan også afholdes, hvis kunden ønsker det. Prisen heraf afhænger af prisen på aktuelle domæne.</p>
+                  <p>Konkret omfang, type af løsning, pris og øvrige vilkår fremgår af den skriftlige aftale mellem parterne.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">2. Pris og betaling</h3>
-                <p>Leverancen leveres efter engangsbetaling via faktura. Levering påbegyndes, når aftalen er skriftligt godkendt, og betalingen er gennemført eller accepteret. Ved ønsket hosting aftales der indbyrdes en årlig pris, som vil fremgå af den skriftlige aftale. Ved manglende eller forsinket betaling forbeholder Bison Company ApS sig retten til midlertidigt at sætte leverancen, herunder arbejde, support og drift, på pause, indtil betaling er modtaget.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">2. Pris og betaling</h3>
+                  <p>Leverancen leveres efter engangsbetaling via faktura. Levering påbegyndes, når aftalen er skriftligt godkendt, og betalingen er gennemført eller accepteret.</p>
+                  <p>Ved ønsket hosting aftales der indbyrdes en årlig pris, som vil fremgå af den skriftlige aftale.</p>
+                  <p>Ved manglende eller forsinket betaling forbeholder Bison Company ApS sig retten til midlertidigt at sætte leverancen, herunder arbejde, support og drift, på pause, indtil betaling er modtaget.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">3. Levering og tidsplan</h3>
-                <p>Første version af hjemmesiden leveres efter gennemført behovsinterview og modtagelse af nødvendigt input fra kunden. Angivne leveringstider er vejledende og kan påvirkes af kundens svartider og feedback.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">3. Levering og tidsplan</h3>
+                  <p>Første version af hjemmesiden leveres efter gennemført behovsinterview og modtagelse af nødvendigt input fra kunden.</p>
+                  <p>Angivne leveringstider er vejledende og kan påvirkes af kundens svartider og feedback.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">4. Rettelser og ændringer</h3>
-                <p>Gratis tilpasninger er inkluderet i den første måned efter launch. Efterfølgende rettelser/justeringer/opdateringer er der rig mulighed for, blot efter vilkårlig timepris.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">4. Rettelser og ændringer</h3>
+                  <p>Gratis tilpasninger er inkluderet i den første måned efter launch.</p>
+                  <p>Efterfølgende rettelser/justeringer/opdateringer er der rig mulighed for, blot efter vilkårlig timepris.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">5. Hosting og teknisk drift</h3>
-                <p>Hosting og teknisk drift varetages ikke af Bison Company ApS – medmindre eksplicit ønsket og aftalt, hvilket vil fremgå af den skriftlige aftale mellem parterne. Vi viser dig hvordan du selv kan stå for det hele uden besvær, hvormed det bliver billigst muligt for kunden at have en hjemmeside kørende.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">5. Hosting og teknisk drift</h3>
+                  <p>Hosting og teknisk drift varetages ikke af Bison Company ApS – medmindre eksplicit ønsket og aftalt, hvilket vil fremgå af den skriftlige aftale mellem parterne.</p>
+                  <p>Vi viser dig hvordan du selv kan stå for det hele uden besvær, hvormed det bliver billigst muligt for kunden at have en hjemmeside kørende.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">6. Ejerskab og rettigheder</h3>
-                <p>Kunden ejer eget indhold, herunder tekst, logo og billedmateriale leveret af kunden. Den samlede hjemmesideopsætning, herunder struktur, design, teknisk implementering og tekst-modificering udarbejdes af Bison Company ApS, og ejes, efter levering af leverancen, også af kunden. Metode, workflow og interne systemer tilhører Bison Company ApS og overdrages ikke. Bison Company ApS forbeholder sig retten til at anvende arbejdet som reference, medmindre andet aftales skriftligt.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">6. Ejerskab og rettigheder</h3>
+                  <p>Kunden ejer eget indhold, herunder tekst, logo og billedmateriale leveret af kunden. Den samlede hjemmesideopsætning, herunder struktur, design, teknisk implementering og tekst-modificering udarbejdes af Bison Company ApS, og ejes, efter levering af leverancen, også af kunden.</p>
+                  <p>Metode, workflow og interne systemer tilhører Bison Company ApS og overdrages ikke.</p>
+                  <p>Bison Company ApS forbeholder sig retten til at anvende arbejdet som reference, medmindre andet aftales skriftligt.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">7. Ansvarsbegrænsning</h3>
-                <p>Bison Company ApS leverer en teknisk og indholdsmæssig løsning, men garanterer ikke specifikke resultater såsom leads, omsætning, placeringer eller forretningsmæssig effekt. Virksomheden kan ikke holdes ansvarlig for indirekte tab, driftstab eller tabt fortjeneste. Bison Company ApS’ samlede ansvar kan aldrig overstige det beløb, kunden har betalt inden for de seneste 12 måneder.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">7. Ansvarsbegrænsning</h3>
+                  <p>Bison Company ApS leverer en teknisk og indholdsmæssig løsning, men garanterer ikke specifikke resultater såsom leads, omsætning, placeringer eller forretningsmæssig effekt.</p>
+                  <p>Virksomheden kan ikke holdes ansvarlig for indirekte tab, driftstab eller tabt fortjeneste.</p>
+                  <p>Bison Company ApS’ samlede ansvar kan aldrig overstige det beløb, kunden har betalt inden for de seneste 12 måneder.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">8. Fortrolighed</h3>
-                <p>Bison Company ApS og kunden forpligter sig til at behandle følsomme oplysninger, herunder forretningsmæssige og interne forhold, fortroligt.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">8. Fortrolighed</h3>
+                  <p>Bison Company ApS og kunden forpligter sig til at behandle følsomme oplysninger, herunder forretningsmæssige og interne forhold, fortroligt.</p>
+                </div>
 
-                <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">9. Lovvalg og værneting</h3>
-                <p>Aftalen er underlagt dansk ret. Eventuelle tvister afgøres ved dansk domstol.</p>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">9. Lovvalg og værneting</h3>
+                  <p>Aftalen er underlagt dansk ret.</p>
+                  <p>Eventuelle tvister afgøres ved dansk domstol.</p>
+                </div>
 
                 <div className="mt-10 pt-6 border-t border-bison-dark/10 text-xs">
                   <p className="font-bold">Bison Company ApS</p>
