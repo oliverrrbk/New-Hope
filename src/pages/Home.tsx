@@ -409,8 +409,9 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-[6rem] md:pt-40 xl:pt-56 pb-4 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
+      className="pt-[6rem] md:pt-40 xl:pt-56 pb-0 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
     >
+      <div className="absolute bottom-0 left-0 w-full h-[6rem] bg-gradient-to-b from-white to-bison-bg pointer-events-none z-0 md:hidden" />
       <div 
         className="absolute z-0 pointer-events-none overflow-hidden"
         style={{
@@ -825,8 +826,7 @@ const Home = () => {
       <Mission />
 
       {/* Case Preview Section via Container Scroll Animation */}
-      <section className="bg-transparent md:bg-white overflow-visible md:overflow-hidden relative z-20 -mt-12 md:mt-0 pt-12 md:pt-0">
-        <div className="absolute top-0 left-0 w-full h-[8rem] bg-gradient-to-b from-white to-transparent pointer-events-none z-10 md:hidden" />
+      <section className="bg-transparent md:bg-white overflow-visible md:overflow-hidden relative z-20">
         <div className="flex flex-col py-4 md:py-6 relative z-20">
           <ContainerScroll
             titleComponent={
