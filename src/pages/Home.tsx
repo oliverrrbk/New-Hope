@@ -409,9 +409,11 @@ const Mission = () => {
   return (
     <section 
       ref={scrollRef} 
-      className="pt-[6rem] md:pt-40 xl:pt-56 pb-0 md:pb-20 lg:pb-24 xl:pb-32 relative bg-white"
+      className="pt-[6rem] md:pt-40 xl:pt-56 pb-6 md:pb-20 lg:pb-24 xl:pb-32 relative"
+      style={{
+        background: isMobile ? "linear-gradient(to bottom, #ffffff 0%, #ffffff 85%, #F7F5F2 100%)" : "#ffffff"
+      }}
     >
-      <div className="absolute bottom-0 left-0 w-full h-[6rem] bg-gradient-to-b from-white to-bison-bg pointer-events-none z-0 md:hidden" />
       <div 
         className="absolute z-0 pointer-events-none overflow-hidden"
         style={{
