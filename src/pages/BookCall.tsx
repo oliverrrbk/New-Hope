@@ -151,8 +151,8 @@ const BookCall = () => {
               >
                 <div className="overflow-hidden">
                   <p className="text-[13px] w-full text-bison-dark/60 leading-relaxed mt-2.5 mb-8">
-                    Vælg et tidspunkt der passer dig, så tager vi en<br className="hidden md:block"/>
-                    uforpligtende snak om dine mål og hvordan vi<br className="hidden md:block"/>
+                    Vælg et tidspunkt der passer dig, så tager vi en <br className="hidden md:block"/>
+                    uforpligtende snak om dine mål og hvordan vi <br className="hidden md:block"/>
                     potentielt kan hjælpe dig med at nå dem.
                   </p>
                 </div>
