@@ -178,13 +178,13 @@ const Hero = () => {
           */}
 
           {/* NY NATIVE SKALERET OVERSKRIFT */}
-          <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-6 xl:mb-10 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
+          <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-4 xl:mb-6 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
             <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br />hjemmesider</span>
             <span className="block text-[5.5vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
               uden besvær og månedlige betalinger
             </span>
           </h1>
-          <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-8 xl:mb-12 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
+          <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-5 xl:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
             Vi designer fra bunden, og laver noget, som faktisk er skræddersyet til din virksomhed og dens personlighed. Samtidig er vores proces så simpel så mulig for dig – vi har skåret alt fedtet fra. Og så betaler du kun én gang.
           </p>
 
