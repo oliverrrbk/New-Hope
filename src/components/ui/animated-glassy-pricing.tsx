@@ -273,7 +273,7 @@ export const PricingCard = ({
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
       ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}` 
-      : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8 h-[440px] 2xl:h-[500px]`}
+      : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8`}
   `;
   const buttonClasses = `
     mt-auto w-full py-2 2xl:py-2.5 rounded-lg font-bold uppercase tracking-wider text-[9px] 2xl:text-[10px] transition-all duration-300 font-sans
@@ -289,7 +289,7 @@ export const PricingCard = ({
       )}
       <div className="mb-3 2xl:mb-4">
         <h2 className="text-[27px] 2xl:text-[36px] font-extralight tracking-[-0.03em] text-black font-display leading-[1.1]">{planName}</h2>
-        <p className="text-[10.5px] 2xl:text-[11.5px] text-black/70 mt-1 2xl:mt-2 font-sans leading-relaxed">{description}</p>
+        <p className="text-[10px] 2xl:text-[11.5px] text-black/70 mt-1 2xl:mt-2 font-sans leading-relaxed min-h-[46px] 2xl:min-h-[58px]">{description}</p>
       </div>
       <div className="mt-4 mb-5 2xl:mt-5 2xl:mb-6 flex flex-wrap items-baseline gap-x-1.5 2xl:gap-x-2 min-h-[36px] 2xl:min-h-[41px]">
         <span className="text-[26px] 2xl:text-[36px] font-extralight text-bison-brown font-display leading-none">{price}</span>
