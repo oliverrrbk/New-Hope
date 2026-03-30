@@ -268,8 +268,8 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    backdrop-blur-2xl bg-white/60 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
-    md:from-white/60 md:to-white/20 border border-white/60 group
+    backdrop-blur-2xl bg-white/60 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] md:shadow-none flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    md:from-white/60 md:to-white/20 border-[1.5px] md:border border-white/90 md:border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
       ? `max-w-[250px] 2xl:max-w-[290px] py-10 2xl:py-12 relative z-10 ${t.glow}` 

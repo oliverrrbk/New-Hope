@@ -415,9 +415,9 @@ const Mission = () => {
         className="absolute z-0 pointer-events-none overflow-hidden"
         style={{
           top: isMobile ? '10rem' : '0',  
-          left: 0, right: 0, bottom: 0,
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
+          left: 0, right: 0, bottom: isMobile ? '-12rem' : 0,
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%)'
         }}
       >
         <motion.div 
@@ -825,8 +825,8 @@ const Home = () => {
       <Mission />
 
       {/* Case Preview Section via Container Scroll Animation */}
-      <section className="bg-white overflow-hidden relative z-20">
-        <div className="flex flex-col overflow-hidden py-4 md:py-6">
+      <section className="bg-transparent md:bg-white overflow-visible md:overflow-hidden relative z-20">
+        <div className="flex flex-col py-4 md:py-6">
           <ContainerScroll
             titleComponent={
               <div className="text-center drop-shadow-sm pb-8 xl:pb-0">
