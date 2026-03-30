@@ -109,7 +109,7 @@ const Blog = () => {
       {/* Blog Modal Popup */}
       <AnimatePresence>
         {selectedPost && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-12">
+          <div className="fixed inset-0 z-[999] flex items-center justify-center px-4 pb-4 pt-24 md:p-12">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -122,34 +122,34 @@ const Blog = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 30 }}
               transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
-              className="custom-scrollbar w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl relative z-10 flex flex-col"
-              style={{ zoom: "65%" }}
+              data-lenis-prevent
+              className="overscroll-contain custom-scrollbar w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative z-10 flex flex-col"
             >
               <button
                 onClick={() => setSelectedPost(null)}
-                className="absolute top-6 right-6 w-12 h-12 bg-white/70 backdrop-blur-md border border-white/50 rounded-full flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-20"
+                className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 bg-white/70 backdrop-blur-md border border-white/50 rounded-full flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-20"
               >
-                <X size={24} className="text-bison-dark" />
+                <X size={20} className="text-bison-dark" />
               </button>
 
               <div className="aspect-[21/9] md:aspect-[25/9] w-full relative shrink-0">
                 <img src={selectedPost.img} alt={selectedPost.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-bison-dark/20" />
-                <div className="absolute bottom-6 left-6 bg-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-sm">
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white px-3 py-1.5 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-sm">
                   {selectedPost.category}
                 </div>
               </div>
 
-              <div className="p-8 md:p-16">
-                <div className="flex items-center gap-6 text-sm font-bold text-bison-dark/40 uppercase tracking-widest mb-6">
-                  <span className="flex items-center gap-2"><User size={16} /> {selectedPost.author}</span>
-                  <span className="flex items-center gap-2"><Clock size={16} /> {selectedPost.readTime}</span>
+              <div className="p-6 md:p-12 lg:p-14">
+                <div className="flex items-center gap-4 text-xs font-bold text-bison-dark/40 uppercase tracking-widest mb-4">
+                  <span className="flex items-center gap-1.5"><User size={14} /> {selectedPost.author}</span>
+                  <span className="flex items-center gap-1.5"><Clock size={14} /> {selectedPost.readTime}</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black font-display uppercase tracking-tighter mb-10 leading-[0.9]">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase tracking-tighter mb-6 md:mb-8 leading-[1.0]">
                   {selectedPost.title}
                 </h2>
-                <div className="prose prose-lg max-w-none text-bison-dark/70">
-                  <p className="whitespace-pre-line leading-relaxed font-medium text-lg md:text-xl">
+                <div className="prose max-w-none text-bison-dark/70">
+                  <p className="whitespace-pre-line leading-relaxed font-medium text-sm md:text-base lg:text-lg">
                     {selectedPost.content.split(/(\*\*.*?\*\*)/g).map((part: string, i: number) => {
                       if (part.startsWith('**') && part.endsWith('**')) {
                         return <strong key={i} className="font-extrabold text-bison-dark">{part.slice(2, -2)}</strong>;

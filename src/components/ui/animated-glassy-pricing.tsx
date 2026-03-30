@@ -277,7 +277,7 @@ export const PricingCard = ({
   `;
   const buttonClasses = `
     mt-auto w-full py-2 2xl:py-2.5 rounded-lg font-bold uppercase tracking-wider text-[9px] 2xl:text-[10px] transition-all duration-300 font-sans
-    ${t.bg} text-black border border-black/10 shadow-sm hover:scale-105 hover:-translate-y-1 hover:shadow-xl
+    ${t.bg} brightness-105 saturate-150 text-black border border-black/10 shadow-sm hover:scale-105 hover:-translate-y-1 hover:shadow-xl
   `;
 
   return (
