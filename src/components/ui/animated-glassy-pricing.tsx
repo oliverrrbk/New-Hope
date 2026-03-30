@@ -268,7 +268,7 @@ export const PricingCard = ({
   const t = themeMap[themeColor];
 
   const cardClasses = `
-    md:backdrop-blur-2xl bg-white/95 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
+    backdrop-blur-2xl bg-white/85 md:bg-white/10 md:bg-gradient-to-br rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex-1 px-5 2xl:px-6 flex flex-col transition-all duration-300
     md:from-white/60 md:to-white/20 border border-white/60 group
     dark:from-white/20 dark:to-white/10 dark:border-white/20 dark:backdrop-brightness-[0.91]
     ${isPopular 
@@ -367,7 +367,7 @@ export const ModernPricingPage = ({
         </div>
         
         {/* Desktop Version: Uændret layout ved siden af hinanden */}
-        <div className="hidden md:flex flex-row gap-2 2xl:gap-3 justify-center items-center w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
+        <div className="hidden md:flex flex-row gap-2 2xl:gap-3 justify-center items-stretch w-full max-w-[700px] 2xl:max-w-[870px] relative z-20">
           {plans.map((plan) => <React.Fragment key={plan.planName}><PricingCard {...plan} /></React.Fragment>)}
         </div>
         
@@ -407,10 +407,10 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
       <div className="w-full flex justify-center items-center h-[520px] relative overflow-visible">
         {/* Statisk perfekt kugle reduceret i footprint m/ radial gradient overlay for at sløre ShaderCanvas-render kanterne uden at slette formen i CSS */}
         <div 
-          className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 pointer-events-none"
+          className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] z-0 pointer-events-none"
         >
           <ShaderCanvas />
-          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 30%, white 65%)" }} />
+          <div className="absolute inset-0 z-10" style={{ background: "radial-gradient(circle at center, transparent 30%, white 72%)" }} />
         </div>
         <AnimatePresence initial={false} custom={direction}>
           {plans.map((plan, index) => {

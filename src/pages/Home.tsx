@@ -211,7 +211,7 @@ const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-bison-brown/0 group-hover:bg-bison-brown/90 transition-colors duration-700 pointer-events-none" />
 
                 {/* Hoved-skyen: Ligger og trækker vejret langsomt, men FYDER FULDSTÆNDIGT UD på hover */}
-                <div className="absolute w-[108%] h-[115%] md:w-[102%] md:h-[105%] lg:w-[105%] blur-[8px] md:blur-[10px] lg:blur-[6px] opacity-80 md:opacity-50 lg:opacity-90 xl:opacity-100 group-hover:w-full group-hover:h-full group-hover:blur-[0px] group-hover:opacity-0 group-hover:rounded-full group-hover:overflow-hidden transition-all duration-700 pointer-events-none flex items-center justify-center">
+                <div className="absolute w-[108%] h-[115%] md:w-[102%] md:h-[105%] lg:w-[105%] blur-[8px] md:blur-[10px] lg:blur-[6px] opacity-80 md:opacity-50 lg:opacity-65 xl:opacity-75 group-hover:w-full group-hover:h-full group-hover:blur-[0px] group-hover:opacity-0 group-hover:rounded-full group-hover:overflow-hidden transition-all duration-700 pointer-events-none flex items-center justify-center">
                   <motion.div 
                      animate={{ scale: [0.98, 1.02] }} 
                      transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }} 
@@ -348,9 +348,9 @@ const Services = () => {
           <p className="text-xs md:text-sm text-bison-dark/60 font-medium max-w-lg mx-auto">Vi har fjernet alt det, der normalt gør et webprojekt til en langsommelig hovedpine.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-5 lg:gap-6">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-5 lg:gap-6 items-stretch">
           {services.map((s, i) => (
-            <div key={i} className="w-full relative">
+            <div key={i} className="w-full relative h-full">
               <motion.div
                 data-active={activeService === i}
                 onClick={() => setActiveService(activeService === i ? null : i)}
@@ -360,7 +360,7 @@ const Services = () => {
                 transition={{ delay: i * 0.05, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative isolate mx-auto w-full max-w-[280px] sm:max-w-[320px] md:max-w-none md:mx-0 cursor-pointer md:cursor-default"
+                className="h-full group relative isolate mx-auto w-full max-w-[280px] sm:max-w-[320px] md:max-w-none md:mx-0 cursor-pointer md:cursor-default"
               >
                 {/* Fuzzy svævende skyer UDENOM kortet */}
                 <div className="absolute -inset-6 md:-inset-8 pointer-events-none opacity-20 md:opacity-40 z-[-1] transition-opacity duration-500 group-hover:opacity-70 group-data-[active=true]:opacity-70">
@@ -369,7 +369,7 @@ const Services = () => {
                 </div>
 
                 {/* Selve kortkroppen, der hviler 'på' skyerne */}
-                <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col justify-center items-center text-center gap-3 lg:gap-4 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-data-[active=true]:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] md:group-hover:scale-100 group-data-[active=true]:scale-[1.03] md:group-data-[active=true]:scale-100 group-hover:bg-white/30 group-data-[active=true]:bg-white/30 aspect-[5/4] sm:aspect-auto`}>
+                <div className={`h-full ${s.color} p-5 md:p-6 lg:p-8 rounded-[1.2rem] md:rounded-[1.8rem] border flex flex-col justify-center items-center text-center gap-3 lg:gap-4 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-data-[active=true]:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] md:group-hover:scale-100 group-data-[active=true]:scale-[1.03] md:group-data-[active=true]:scale-100 group-hover:bg-white/30 group-data-[active=true]:bg-white/30`}>
                   <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10 transition-transform duration-300 group-hover:scale-110 group-data-[active=true]:scale-110">
                     <div className="scale-75 md:scale-90">{s.icon}</div>
                   </div>
