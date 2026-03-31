@@ -121,9 +121,14 @@ const Footer = () => {
               <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Phone size={20} className="text-bison-pink group-hover:text-white transition-colors" /></motion.div>
               <a href="tel:+4520323144" className="hover:text-bison-pink transition-colors">+45 20 32 31 44</a>
             </li>
-            <li className="flex items-center gap-3 group">
-              <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><MapPin size={20} className="text-bison-blue group-hover:text-white transition-colors" /></motion.div>
-              <span>Aarhus, Danmark</span>
+            <li className="flex items-start gap-3 group">
+              <motion.div whileHover={{ scale: 1.2, rotate: 10 }} className="pt-0.5">
+                <MapPin size={20} className="text-bison-blue group-hover:text-white transition-colors" />
+              </motion.div>
+              <span className="leading-snug">
+                Aarhus, Danmark<br />
+                <span className="text-white/50 text-[13px]">CVR: 45899713</span>
+              </span>
             </li>
           </ul>
         </div>
