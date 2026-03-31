@@ -124,11 +124,11 @@ const BekreftAftale = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 0.6 }}
-                className="text-[36px] md:text-[52px] font-black tracking-tighter font-display uppercase leading-[0.9] mb-4 text-bison-dark"
+                className="text-[32px] md:text-[52px] font-black tracking-tighter font-display uppercase leading-[0.95] md:leading-[0.9] mb-4 text-bison-dark"
               >
                 Lad os komme i <br />
-                gang med <span className="text-bison-blue/80 block md:inline">jeres</span> <br />
-                <span className="italic font-serif normal-case font-medium text-bison-brown/60 pt-1.5 inline-block drop-shadow-sm">nye hjemmeside</span>
+                gang med <span className="text-bison-blue/80">jeres</span> <br className="hidden md:block" />
+                <span className="italic font-serif normal-case font-medium text-bison-brown/60 pt-0 md:pt-1.5 block md:inline-block drop-shadow-sm">nye hjemmeside</span>
               </motion.h1>
               
               <motion.p
