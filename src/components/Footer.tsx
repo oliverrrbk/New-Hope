@@ -127,7 +127,7 @@ const Footer = () => {
               </motion.div>
               <span className="leading-snug">
                 Aarhus, Danmark<br />
-                <span className="text-white/50 text-[13px]">CVR: 45899713</span>
+                <span className="text-white/50 text-[10px] md:text-[14px]">CVR: 45899713</span>
               </span>
             </li>
           </ul>
