@@ -6,6 +6,7 @@ import { CustomCursor } from './components/CustomCursor';
 import { AnimatedRoutes } from './components/AnimatedRoutes';
 
 import { ReactLenis } from 'lenis/react';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Footer />
         </div>
       </ReactLenis>
+      <Analytics />
     </Router>
   );
 }
