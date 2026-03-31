@@ -185,6 +185,10 @@ const BekreftAftale = () => {
                     { nr: "3", title: "Siden går i luften", text: "I får en professionel side, der kører perfekt." }
                   ].map((step, i) => (
                     <div key={i} className="relative z-10 flex sm:flex-col items-start gap-4 sm:gap-3">
+                      {/* Vertical line specifically for mobile, bridging this circle to the next */}
+                      {i < 2 && (
+                        <div className="absolute left-4 -translate-x-1/2 top-8 bottom-[-24px] w-[1px] bg-bison-dark/10 sm:hidden -z-[1]" />
+                      )}
                       <div className="w-8 h-8 rounded-full bg-white border border-bison-dark/10 shadow-sm flex items-center justify-center text-[10px] font-black shrink-0">
                         {step.nr}
                       </div>
