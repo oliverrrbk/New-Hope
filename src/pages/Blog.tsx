@@ -88,7 +88,7 @@ const Blog = () => {
   ];
 
   return (
-    <main className="pt-32">
+    <main className="pt-32 overflow-x-hidden w-full">
       <PageSkyHeader />
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
