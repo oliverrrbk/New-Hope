@@ -127,15 +127,18 @@ const Footer = () => {
               </motion.div>
               <span className="leading-snug">
                 Aarhus, Danmark<br />
-                <span className="text-white/50 text-[10px] md:text-[14px]">CVR: 45899713</span>
+                <span className="text-white/50 text-[10px] md:text-[14px]">
+                  Bison Company ApS<br />
+                  CVR: 45899713
+                </span>
               </span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/40">
-        <p>© 2026 Bison Company ApS. Alle rettigheder forbeholdes.</p>
+      <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
+        <p className="text-[10.5px] sm:text-[12px] md:text-sm whitespace-nowrap">© 2026 Bison Company ApS. Alle rettigheder forbeholdes.</p>
         <div className="flex gap-8">
           <button onClick={() => setIsPolicyOpen(true)} className="hover:text-white transition-colors cursor-pointer outline-none">Privatlivspolitik</button>
         </div>
