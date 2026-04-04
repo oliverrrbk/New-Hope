@@ -228,7 +228,8 @@ const Blog = () => {
                   backfaceVisibility: "hidden",
                   WebkitPerspective: 1000,
                   perspective: 1000,
-                  transform: "translateZ(0)"
+                  WebkitTransform: "translate3d(0,0,1px)",
+                  transform: "translate3d(0,0,1px)"
                 }}
                 className="group cursor-pointer flex flex-col transform-gpu"
               >

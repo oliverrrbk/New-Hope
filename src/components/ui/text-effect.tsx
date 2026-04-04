@@ -108,25 +108,27 @@ const AnimationComponent: React.FC<{
 }> = React.memo(({ segment, variants, per, segmentWrapperClassName }) => {
   const content =
     per === 'line' ? (
-      <motion.span variants={variants} className='block'>
+      <motion.span variants={variants} className='block transform-gpu' style={{ willChange: 'opacity, filter, transform', WebkitTransform: 'translate3d(0,0,1px)' }}>
         {segment}
       </motion.span>
     ) : per === 'word' ? (
       <motion.span
         aria-hidden='true'
         variants={variants}
-        className='inline-block whitespace-pre'
+        className='inline-block whitespace-pre transform-gpu'
+        style={{ willChange: 'opacity, filter, transform', WebkitTransform: 'translate3d(0,0,1px)' }}
       >
         {segment}
       </motion.span>
     ) : (
-      <motion.span className='inline-block whitespace-pre'>
+      <motion.span className='inline-block whitespace-pre transform-gpu' style={{ willChange: 'opacity, filter, transform', WebkitTransform: 'translate3d(0,0,1px)' }}>
         {segment.split('').map((char, charIndex) => (
           <motion.span
             key={`char-${charIndex}`}
             aria-hidden='true'
             variants={variants}
-            className='inline-block whitespace-pre'
+            className='inline-block whitespace-pre transform-gpu'
+            style={{ willChange: 'opacity, filter, transform', WebkitTransform: 'translate3d(0,0,1px)' }}
           >
             {char}
           </motion.span>
@@ -141,7 +143,7 @@ const AnimationComponent: React.FC<{
   const defaultWrapperClassName = per === 'line' ? 'block' : 'inline-block';
 
   return (
-    <span className={cn(defaultWrapperClassName, segmentWrapperClassName)}>
+    <span className={cn(defaultWrapperClassName, segmentWrapperClassName, 'transform-gpu')} style={{ WebkitTransform: 'translate3d(0,0,1px)' }}>
       {content}
     </span>
   );
