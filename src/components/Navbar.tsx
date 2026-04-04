@@ -33,7 +33,7 @@ const Navbar = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`h-[2.75rem] sm:h-[3.35rem] flex items-center justify-center transition-all duration-300 relative top-[3px]`}
+            className={`h-[2.75rem] sm:h-[3.35rem] flex items-center justify-center transition-all duration-300 relative top-[1.5px]`}
           >
             <img 
               src="/assets/logo-clean.png" 
