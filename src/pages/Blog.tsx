@@ -181,7 +181,7 @@ const Blog = () => {
               <FadeText
                 direction="up"
                 text="Vores Tanker"
-                className="inline-block bg-bison-dark/5 px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest text-bison-dark/60"
+                className="inline-block bg-bison-dark/5 px-2.5 py-0.5 md:px-3.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60"
                 framerProps={{ show: { transition: { delay: 0.8 } } }}
               />
             </div>
@@ -222,7 +222,12 @@ const Blog = () => {
                 whileHover={{ y: -6, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedPost(post)}
-                className="group cursor-pointer flex flex-col"
+                style={{
+                  willChange: "transform, opacity, filter",
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden"
+                }}
+                className="group cursor-pointer flex flex-col transform-gpu"
               >
                 <div className="aspect-[4/3] rounded-[1.2rem] overflow-hidden mb-5 relative shadow-lg">
                   <img src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" referrerPolicy="no-referrer" />

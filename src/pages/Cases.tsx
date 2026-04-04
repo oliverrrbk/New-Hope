@@ -89,7 +89,7 @@ const Cases = () => {
             <FadeText
               direction="up"
               text="Vores Arbejde"
-              className="inline-block bg-bison-dark/5 px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest text-bison-dark/60"
+              className="inline-block bg-bison-dark/5 px-2.5 py-0.5 md:px-3.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60"
               framerProps={{ show: { transition: { delay: 1.2 } } }}
             />
           </div>
