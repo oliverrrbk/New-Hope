@@ -225,7 +225,10 @@ const Blog = () => {
                 style={{
                   willChange: "transform, opacity, filter",
                   WebkitBackfaceVisibility: "hidden",
-                  backfaceVisibility: "hidden"
+                  backfaceVisibility: "hidden",
+                  WebkitPerspective: 1000,
+                  perspective: 1000,
+                  transform: "translateZ(0)"
                 }}
                 className="group cursor-pointer flex flex-col transform-gpu"
               >
