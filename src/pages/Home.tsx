@@ -603,7 +603,7 @@ const myPricingPlans: PricingCardProps[] = [
     description: 'Perfekt til den mindre virksomhed, der bare skal stå skarpt.', 
     price: '7.500', 
     priceSuffix: 'kr. (Én gang)',
-    features: ['45 min. behovsinterview', 'High-end design & animationer', 'Professionel tekstforfatning', 'Færdig på 7 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
+    features: ['45 min. behovsinterview', 'High-end design & animationer', 'Professionel tekstforfatning', 'Færdig på 9 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
     buttonText: 'Kom i gang', 
     buttonVariant: 'secondary',
     themeColor: 'green'
@@ -613,7 +613,7 @@ const myPricingPlans: PricingCardProps[] = [
     description: 'Til virksomheden, der vil have plads til at folde sine ydelser ud.', 
     price: '13.900', 
     priceSuffix: 'kr. (Én gang)', 
-    features: ['Alt fra One-pager pakken', 'Op til 5 unikke hovedsider', 'Plads til ydelser, om os & cases', 'Færdig på 7 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
+    features: ['Alt fra One-pager pakken', 'Op til 5 unikke hovedsider', 'Plads til ydelser, om os & cases', 'Færdig på 9 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
     buttonText: 'Vælg denne', 
     isPopular: true, 
     buttonVariant: 'primary',
@@ -775,7 +775,7 @@ const SmoothLiftoff = () => {
             <StepItem 
               step="03" 
               title1="Fuldt " title2="ejerskab" 
-              desc={<>Efter præcis en uge går vi live. Du ejer <br className="hidden md:block" />siden 100%. Det betyder ingen binding, <br className="hidden md:block" />ingen månedlige gebyrer og ingen <br className="hidden md:block" />'digital husleje' til os.</>}
+              desc={<>Efter præcis 9 dage går vi live. Du ejer <br className="hidden md:block" />siden 100%. Det betyder ingen binding, <br className="hidden md:block" />ingen månedlige gebyrer og ingen <br className="hidden md:block" />'digital husleje' til os.</>}
               align="left"
               bgColor="#1095ed"
               textColor="#fff"
@@ -976,7 +976,7 @@ const Home = () => {
             <span className="inline-block text-[28px] sm:text-[30px] md:text-[inherit] italic font-serif normal-case font-medium text-bison-brown leading-[1.1] md:leading-tight mt-1 md:mt-0 md:ml-2">Nul abonnement.</span>
           </>
         }
-        subtitle="Samme elite-kvalitet og 7-dages levering på alle løsninger. Du betaler for omfanget af din side, ikke for dårligere håndværk. Du ejer det hele 100% fra dag ét."
+        subtitle="Samme elite-kvalitet og 9-dages levering på alle løsninger. Du betaler for omfanget af din side, ikke for dårligere håndværk. Du ejer det hele 100% fra dag ét."
         plans={myPricingPlans}
         showAnimatedBackground={true}
       />

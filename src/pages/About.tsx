@@ -314,7 +314,7 @@ const About = () => {
               },
               { 
                 title: "METODEN", 
-                text: "Vi interviewer dig, skriver dine tekster og koder alt på én uge. Det er den eneste måde at bevare momentum og kvalitet.",
+                text: "Vi interviewer dig, skriver dine tekster og koder alt på 9 dage. Det er den eneste måde at bevare momentum og kvalitet.",
                 bg: "bg-bison-pink",
                 zIndex: "z-20"
               },

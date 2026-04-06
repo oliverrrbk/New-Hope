@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { RippleButton } from "./multi-type-ripple-buttons";
+import { useNavigate } from 'react-router-dom';
 // --- Internal Helper Components (Not exported) --- //
 
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -233,6 +234,7 @@ export interface PricingCardProps {
   priceSuffix?: string;
   features: string[];
   buttonText: string;
+  buttonLink?: string;
   isPopular?: boolean;
   buttonVariant?: 'primary' | 'secondary';
   themeColor?: 'green' | 'pink' | 'blue';
@@ -242,8 +244,9 @@ export interface PricingCardProps {
  * We export the PricingCard component itself in case you want to use it elsewhere.
  */
 export const PricingCard = ({
-  planName, description, price, priceSuffix, features, buttonText, isPopular = false, buttonVariant = 'primary', themeColor = 'blue'
+  planName, description, price, priceSuffix, features, buttonText, buttonLink = '/book-et-opkald', isPopular = false, buttonVariant = 'primary', themeColor = 'blue'
 }: PricingCardProps) => {
+  const navigate = useNavigate();
   const themeMap = {
     green: {
       bg: 'bg-bison-green',
@@ -312,6 +315,7 @@ export const PricingCard = ({
         variant="default"
         rippleColor="rgba(255,255,255,0.4)"
         rippleDuration={800}
+        onClick={() => navigate(buttonLink)}
       >
         {buttonText}
       </RippleButton>
