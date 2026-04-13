@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, ArrowRight, ShieldCheck, Globe, Zap, Info, X } from 'lucide-react';
@@ -65,6 +66,11 @@ const BekreftAftale = () => {
 
   if (isSuccess) {
     return (
+      <>
+      <Helmet>
+        <title>Bekræft Aftale | Bison Company</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <main className="pt-32 min-h-[80vh] flex flex-col justify-center relative">
         <PageSkyHeader />
         <section className="py-20 px-6 relative z-[100] flex-1 flex items-center justify-center">
@@ -98,11 +104,16 @@ const BekreftAftale = () => {
         </section>
 
       </main>
+      </>
     );
   }
 
   return (
     <>
+      <Helmet>
+        <title>Bekræft Aftale | Bison Company</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <main className="pt-32">
       <PageSkyHeader />
       <section className="py-20 px-6 relative z-[100]">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Clock, Video, MessageSquare, ArrowRight, Check } from 'lucide-react';
 import { PageSkyHeader } from '../components/ui/page-sky-header';
@@ -114,8 +115,14 @@ const BookCall = () => {
   }, []);
 
   return (
-    <main className="pt-32">
-      <PageSkyHeader />
+    <>
+      <Helmet>
+        <title>Book et opkald | Få et tilbud på en ny hjemmeside | Bison Company</title>
+        <meta name="description" content="Vælg et tidspunkt i kalenderen, så tager vi en uforpligtende snak om dine muligheder for en ny, professionel hjemmeside." />
+        <link rel="canonical" href="https://bisoncompany.dk/book-et-opkald" />
+      </Helmet>
+      <main className="pt-32">
+        <PageSkyHeader />
       <section className="py-20 px-6 relative z-[100]">
         <div className="max-w-[832px] mx-auto">
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -319,6 +326,7 @@ const BookCall = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 

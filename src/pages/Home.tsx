@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence, useAnimate } from 'motion/react';
 import {
   ArrowRight,
@@ -828,8 +829,16 @@ const Home = () => {
   };
 
   return (
-    <main className="overflow-x-hidden w-full relative">
-      <Hero />
+    <>
+      <Helmet>
+        <title>Hjemmesider uden abonnement | Unikt design af Bison Company</title>
+        <meta name="description" content="Vi designer skræddersyede hjemmesider fra bunden uden skjulte gebyrer eller digital husleje. Få en professionel løsning, og betal kun én gang." />
+        <link rel="canonical" href="https://bisoncompany.dk/" />
+        <meta property="og:title" content="Hjemmesider uden abonnement | Unikt design af Bison Company" />
+        <meta property="og:description" content="Vi designer skræddersyede hjemmesider fra bunden uden skjulte gebyrer eller digital husleje. Få en professionel løsning, og betal kun én gang." />
+      </Helmet>
+      <main className="overflow-x-hidden w-full relative">
+        <Hero />
       <Services />
       <Mission />
 
@@ -1024,6 +1033,7 @@ const Home = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 

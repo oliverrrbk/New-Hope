@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { ArrowRight, ExternalLink, Quote, Hammer } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -81,8 +82,16 @@ const Cases = () => {
   };
 
   return (
-    <main className="pt-32">
-      <PageSkyHeader />
+    <>
+      <Helmet>
+        <title>Vores Cases | Webdesign af høj kvalitet | Bison Company</title>
+        <meta name="description" content="Se vores tidligere arbejde, lige fra anlægsgartnere til ventilationsfirmaer. Vi bygger konverteringsfokuserede sites med premium design." />
+        <link rel="canonical" href="https://bisoncompany.dk/cases" />
+        <meta property="og:title" content="Vores Cases | Webdesign af høj kvalitet | Bison Company" />
+        <meta property="og:description" content="Se vores tidligere arbejde, lige fra anlægsgartnere til ventilationsfirmaer. Vi bygger konverteringsfokuserede sites med premium design." />
+      </Helmet>
+      <main className="pt-32">
+        <PageSkyHeader />
       <section className="py-12 md:py-20 px-6 relative z-10">
         <div className="max-w-[832px] mx-auto">
           <div className="mb-4 overflow-hidden">
@@ -196,7 +205,7 @@ const Cases = () => {
                   className="group block cursor-pointer"
                 >
                   <div className="aspect-video rounded-[1.6rem] overflow-hidden mb-5 relative shadow-xl">
-                    <img src={c.img} alt={c.title} className="w-full h-full object-cover object-top scale-[1.04] origin-top transition-transform duration-700 group-hover:scale-[1.08]" referrerPolicy="no-referrer" />
+                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className="w-full h-full object-cover object-top scale-[1.04] origin-top transition-transform duration-700 group-hover:scale-[1.08]" referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
                       <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-black text-[13px] md:text-[16px] uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-2.5 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/30">
                         <span>Se Case</span>
@@ -230,6 +239,7 @@ const Cases = () => {
       {/* Spacing before footer */}
       <div className="h-20 md:h-32" />
     </main>
+    </>
   );
 };
 

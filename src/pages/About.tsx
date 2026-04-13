@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import { Paintbrush, Unlock, Zap as ZapIcon, Quote } from 'lucide-react';
 import { PageSkyHeader } from '../components/ui/page-sky-header';
@@ -27,9 +28,17 @@ const About = () => {
   }, []);
 
   return (
-    <main className="pt-32 overflow-x-hidden w-full relative">
-      <PageSkyHeader />
-      
+    <>
+      <Helmet>
+        <title>Om Bison Company | Menneskerne bag det ærlige webbureau</title>
+        <meta name="description" content="Vi er et passioneret tremandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
+        <link rel="canonical" href="https://bisoncompany.dk/om-os" />
+        <meta property="og:title" content="Om Bison Company | Menneskerne bag det ærlige webbureau" />
+        <meta property="og:description" content="Vi er et passioneret tremandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
+      </Helmet>
+      <main className="pt-32 overflow-x-hidden w-full relative">
+        <PageSkyHeader />
+
       {/* 1. Hero Section (Kept exactly as it was) */}
       <section className="py-20 px-6 relative overflow-hidden">
         <div className="max-w-[832px] mx-auto text-center flex flex-col items-center mb-10 relative z-10">
@@ -41,7 +50,7 @@ const About = () => {
               framerProps={{ show: { transition: { delay: 0.8 } } }}
             />
           </div>
-          
+
           <h1 className="text-[34px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[1.1] mb-5 w-full">
             <FadeText
               direction="right"
@@ -55,23 +64,23 @@ const About = () => {
               framerProps={{ show: { transition: { delay: 1.2 } } }}
             />
           </h1>
-          
+
           <div className="overflow-hidden w-full max-w-[580px]">
-             <motion.p
-               initial={{ opacity: 0, x: -20 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ delay: 1.4 }}
-               className="text-[16px] text-bison-dark/70 font-medium leading-relaxed inline-block"
-             >
-               Bison er et passioneret tremandshold stiftet på vreden over branchens <br className="hidden md:block" /> langsomme og dyre processer. Vi knokler solen sort for at bygge dit digitale <br className="hidden md:block" /> ansigt udadtil – lynhurtigt, bundærligt og snorlige.
-             </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.4 }}
+              className="text-[16px] text-bison-dark/70 font-medium leading-relaxed inline-block"
+            >
+              Bison er et passioneret tremandshold stiftet på vreden over branchens <br className="hidden md:block" /> langsomme og dyre processer. Vi knokler solen sort for at bygge dit digitale <br className="hidden md:block" /> ansigt udadtil – lynhurtigt, bundærligt og snorlige.
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* IMAGE 1: Large Team Image with stylized background block */}
       <section className="px-6 mb-12 md:mb-16 relative z-10 -mt-10 md:-mt-14" style={{ perspective: "1500px" }}>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, rotateX: 25, y: 52, scale: 0.95 }}
           animate={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
           transition={{ delay: 1.6, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
@@ -79,22 +88,22 @@ const About = () => {
         >
           {/* White glass effect block */}
           <div className="absolute top-6 -left-[15px] -right-[15px] bottom-[-1.3rem] bg-white/40 backdrop-blur-xl border border-white/50 rounded-[1.6rem] -z-10 shadow-[0_20px_40px_rgba(0,0,0,0.05)]" />
-          
+
           {/* Colored Geometric shapes */}
-          <motion.div 
-            animate={{ rotate: 360, y: [-10, 10, -10] }} 
+          <motion.div
+            animate={{ rotate: 360, y: [-10, 10, -10] }}
             transition={{ rotate: { duration: 30, repeat: Infinity, ease: "linear" }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-            className="absolute -left-10 top-0 w-16 h-16 border-[2px] border-bison-pink/80 rounded-md rotate-12 -z-20 shadow-sm" 
+            className="absolute -left-10 top-0 w-16 h-16 border-[2px] border-bison-pink/80 rounded-md rotate-12 -z-20 shadow-sm"
           />
-          <motion.div 
-            animate={{ rotate: -360, x: [-10, 10, -10] }} 
+          <motion.div
+            animate={{ rotate: -360, x: [-10, 10, -10] }}
             transition={{ rotate: { duration: 40, repeat: Infinity, ease: "linear" }, x: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
-            className="absolute -right-10 bottom-10 w-20 h-20 rounded-full border-[2px] border-bison-blue/80 -z-20 border-dashed shadow-sm" 
+            className="absolute -right-10 bottom-10 w-20 h-20 rounded-full border-[2px] border-bison-blue/80 -z-20 border-dashed shadow-sm"
           />
-          <motion.div 
-            animate={{ y: [0, -15, 0] }} 
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-1/4 -bottom-6 w-10 h-10 bg-bison-green/50 rounded-full blur-[9px] -z-20" 
+            className="absolute left-1/4 -bottom-6 w-10 h-10 bg-bison-green/50 rounded-full blur-[9px] -z-20"
           />
 
           <div className="aspect-[21/9] md:aspect-[16/7] rounded-[1.2rem] overflow-hidden shadow-lg relative bg-bison-dark">
@@ -111,7 +120,7 @@ const About = () => {
       {/* IMAGE 2: Values Cards Grid + Wide Stats Banner */}
       <section className="pt-10 md:pt-16 pb-16 px-6 relative z-10" ref={metodeRef}>
         <div className="max-w-[750px] mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.9, filter: "blur(15px)" }}
             animate={isMetodeInView ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" } : {}}
             transition={{ type: "spring", stiffness: 100, damping: 15, duration: 0.8 }}
@@ -120,7 +129,7 @@ const About = () => {
             <h2 className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight mb-2 text-bison-dark">
               VORES METODE <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">i fokus</span>
             </h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               animate={isMetodeInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -137,7 +146,7 @@ const About = () => {
               { title: "TIDSBESPARENDE", desc: "Vi trækker din viden ud af hovedet på dig på 45 minutter. Vi skriver teksterne, så du kan passe din forretning imens.", icon: <ZapIcon size={180} className="text-bison-pink" strokeWidth={1} /> },
               { title: "RENT EJERSKAB", desc: "Når vi er færdige, klipper vi forbindelsen. Du ejer det hele 100%. Slut med at betale \"digital husleje\" for din egen side.", icon: <Unlock size={150} className="text-bison-blue" strokeWidth={1} /> }
             ].map((f, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={isMetodeInView ? { opacity: 1, y: 0, scale: 1 } : {}}
@@ -145,7 +154,7 @@ const About = () => {
                 className="flex-1 flex flex-col items-center text-center group relative overflow-visible py-5"
               >
                 {/* Large Background Icon */}
-                <motion.div 
+                <motion.div
                   animate={isMetodeInView ? { y: [-5, 5, -5], rotate: [-4, 4, -4] } : {}}
                   transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
                   className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-40 -z-10 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:opacity-[0.55]"
@@ -187,7 +196,7 @@ const About = () => {
             </div>
 
             {/* Glassmorphism Container */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               animate={isMetodeInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
@@ -206,10 +215,10 @@ const About = () => {
                   { val: "45", suffix: "MIN.", label: "ARBEJDE FRA DIN SIDE" }
                 ].map((stat, idx) => (
                   <div key={idx} className="text-center flex flex-col items-center justify-center -mt-1 px-1 shrink-0">
-                     <div className="flex items-baseline gap-[1px] md:gap-[2px] whitespace-nowrap text-bison-dark mb-1">
-                       <span className="text-[26px] sm:text-[32px] md:text-[42px] font-black font-display tracking-tighter">{stat.val}</span>
-                       {stat.suffix && <span className="text-[16px] sm:text-[20px] md:text-[26px] font-black font-display tracking-tighter">{stat.suffix}</span>}
-                     </div>
+                    <div className="flex items-baseline gap-[1px] md:gap-[2px] whitespace-nowrap text-bison-dark mb-1">
+                      <span className="text-[26px] sm:text-[32px] md:text-[42px] font-black font-display tracking-tighter">{stat.val}</span>
+                      {stat.suffix && <span className="text-[16px] sm:text-[20px] md:text-[26px] font-black font-display tracking-tighter">{stat.suffix}</span>}
+                    </div>
                     <div className="text-[6.5px] sm:text-[7.5px] md:text-[8px] font-bold uppercase tracking-widest whitespace-nowrap text-bison-dark/60">{stat.label}</div>
                   </div>
                 ))}
@@ -223,7 +232,7 @@ const About = () => {
       <section className="py-20 md:py-24 bg-white px-6">
         <div className="max-w-[750px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-5 text-center md:text-left">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -231,7 +240,7 @@ const About = () => {
             >
               MENNESKERNE <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">bagved</span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -278,10 +287,10 @@ const About = () => {
                 onClick={() => setActiveMember(activeMember === i ? null : i)}
               >
                 <div className={`aspect-[4/5] rounded-[12px] overflow-hidden mb-3 relative ${member.color}/20`}>
-                  <img 
-                    src={member.img} 
-                    alt={member.name} 
-                    className={member.imgClassName} 
+                  <img
+                    src={member.img}
+                    alt={`${member.name}, ${member.role} ved webbureauet Bison Company`}
+                    className={member.imgClassName}
                     referrerPolicy="no-referrer"
                   />
                   {/* Hover Description Overlay */}
@@ -306,34 +315,34 @@ const About = () => {
           {/* Stacked Blocks - Unfolding Animation with Characteristic Colors */}
           <div className="flex flex-col relative w-full items-center">
             {[
-              { 
-                title: "LOGIKKEN", 
+              {
+                title: "LOGIKKEN",
                 text: "Vi bygger kun sider, der er visuelt overlegne. Hvis det ikke ser bedre ud end dine konkurrenters, er vi ikke færdige.",
                 bg: "bg-bison-green",
-                zIndex: "z-30" 
+                zIndex: "z-30"
               },
-              { 
-                title: "METODEN", 
+              {
+                title: "METODEN",
                 text: "Vi interviewer dig, skriver dine tekster og koder alt på 9 dage. Det er den eneste måde at bevare momentum og kvalitet.",
                 bg: "bg-bison-pink",
                 zIndex: "z-20"
               },
-              { 
-                title: "STARTEN", 
+              {
+                title: "STARTEN",
                 text: "Bison opstod som en modreaktion på abonnements-fælder og langsomme processer. Vi gør det gnidningsfrit, og vi gør det ordentligt.",
                 bg: "bg-bison-blue",
                 zIndex: "z-10"
               }
             ].map((block, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: -26 * (i + 1) }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ 
-                  delay: i * 0.2, 
-                  duration: 0.8, 
-                  ease: [0.22, 1, 0.36, 1] 
+                transition={{
+                  delay: i * 0.2,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1]
                 }}
                 className={`${block.bg} px-6 ${i > 0 ? 'pb-5 pt-[3rem] md:pt-[3.25rem] md:pb-6' : 'py-5 md:py-6'} flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-[5.2rem] w-full max-w-[750px] shadow-md rounded-t-[1.6rem] ${i === 2 ? 'rounded-b-[1.6rem] mb-0' : '-mb-6'} ${block.zIndex} border-t border-white/40 relative z-10`}
               >
@@ -354,7 +363,7 @@ const About = () => {
       {/* IMAGE 5: Light Testimonial Section */}
       <section className="py-16 md:py-20 bg-[#fbfbf9] px-6 text-bison-dark overflow-hidden relative">
         <div className="max-w-[750px] mx-auto relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -363,7 +372,7 @@ const About = () => {
             {/* "What they say" on the left, with animated underline */}
             <div className="flex flex-col items-start gap-[6px]">
               <h3 className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight text-bison-dark">RYGTET SIGER</h3>
-              <motion.div 
+              <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -371,16 +380,16 @@ const About = () => {
                 className="h-[1.5px] md:h-[2px] bg-bison-blue opacity-50 w-full rounded-full origin-left mt-[2px]"
               />
             </div>
-            
+
             {/* Quote on the right */}
             <div className="flex items-center">
               <Quote className="text-bison-green opacity-90 hidden md:block" size={42} strokeWidth={2.5} />
               <Quote className="text-bison-green opacity-90 md:hidden" size={26} strokeWidth={2.5} />
             </div>
           </motion.div>
-          
+
           <div className="relative mb-10 md:mb-12">
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
@@ -389,8 +398,8 @@ const About = () => {
               "Lige nu er kalenderen faktisk fuldstændig booket op med sindssygt spændende projekter for nye kunder. Så indtil vi får dem skudt i luften – og samlet de uundgåelige femstjernede anmeldelser ind – må vi bede dig om selv at vurdere, hvad folk mon kommer til at sige om os..."
             </motion.p>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -415,6 +424,7 @@ const About = () => {
       {/* Spacing before footer */}
       <div className="bg-[#fbfbf9] h-20 md:h-32" />
     </main>
+    </>
   );
 };
 

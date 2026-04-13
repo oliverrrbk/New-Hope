@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Clock, User, X } from 'lucide-react';
 import { PageSkyHeader } from '../components/ui/page-sky-header';
@@ -88,8 +89,14 @@ const Blog = () => {
   ];
 
   return (
-    <main className="pt-32 overflow-x-hidden w-full">
-      <PageSkyHeader />
+    <>
+      <Helmet>
+        <title>Blog & Insights | Lær om webdesign og konvertering | Bison Company</title>
+        <meta name="description" content="Læs vores nyeste tanker om moderne webdesign, psykologi og konverteringsstrategier der hjælper din forretning vokse." />
+        <link rel="canonical" href="https://bisoncompany.dk/blog" />
+      </Helmet>
+      <main className="pt-32 overflow-x-hidden w-full">
+        <PageSkyHeader />
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 10px;
@@ -325,6 +332,7 @@ const Blog = () => {
       {/* Spacing before footer */}
       <div className="h-10 md:h-16" />
     </main>
+    </>
   );
 };
 
