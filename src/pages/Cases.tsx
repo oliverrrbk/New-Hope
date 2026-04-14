@@ -26,7 +26,7 @@ const Cases = () => {
     {
       title: "Showcase",
       category: "Anlægsgartner",
-      desc: "Dette er et eksempel på den visuelle klasse og konverteringsfokuserede detaljegrad, vi bygger. Hver pixel er tænkt ind i en større strategi for stærke håndværkere.",
+      desc: "Dette er bare et ydmygt, lille showcase. Et rart og nede-på-jorden indblik i det ukomplicerede, bundsolide webdesign, der ofte performer ubesværet bedst for kunden.",
       img: "/casepic1.png",
       link: "https://www.eksempel.nu/",
       isUnderConstruction: false,
