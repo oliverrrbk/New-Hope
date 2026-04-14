@@ -26,7 +26,7 @@ const Cases = () => {
     {
       title: "Showcase",
       category: "Anlægsgartner",
-      desc: "Et eksempel på den visuelle klasse og konverteringsfokuserede detaljegrad, vi bygger til dygtige håndværkervirksomheder.",
+      desc: "Dette er et eksempel på den visuelle klasse og konverteringsfokuserede detaljegrad, vi bygger. Hver pixel er tænkt ind i en større strategi for stærke håndværkere.",
       img: "/casepic1.png",
       link: "https://www.eksempel.nu/",
       isUnderConstruction: false,
@@ -39,7 +39,7 @@ const Cases = () => {
     {
       title: "OSMA Klima ApS",
       category: "Ventilationsløsninger",
-      desc: "For OSMA Klima har vi bygget en skarpskåren digital tilstedeværelse, der understreger deres kompromisløse faglighed inden for ventilation. Siden er designet til at konvertere både private og store erhvervskunder.",
+      desc: "For OSMA Klima har vi designet en knivskarp platform, der cementerer deres faglige tyngde inden for ventilation over for både store erhvervsprojekter og private.",
       img: "/showcase1.png", 
       link: "https://www.osmaklima.dk/",
       isUnderConstruction: false,
@@ -206,7 +206,7 @@ const Cases = () => {
                   className="group block cursor-pointer"
                 >
                   <div className="aspect-video rounded-[1.6rem] overflow-hidden mb-5 relative shadow-xl">
-                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover transition-transform duration-700 ${c.title === "Showcase" ? "object-top origin-top scale-[1.25] group-hover:scale-[1.30]" : "object-[50%_20%] origin-[50%_20%] scale-[1.25] group-hover:scale-[1.30]"}`} referrerPolicy="no-referrer" />
+                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover transition-transform duration-700 ${c.title === "Showcase" ? "object-top origin-top scale-[1.35] group-hover:scale-[1.40]" : "object-[50%_20%] origin-[50%_20%] scale-[1.18] group-hover:scale-[1.22]"}`} referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
                       <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-black text-[13px] md:text-[16px] uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-2.5 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/30">
                         <span>Se Case</span>
