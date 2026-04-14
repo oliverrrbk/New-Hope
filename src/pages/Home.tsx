@@ -803,8 +803,8 @@ const Home = () => {
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const cases = [
-    { src: "/showcase1.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
     { src: "/casepic1.png", link: "https://www.eksempel.nu/", isUnderConstruction: false },
+    { src: "/showcase1.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
     { src: "", link: "", isUnderConstruction: true }
   ];
 
@@ -921,7 +921,7 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className={`mx-auto object-cover h-full w-full object-top origin-top transition-transform duration-700 rounded-[16px] md:rounded-[24px] lg:rounded-[30px] xl:rounded-[40px] ${activeCaseIndex === 0 ? "scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : "scale-[1.15] group-hover:scale-[1.20]"}`}
+                    className={`mx-auto object-cover h-full w-full object-top origin-top transition-transform duration-700 rounded-[16px] md:rounded-[24px] lg:rounded-[30px] xl:rounded-[40px] ${activeCaseIndex === 1 ? "scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : "scale-[1.15] group-hover:scale-[1.20]"}`}
                     draggable={false}
                   />
                   {/* Hover Overlay */}
