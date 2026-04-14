@@ -921,7 +921,7 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.22] transition-transform duration-700 group-hover:scale-[1.26] -translate-y-5 md:-translate-y-8 lg:-translate-y-10"
+                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.26] transition-transform duration-700 group-hover:scale-[1.30] -translate-y-6 md:-translate-y-9 lg:-translate-y-12 xl:-translate-y-14"
                     draggable={false}
                   />
                   {/* Hover Overlay */}
