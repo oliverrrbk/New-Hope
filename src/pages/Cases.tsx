@@ -50,14 +50,15 @@ const Cases = () => {
       ]
     },
     {
-      title: "Næste Projekt",
-      category: "Aftale Lukket",
-      desc: "Vi har netop skudt processen i gang og indskrevet i kalenderen. Endnu en lokal servicevirksomhed, der rykker liga digitalt.",
+      title: "Salon 24",
+      category: "Frisørsalon",
+      desc: "For Salon 24 bygger vi netop nu en knivskarp ny webplatform, der effektivt sløjfer frisørens ældre hjemmeside og i stedet sender kunderne ind i et langt flottere univers.",
       link: "#",
-      isUnderConstruction: false,
-      isUpcoming: true,
+      isUnderConstruction: true,
+      isUpcoming: false,
       tags: [
-        { text: "I Kalenderen", theme: "Vækst" }
+        { text: "Under Opbygning", theme: "Design" },
+        { text: "Redesign", theme: "Vækst" }
       ]
     },
     {
