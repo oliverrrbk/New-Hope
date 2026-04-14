@@ -803,6 +803,7 @@ const Home = () => {
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const cases = [
+    { src: "/showcase1.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
     { src: "/casepic1.png", link: "https://www.eksempel.nu/", isUnderConstruction: false },
     { src: "", link: "", isUnderConstruction: true }
   ];

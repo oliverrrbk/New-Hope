@@ -39,13 +39,14 @@ const Cases = () => {
     {
       title: "OSMA Klima ApS",
       category: "Ventilationsløsninger",
-      desc: "Lige nu har vi smidt en solid arbejdsuge ind på at bygge en komplet, skarp digital tilstedeværelse for OSMA Klima. Glæd dig til at se resultatet.",
-      img: "", 
-      link: "#",
-      isUnderConstruction: true,
+      desc: "For OSMA Klima har vi bygget en skarpskåren digital tilstedeværelse, der understreger deres kompromisløse faglighed inden for ventilation. Siden er designet til at konvertere både private og store erhvervskunder.",
+      img: "/showcase1.png", 
+      link: "https://www.osmaklima.dk/",
+      isUnderConstruction: false,
       isUpcoming: false,
       tags: [
-        { text: "Undervejs", theme: "Teknologi" }
+        { text: "Ventilation", theme: "Teknologi" },
+        { text: "Konvertering", theme: "Vækst" }
       ]
     },
     {
