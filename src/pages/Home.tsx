@@ -921,7 +921,7 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.22] transition-transform duration-700 group-hover:scale-[1.26] -translate-y-6 md:-translate-y-8 lg:-translate-y-10 rounded-[16px] md:rounded-[24px] xl:rounded-[40px]"
+                    className={`mx-auto object-cover h-full w-full object-top origin-top transition-transform duration-700 rounded-[16px] md:rounded-[24px] lg:rounded-[30px] xl:rounded-[40px] ${activeCaseIndex === 0 ? "scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : "scale-[1.04] group-hover:scale-[1.08]"}`}
                     draggable={false}
                   />
                   {/* Hover Overlay */}
