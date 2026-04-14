@@ -898,7 +898,7 @@ const Home = () => {
                 </motion.div>
               ) : (
                 <motion.a
-                  key="case"
+                  key={`case-${activeCaseIndex}`}
                   href={cases[activeCaseIndex].link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -921,7 +921,7 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.04] transition-transform duration-700 group-hover:scale-[1.08] rounded-[16px] md:rounded-[24px] lg:rounded-[30px]"
+                    className="mx-auto object-cover h-full w-full object-top origin-top scale-[1.15] transition-transform duration-700 group-hover:scale-[1.20] rounded-[16px] md:rounded-[24px] lg:rounded-[30px]"
                     draggable={false}
                   />
                   {/* Hover Overlay */}
