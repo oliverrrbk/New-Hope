@@ -58,9 +58,9 @@ const Footer = () => {
     </div>
 
     <div className="max-w-[1280px] mx-auto px-6 relative z-10" style={{ zoom: "65%" }}>
-      <div className="grid md:grid-cols-4 gap-12 mb-20">
+      <div className="grid md:grid-cols-4 gap-[48px] mb-[80px]">
         <div className="col-span-2">
-          <Link to="/" className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group inline-flex">
+          <Link to="/" className="flex items-center gap-3 md:gap-[16px] mb-[24px] md:mb-[32px] group inline-flex">
             <motion.div
               whileHover={{ rotate: -10, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -72,11 +72,11 @@ const Footer = () => {
               Bison Company
             </span>
           </Link>
-          <h2 className="text-[26px] md:text-4xl font-black font-display uppercase tracking-tighter leading-tight mb-8 max-w-md">
+          <h2 className="text-[26px] md:text-[36px] font-black font-display uppercase tracking-tighter leading-tight mb-[32px] max-w-md">
             Med ærlighed <br />
             kommer <span className="italic font-serif normal-case font-medium text-bison-blue">man længst</span>
           </h2>
-          <div className="flex gap-4">
+          <div className="flex gap-[16px]">
             {[
               { Icon: Instagram, url: "https://www.instagram.com/vierbison/" },
               { Icon: Linkedin, url: "https://www.linkedin.com/company/bison-company-aps/" }
@@ -97,8 +97,8 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Naviger</h4>
-          <ul className="space-y-4">
+          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-[24px]">Naviger</h4>
+          <ul className="space-y-[16px]">
             {[
               { name: 'Hjem', path: '/' },
               { name: 'Om os', path: '/om-os' },
@@ -116,17 +116,17 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Kontakt</h4>
-          <ul className="space-y-4">
-            <li className="flex items-center gap-3 group">
+          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-[24px]">Kontakt</h4>
+          <ul className="space-y-[16px]">
+            <li className="flex items-center gap-[12px] group">
               <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Mail size={20} className="text-bison-green group-hover:text-white transition-colors" /></motion.div>
               <a href="mailto:team@bisoncompany.dk" className="hover:text-bison-green transition-colors">team@bisoncompany.dk</a>
             </li>
-            <li className="flex items-center gap-3 group">
+            <li className="flex items-center gap-[12px] group">
               <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Phone size={20} className="text-bison-pink group-hover:text-white transition-colors" /></motion.div>
               <a href="tel:+4520323144" className="hover:text-bison-pink transition-colors">+45 20 32 31 44</a>
             </li>
-            <li className="flex items-start gap-3 group">
+            <li className="flex items-start gap-[12px] group">
               <motion.div whileHover={{ scale: 1.2, rotate: 10 }} className="pt-0.5">
                 <MapPin size={20} className="text-bison-blue group-hover:text-white transition-colors" />
               </motion.div>
@@ -142,9 +142,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
+      <div className="pt-[48px] border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-[24px] text-white/40">
         <p className="text-[10.5px] sm:text-[12px] md:text-sm whitespace-nowrap">© 2026 Bison Company ApS. Alle rettigheder forbeholdes.</p>
-        <div className="flex gap-8">
+        <div className="flex gap-[32px]">
           <button onClick={() => setIsPolicyOpen(true)} className="hover:text-white transition-colors cursor-pointer outline-none">Privatlivspolitik</button>
         </div>
       </div>
