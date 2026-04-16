@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Instagram, Linkedin, Twitter, Mail, Phone, MapPin, X } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -77,10 +77,15 @@ const Footer = () => {
             kommer <span className="italic font-serif normal-case font-medium text-bison-blue">man længst</span>
           </h2>
           <div className="flex gap-4">
-            {[Instagram, Linkedin, Twitter].map((Icon, index) => (
+            {[
+              { Icon: Instagram, url: "https://www.instagram.com/vierbison/" },
+              { Icon: Linkedin, url: "https://www.linkedin.com/company/bison-company-aps/" }
+            ].map(({ Icon, url }, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, rotate: 5, backgroundColor: "#ffffff", color: "var(--color-bison-dark)" }}
                 whileTap={{ scale: 0.9 }}
                 className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors duration-300"
