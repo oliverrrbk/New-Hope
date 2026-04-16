@@ -1007,7 +1007,7 @@ const Home = () => {
               <span className="italic font-serif normal-case font-medium text-bison-pink">digital husleje.</span>
             </h2>
             <p className="text-[12px] md:text-[10px] lg:text-[12.5px] xl:text-[14px] 2xl:text-[14px] text-white/60 w-full mb-4 lg:mb-5 xl:mb-6 2xl:mb-8 leading-relaxed max-w-[620px]">
-              Stop med at vente på dit bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et <br className="hidden 2xl:block" />
+              Stop med at vente på et bureau. Vi leverer din nye side hurtigere, end de kan nå at booke et <br className="hidden 2xl:block" />
               opstartsmøde. Du ejer det hele 100%, når vi er færdige, og vi sender aldrig en regning for <br className="hidden 2xl:block"/>
               "vedligeholdelse". Book 15 minutter, og find ud af, om vi kan hjælpe.
             </p>
