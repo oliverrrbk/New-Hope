@@ -9,10 +9,8 @@ const StripeDecorator = ({ vertical = false, className = "" }) => (
 
 const Footer = () => {
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
-  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
     if (isPolicyOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -59,7 +57,7 @@ const Footer = () => {
       />
     </div>
 
-    <div className={`${isSafari ? 'max-w-[832px]' : 'max-w-7xl'} mx-auto px-6 relative z-10`} style={{ zoom: "65%" }}>
+    <div className="max-w-[1280px] mx-auto px-6 relative z-10" style={{ zoom: "65%" }}>
       <div className="grid md:grid-cols-4 gap-12 mb-20">
         <div className="col-span-2">
           <Link to="/" className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group inline-flex">
