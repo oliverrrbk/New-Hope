@@ -9,8 +9,10 @@ const StripeDecorator = ({ vertical = false, className = "" }) => (
 
 const Footer = () => {
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
     if (isPolicyOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -57,97 +59,95 @@ const Footer = () => {
       />
     </div>
 
-    <div className="max-w-7xl mx-auto relative z-10">
-      <div className="px-6" style={{ zoom: "65%" }}>
-        <div className="grid md:grid-cols-4 gap-12 mb-20">
-          <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group inline-flex">
-              <motion.div
-                whileHover={{ rotate: -10, scale: 1.1 }}
+    <div className={`${isSafari ? 'max-w-[832px]' : 'max-w-7xl'} mx-auto px-6 relative z-10`} style={{ zoom: "65%" }}>
+      <div className="grid md:grid-cols-4 gap-12 mb-20">
+        <div className="col-span-2">
+          <Link to="/" className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group inline-flex">
+            <motion.div
+              whileHover={{ rotate: -10, scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-white/20 transition-all duration-300 overflow-hidden"
+            >
+              <img src="/assets/logo-clean.png" alt="Bison Logo" className="w-[130%] h-[130%] object-contain scale-110" />
+            </motion.div>
+            <span className="text-xl md:text-2xl font-black tracking-tighter font-display uppercase group-hover:text-white/60 transition-colors duration-300 text-white/40">
+              Bison Company
+            </span>
+          </Link>
+          <h2 className="text-[26px] md:text-4xl font-black font-display uppercase tracking-tighter leading-tight mb-8 max-w-md">
+            Med ærlighed <br />
+            kommer <span className="italic font-serif normal-case font-medium text-bison-blue">man længst</span>
+          </h2>
+          <div className="flex gap-4">
+            {[
+              { Icon: Instagram, url: "https://www.instagram.com/vierbison/" },
+              { Icon: Linkedin, url: "https://www.linkedin.com/company/bison-company-aps/" }
+            ].map(({ Icon, url }, index) => (
+              <motion.a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.15, rotate: 5, backgroundColor: "#ffffff", color: "var(--color-bison-dark)" }}
                 whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-white/20 transition-all duration-300 overflow-hidden"
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors duration-300"
               >
-                <img src="/assets/logo-clean.png" alt="Bison Logo" className="w-[130%] h-[130%] object-contain scale-110" />
-              </motion.div>
-              <span className="text-xl md:text-2xl font-black tracking-tighter font-display uppercase group-hover:text-white/60 transition-colors duration-300 text-white/40">
-                Bison Company
-              </span>
-            </Link>
-            <h2 className="text-[26px] md:text-4xl font-black font-display uppercase tracking-tighter leading-tight mb-8 max-w-md">
-              Med ærlighed <br />
-              kommer <span className="italic font-serif normal-case font-medium text-bison-blue">man længst</span>
-            </h2>
-            <div className="flex gap-4">
-              {[
-                { Icon: Instagram, url: "https://www.instagram.com/vierbison/" },
-                { Icon: Linkedin, url: "https://www.linkedin.com/company/bison-company-aps/" }
-              ].map(({ Icon, url }, index) => (
-                <motion.a
-                  key={index}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.15, rotate: 5, backgroundColor: "#ffffff", color: "var(--color-bison-dark)" }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors duration-300"
-                >
-                  <Icon size={20} />
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Naviger</h4>
-            <ul className="space-y-4">
-              {[
-                { name: 'Hjem', path: '/' },
-                { name: 'Om os', path: '/om-os' },
-                { name: 'Cases', path: '/cases' },
-                { name: 'Blog', path: '/blog' },
-                { name: 'Book en snak', path: '/book-et-opkald' }
-              ].map(item => (
-                <li key={item.name}>
-                  <Link to={item.path} className="inline-block hover:text-bison-blue transition-all duration-300 hover:translate-x-2">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Kontakt</h4>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3 group">
-                <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Mail size={20} className="text-bison-green group-hover:text-white transition-colors" /></motion.div>
-                <a href="mailto:team@bisoncompany.dk" className="hover:text-bison-green transition-colors">team@bisoncompany.dk</a>
-              </li>
-              <li className="flex items-center gap-3 group">
-                <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Phone size={20} className="text-bison-pink group-hover:text-white transition-colors" /></motion.div>
-                <a href="tel:+4520323144" className="hover:text-bison-pink transition-colors">+45 20 32 31 44</a>
-              </li>
-              <li className="flex items-start gap-3 group">
-                <motion.div whileHover={{ scale: 1.2, rotate: 10 }} className="pt-0.5">
-                  <MapPin size={20} className="text-bison-blue group-hover:text-white transition-colors" />
-                </motion.div>
-                <span className="leading-snug">
-                  Aarhus, Danmark<br />
-                  <span className="text-white/50 text-[10px] md:text-[14px]">
-                    Bison Company ApS<br />
-                    CVR: 45899713
-                  </span>
-                </span>
-              </li>
-            </ul>
+                <Icon size={20} />
+              </motion.a>
+            ))}
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
-          <p className="text-[10.5px] sm:text-[12px] md:text-sm whitespace-nowrap">© 2026 Bison Company ApS. Alle rettigheder forbeholdes.</p>
-          <div className="flex gap-8">
-            <button onClick={() => setIsPolicyOpen(true)} className="hover:text-white transition-colors cursor-pointer outline-none">Privatlivspolitik</button>
-          </div>
+        <div>
+          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Naviger</h4>
+          <ul className="space-y-4">
+            {[
+              { name: 'Hjem', path: '/' },
+              { name: 'Om os', path: '/om-os' },
+              { name: 'Cases', path: '/cases' },
+              { name: 'Blog', path: '/blog' },
+              { name: 'Book en snak', path: '/book-et-opkald' }
+            ].map(item => (
+              <li key={item.name}>
+                <Link to={item.path} className="inline-block hover:text-bison-blue transition-all duration-300 hover:translate-x-2">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-6">Kontakt</h4>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3 group">
+              <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Mail size={20} className="text-bison-green group-hover:text-white transition-colors" /></motion.div>
+              <a href="mailto:team@bisoncompany.dk" className="hover:text-bison-green transition-colors">team@bisoncompany.dk</a>
+            </li>
+            <li className="flex items-center gap-3 group">
+              <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Phone size={20} className="text-bison-pink group-hover:text-white transition-colors" /></motion.div>
+              <a href="tel:+4520323144" className="hover:text-bison-pink transition-colors">+45 20 32 31 44</a>
+            </li>
+            <li className="flex items-start gap-3 group">
+              <motion.div whileHover={{ scale: 1.2, rotate: 10 }} className="pt-0.5">
+                <MapPin size={20} className="text-bison-blue group-hover:text-white transition-colors" />
+              </motion.div>
+              <span className="leading-snug">
+                Aarhus, Danmark<br />
+                <span className="text-white/50 text-[10px] md:text-[14px]">
+                  Bison Company ApS<br />
+                  CVR: 45899713
+                </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
+        <p className="text-[10.5px] sm:text-[12px] md:text-sm whitespace-nowrap">© 2026 Bison Company ApS. Alle rettigheder forbeholdes.</p>
+        <div className="flex gap-8">
+          <button onClick={() => setIsPolicyOpen(true)} className="hover:text-white transition-colors cursor-pointer outline-none">Privatlivspolitik</button>
         </div>
       </div>
     </div>
