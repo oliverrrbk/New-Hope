@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Check, ArrowRight, ShieldCheck, Globe, Zap, Info, X } from 'lucide-react';
 import { PageSkyHeader } from '../components/ui/page-sky-header';
 
-// CRM webhook URL — update this to match your CRM's Vercel deployment domain
-const CRM_URL = "https://crm-oliverrrbk.vercel.app";
+// CRM webhook URL
+const CRM_URL = "https://www.bisoncrm.dk";
 
 const BekreftAftale = () => {
   const [searchParams] = useSearchParams();
@@ -44,47 +44,28 @@ const BekreftAftale = () => {
     setIsSubmitting(true);
     
     try {
-      // 1. Submit data to the Google Apps Script endpoint (existing flow)
-      const formData = new FormData();
-      formData.append('company', companyInfo);
-      formData.append('name', contactName);
-      formData.append('email', contactEmail);
-      formData.append('package', pakkeQuery);
-      formData.append('price', prisQuery);
-      
-      const googleSheetPromise = fetch("https://script.google.com/macros/s/AKfycbzv_e1z0FlIebngm1wYST4FI4Dwjg90xf2e0ppfMZ7StKuvLC3_BRTQaVhNStHPBrXL/exec", {
+      // Send confirmation to CRM — auto-converts lead to customer
+      const res = await fetch(`${CRM_URL}/api/webhooks/confirm-lead`, {
         method: "POST",
-        body: formData,
-        mode: "no-cors"
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          leadId,
+          product: pakkeQuery,
+          price: prisQuery
+        })
       });
 
-      // 2. If this confirmation came from a CRM email (leadId present),
-      //    also notify the CRM to auto-convert the lead to a customer
-      let crmPromise: Promise<any> = Promise.resolve();
-      if (leadId) {
-        crmPromise = fetch(`${CRM_URL}/api/webhooks/confirm-lead`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            leadId: leadId,
-            product: pakkeQuery,
-            price: prisQuery
-          })
-        }).then(res => res.json()).catch(err => {
-          console.error('CRM webhook error:', err);
-          // Don't block success — the Google Sheet already has the data
-        });
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error('CRM webhook error:', data);
       }
 
-      // Fire both requests in parallel
-      await Promise.all([googleSheetPromise, crmPromise]);
-      
       setIsSubmitting(false);
       setIsSuccess(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
-      console.error(error);
-      // Vi lader dem gå igennem, selv ved no-cors "fejl", da scriptet ofte stadig har modtaget data.
+      console.error('Confirmation error:', error);
       setIsSubmitting(false);
       setIsSuccess(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
