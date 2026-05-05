@@ -5,13 +5,19 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Check, ArrowRight, ShieldCheck, Globe, Zap, Info, X } from 'lucide-react';
 import { PageSkyHeader } from '../components/ui/page-sky-header';
 
+// CRM webhook URL — update this to match your CRM's Vercel deployment domain
+const CRM_URL = "https://crm-oliverrrbk.vercel.app";
+
 const BekreftAftale = () => {
   const [searchParams] = useSearchParams();
   const pakkeQuery = searchParams.get('pakke') || 'Ifølge fremsendte tilbud';
   const prisQuery = searchParams.get('pris') || '';
+  const leadId = searchParams.get('leadId') || '';
+  const virksomhedQuery = searchParams.get('virksomhed') || '';
+  const navnQuery = searchParams.get('navn') || '';
 
-  const [companyInfo, setCompanyInfo] = useState('');
-  const [contactName, setContactName] = useState('');
+  const [companyInfo, setCompanyInfo] = useState(virksomhedQuery);
+  const [contactName, setContactName] = useState(navnQuery);
   const [contactEmail, setContactEmail] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,6 +44,7 @@ const BekreftAftale = () => {
     setIsSubmitting(true);
     
     try {
+      // 1. Submit data to the Google Apps Script endpoint (existing flow)
       const formData = new FormData();
       formData.append('company', companyInfo);
       formData.append('name', contactName);
@@ -45,12 +52,32 @@ const BekreftAftale = () => {
       formData.append('package', pakkeQuery);
       formData.append('price', prisQuery);
       
-      // Submits data to the Google Apps Script endpoint
-      await fetch("https://script.google.com/macros/s/AKfycbzv_e1z0FlIebngm1wYST4FI4Dwjg90xf2e0ppfMZ7StKuvLC3_BRTQaVhNStHPBrXL/exec", {
+      const googleSheetPromise = fetch("https://script.google.com/macros/s/AKfycbzv_e1z0FlIebngm1wYST4FI4Dwjg90xf2e0ppfMZ7StKuvLC3_BRTQaVhNStHPBrXL/exec", {
         method: "POST",
         body: formData,
         mode: "no-cors"
       });
+
+      // 2. If this confirmation came from a CRM email (leadId present),
+      //    also notify the CRM to auto-convert the lead to a customer
+      let crmPromise: Promise<any> = Promise.resolve();
+      if (leadId) {
+        crmPromise = fetch(`${CRM_URL}/api/webhooks/confirm-lead`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            leadId: leadId,
+            product: pakkeQuery,
+            price: prisQuery
+          })
+        }).then(res => res.json()).catch(err => {
+          console.error('CRM webhook error:', err);
+          // Don't block success — the Google Sheet already has the data
+        });
+      }
+
+      // Fire both requests in parallel
+      await Promise.all([googleSheetPromise, crmPromise]);
       
       setIsSubmitting(false);
       setIsSuccess(true);
