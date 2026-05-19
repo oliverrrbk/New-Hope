@@ -917,16 +917,16 @@ const Home = () => {
                     else if (offset.x > 50) prevCase();
                   }}
                   style={{ WebkitMaskImage: "-webkit-radial-gradient(white, black)" }}
-                  className="absolute inset-0 block w-full h-full group cursor-pointer overflow-hidden rounded-[24px] md:rounded-[30px] xl:rounded-[40px] bg-white"
+                  className="absolute inset-0 block w-full h-full group cursor-pointer overflow-hidden"
                 >
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className={`mx-auto object-cover h-full w-full object-top origin-top transition-transform duration-700 rounded-[16px] md:rounded-[24px] lg:rounded-[30px] xl:rounded-[40px] ${activeCaseIndex === 1 ? "scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : "scale-[1.15] group-hover:scale-[1.20]"}`}
+                    className={`mx-auto object-cover h-full w-full object-top origin-top transition-transform duration-700 ${activeCaseIndex === 1 ? "scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : "scale-[1.15] group-hover:scale-[1.20]"}`}
                     draggable={false}
                   />
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[16px] md:rounded-[24px] lg:rounded-[30px] flex items-center justify-center backdrop-blur-sm z-50">
+                  <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm z-50">
                     <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-black text-sm lg:text-lg uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-3 lg:gap-4 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-out hover:bg-white/30 hover:scale-105 active:scale-95">
                       <span>Besøg Siden</span>
                       <div className="bg-white/20 p-2 rounded-full border border-white/20 shadow-sm">

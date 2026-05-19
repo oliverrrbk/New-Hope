@@ -136,12 +136,12 @@ export const Card = ({
       
       {/* Absolute placerede pile UDENFOR skærmens klippe-felt */}
       {leftArrow && (
-        <div className="absolute top-1/2 -left-4 md:-left-8 lg:-left-12 xl:-left-16 -translate-y-1/2 z-30">
+        <div className="absolute top-1/2 -left-6 md:-left-12 lg:-left-16 xl:-left-20 -translate-y-1/2 z-30">
           {leftArrow}
         </div>
       )}
       {rightArrow && (
-        <div className="absolute top-1/2 -right-4 md:-right-8 lg:-right-12 xl:-right-16 -translate-y-1/2 z-30">
+        <div className="absolute top-1/2 -right-6 md:-right-12 lg:-right-16 xl:-right-20 -translate-y-1/2 z-30">
           {rightArrow}
         </div>
       )}
