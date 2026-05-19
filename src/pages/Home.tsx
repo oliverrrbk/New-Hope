@@ -805,6 +805,7 @@ const Home = () => {
   const cases = [
     { src: "/casepic1.png", link: "https://www.eksempel.nu/", isUnderConstruction: false },
     { src: "/showcase1.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
+    { src: "/studio24.jpeg", link: "https://www.studio24randers.dk/", isUnderConstruction: false },
     { src: "", link: "", isUnderConstruction: true }
   ];
 

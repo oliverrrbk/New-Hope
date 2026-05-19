@@ -50,15 +50,28 @@ const Cases = () => {
       ]
     },
     {
-      title: "Salon 24",
+      title: "Studio 24",
       category: "Frisørsalon",
-      desc: "For Salon 24 bygger vi netop nu en knivskarp ny webplatform, der effektivt sløjfer frisørens ældre hjemmeside og i stedet sender kunderne ind i et langt flottere univers.",
+      desc: "For Studio 24 har vi bygget en elegant ny webplatform, der effektivt sløjfer frisørens ældre hjemmeside og i stedet sender kunderne ind i et langt flottere univers.",
+      img: "/studio24.jpeg",
+      link: "https://www.studio24randers.dk/",
+      isUnderConstruction: false,
+      isUpcoming: false,
+      tags: [
+        { text: "Redesign", theme: "Vækst" },
+        { text: "Premium Design", theme: "Design" }
+      ]
+    },
+    {
+      title: "D-EL",
+      category: "Elektriker",
+      desc: "For det nystartede elektrikerfirma D-EL bygger vi fra bunden en stærk hjemmeside, der sikrer dem det absolut bedste afsæt på deres nye rejse.",
       link: "#",
       isUnderConstruction: true,
       isUpcoming: false,
       tags: [
         { text: "Under Opbygning", theme: "Design" },
-        { text: "Redesign", theme: "Vækst" }
+        { text: "Webdesign", theme: "Teknologi" }
       ]
     },
     {
@@ -69,7 +82,7 @@ const Cases = () => {
       isUnderConstruction: false,
       isUpcoming: true,
       tags: [
-        { text: "Din Tur?", theme: "Design" }
+        { text: "Din Tur?", theme: "Teknologi" }
       ]
     }
   ];
@@ -207,7 +220,7 @@ const Cases = () => {
                   className="group block cursor-pointer"
                 >
                   <div className="aspect-video rounded-[1.6rem] overflow-hidden mb-5 relative shadow-xl">
-                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover rounded-[1.6rem] transition-transform duration-700 ${c.title === "Showcase" ? "object-top origin-top scale-[1.22] group-hover:scale-[1.27]" : "object-[50%_25%] origin-[50%_25%] scale-[1.18] group-hover:scale-[1.22]"}`} referrerPolicy="no-referrer" />
+                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover rounded-[1.6rem] transition-transform duration-700 ${c.title === "Showcase" || c.title === "Studio 24" ? "object-top origin-top scale-[1.22] group-hover:scale-[1.27]" : "object-[50%_25%] origin-[50%_25%] scale-[1.18] group-hover:scale-[1.22]"}`} referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
                       <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-black text-[13px] md:text-[16px] uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-2.5 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/30">
                         <span>Se Case</span>

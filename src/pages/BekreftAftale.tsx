@@ -23,6 +23,7 @@ const BekreftAftale = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isTermsOpen, setIsTermsOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (isTermsOpen) {
@@ -42,23 +43,28 @@ const BekreftAftale = () => {
     if (!termsAccepted || !companyInfo.trim() || !contactName.trim() || !contactEmail.trim()) return;
     
     setIsSubmitting(true);
-    
+    setErrorMessage('');
+
     try {
-      // Send confirmation to CRM — auto-converts lead to customer
+      // CRM only needs leadId. Product, pris, firmanavn, email osv. læses fra leadet i CRM'en —
+      // det er sandhedens kilde. Det kunden indtaster her er kun til deres egen bekræftelse.
       const res = await fetch(`${CRM_URL}/api/webhooks/confirm-lead`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          leadId,
-          product: pakkeQuery,
-          price: prisQuery
-        })
+        body: JSON.stringify({ leadId })
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
 
-      if (!res.ok) {
+      if (!res.ok || !data.success) {
         console.error('CRM webhook error:', data);
+        setIsSubmitting(false);
+        setErrorMessage(
+          data?.error === 'Lead not found'
+            ? 'Aftalen er allerede bekræftet, eller linket er ugyldigt. Kontakt os hvis du er i tvivl.'
+            : 'Noget gik galt under bekræftelsen. Prøv igen, eller kontakt os på team@bisoncompany.dk.'
+        );
+        return;
       }
 
       setIsSubmitting(false);
@@ -67,8 +73,7 @@ const BekreftAftale = () => {
     } catch (error) {
       console.error('Confirmation error:', error);
       setIsSubmitting(false);
-      setIsSuccess(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setErrorMessage('Kunne ikke kontakte serveren. Tjek din internetforbindelse og prøv igen.');
     }
   };
 
@@ -312,6 +317,12 @@ const BekreftAftale = () => {
                         </div>
                       </label>
                     </div>
+
+                    {errorMessage && (
+                      <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-[12px] text-red-700 leading-relaxed">
+                        {errorMessage}
+                      </div>
+                    )}
 
                     <motion.button
                       whileHover={termsAccepted && companyInfo.trim() && contactName.trim() && contactEmail.trim() ? { scale: 1.02 } : {}}
