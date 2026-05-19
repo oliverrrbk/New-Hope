@@ -12,7 +12,15 @@ export default defineConfig(({mode}) => {
       tailwindcss(),
       Sitemap({
         hostname: 'https://bisoncompany.dk',
-        dynamicRoutes: ['/om-os', '/cases', '/blog', '/book-et-opkald']
+        dynamicRoutes: ['/om-os', '/cases', '/blog', '/book-et-opkald'],
+        exclude: ['/bekraeft-aftale'],
+        robots: [
+          {
+            userAgent: '*',
+            allow: '/',
+            disallow: '/bekraeft-aftale',
+          }
+        ]
       })
     ],
     define: {

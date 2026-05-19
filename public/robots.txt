@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /bekraeft-aftale
+
+Sitemap: https://bisoncompany.dk/sitemap.xml
