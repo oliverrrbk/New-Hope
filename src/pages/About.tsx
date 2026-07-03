@@ -36,7 +36,7 @@ const About = () => {
         <meta property="og:title" content="Om Bison Company | Menneskerne bag det ærlige webbureau" />
         <meta property="og:description" content="Vi er et passioneret tomandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
       </Helmet>
-      <main className="pt-32 overflow-x-hidden w-full relative">
+      <main className="pt-32 overflow-x-hidden w-full relative font-body text-bison-dark">
         <PageSkyHeader />
 
       {/* 1. Hero Section (Kept exactly as it was) */}
@@ -46,21 +46,21 @@ const About = () => {
             <FadeText
               direction="up"
               text="OM BISON COMPANY"
-              className="inline-block bg-bison-dark/5 px-2.5 py-0.5 md:px-3.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60"
+              className="inline-block bg-bison-dark/[0.04] px-3 py-1 md:px-3.5 md:py-1 rounded-full text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-bison-brown"
               framerProps={{ show: { transition: { delay: 0.8 } } }}
             />
           </div>
 
-          <h1 className="text-[34px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[1.1] mb-5 w-full">
+          <h1 className="text-[34px] md:text-[62px] font-extrabold tracking-[-0.02em] font-heading leading-[1.05] mb-5 w-full">
             <FadeText
               direction="right"
-              text="INGEN SPILDTID ELLER TOMME ORD."
+              text={"Ingen spildtid eller tomme ord."}
               framerProps={{ show: { transition: { delay: 1.0 } } }}
             />
             <FadeText
               direction="down"
               text="Bare ungt, råt håndværk."
-              className="text-[30px] md:text-[62px] italic font-serif normal-case font-medium text-bison-green block mt-3 md:mt-0"
+              className="text-[30px] md:text-[62px] italic font-serif font-medium text-bison-green block mt-3 md:mt-0"
               framerProps={{ show: { transition: { delay: 1.2 } } }}
             />
           </h1>
@@ -70,9 +70,9 @@ const About = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.4 }}
-              className="text-[16px] text-bison-dark/70 font-medium leading-relaxed inline-block"
+              className="text-[16px] md:text-[17px] text-bison-dark/70 leading-relaxed inline-block"
             >
-              Bison er et passioneret tomandshold stiftet på vreden over branchens <br className="hidden md:block" /> langsomme og dyre processer. Vi knokler solen sort for at bygge dit digitale <br className="hidden md:block" /> ansigt udadtil – gennemtænkt, bundærligt og snorlige.
+              Bison er et passioneret tomandshold stiftet på vreden over branchens <br className="hidden md:block" /> langsomme og dyre processer. Vi knokler solen sort for at bygge dit <br className="hidden md:block" /> digitale ansigt udadtil – gennemtænkt, bundærligt og snorlige.
             </motion.p>
           </div>
         </div>
@@ -126,14 +126,14 @@ const About = () => {
             transition={{ type: "spring", stiffness: 100, damping: 15, duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight mb-2 text-bison-dark">
-              VORES METODE <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">i fokus</span>
+            <h2 className="text-[26px] md:text-[34px] font-extrabold font-heading tracking-[-0.02em] mb-2 text-bison-dark">
+              Vores metode <span className="italic font-serif font-medium text-bison-brown drop-shadow-sm pb-1">i fokus</span>
             </h2>
             <motion.p
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               animate={isMetodeInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="text-[10px] text-bison-dark/60 max-w-[374px] mx-auto font-bold uppercase tracking-widest"
+              className="text-[11px] md:text-xs text-bison-dark/50 max-w-[374px] mx-auto font-semibold uppercase tracking-[0.14em]"
             >
               INGEN SKABELONER - BARE BENHÅRDT HÅNDVÆRK
             </motion.p>
@@ -142,9 +142,9 @@ const About = () => {
           {/* New 3 USPs replacing 5 cards - Floating Background Icons */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-5 mb-20">
             {[
-              { title: "DESIGN-NØRDERI", desc: "Vi bygger alt fra bunden. Det betyder lynhurtige sider og animationer, der får dine konkurrenter til at ligne fortiden.", icon: <Paintbrush size={170} className="text-bison-green" strokeWidth={1} /> },
-              { title: "TIDSBESPARENDE", desc: "Vi trækker din viden ud af hovedet på dig på 45 minutter. Vi skriver teksterne, så du kan passe din forretning imens.", icon: <ZapIcon size={180} className="text-bison-pink" strokeWidth={1} /> },
-              { title: "RENT EJERSKAB", desc: "Når vi er færdige, klipper vi forbindelsen. Du ejer det hele 100%. Slut med at betale \"digital husleje\" for din egen side.", icon: <Unlock size={150} className="text-bison-blue" strokeWidth={1} /> }
+              { title: "Design-nørderi", desc: "Vi bygger alt fra bunden. Det betyder lynhurtige sider og animationer, der får dine konkurrenter til at ligne fortiden.", icon: <Paintbrush size={170} className="text-bison-green" strokeWidth={1} /> },
+              { title: "Tidsbesparende", desc: "Vi trækker din viden ud af hovedet på dig på 45 minutter. Vi skriver teksterne, så du kan passe din forretning imens.", icon: <ZapIcon size={180} className="text-bison-pink" strokeWidth={1} /> },
+              { title: "Rent ejerskab", desc: "Når vi er færdige, klipper vi forbindelsen. Du ejer det hele 100%. Slut med at betale \"digital husleje\" for din egen side.", icon: <Unlock size={150} className="text-bison-blue" strokeWidth={1} /> }
             ].map((f, i) => (
               <motion.div
                 key={i}
@@ -164,8 +164,8 @@ const About = () => {
 
                 {/* Text Content */}
                 <div className="relative z-10 px-2 mt-6">
-                  <h4 className="font-black font-display uppercase text-[14px] md:text-[16px] tracking-tight text-bison-dark mb-2">{f.title}</h4>
-                  <p className="text-[10px] text-bison-dark/60 font-bold leading-relaxed max-w-[210px] mx-auto">{f.desc}</p>
+                  <h4 className="font-heading font-bold text-[15px] md:text-[17px] tracking-[-0.01em] text-bison-dark mb-2">{f.title}</h4>
+                  <p className="text-[13px] md:text-sm text-bison-dark/60 leading-relaxed max-w-[210px] mx-auto">{f.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -203,12 +203,12 @@ const About = () => {
               className="relative z-10 w-full bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[1.6rem] shadow-[0_15px_30px_rgba(0,0,0,0.05)] p-6 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-8"
             >
               <div className="lg:w-1/3 text-center lg:text-left">
-                <h3 className="text-[20px] md:text-[24px] font-black font-display uppercase tracking-tight text-bison-dark leading-tight">
-                  VI BYGGER DIN <br />
-                  <span className="text-bison-brown italic font-serif normal-case font-medium">digitale autoritet</span>
+                <h3 className="text-[22px] md:text-[26px] font-extrabold font-heading tracking-[-0.01em] text-bison-dark leading-tight">
+                  Vi bygger din <br />
+                  <span className="text-bison-brown italic font-serif font-medium">digitale autoritet</span>
                 </h3>
               </div>
-              <div className="lg:w-2/3 flex flex-nowrap justify-center gap-6 md:gap-10 w-full overflow-visible">
+              <div className="lg:w-2/3 flex flex-nowrap justify-center lg:justify-end gap-4 md:gap-6 lg:gap-5 w-full overflow-visible">
                 {[
                   { val: "100%", label: "EJERSKAB FRA DAG 1" },
                   { val: "0 KR.", label: "MÅNEDLIGE GEBYRER" },
@@ -216,10 +216,10 @@ const About = () => {
                 ].map((stat, idx) => (
                   <div key={idx} className="text-center flex flex-col items-center justify-center -mt-1 px-1 shrink-0">
                     <div className="flex items-baseline gap-[1px] md:gap-[2px] whitespace-nowrap text-bison-dark mb-1">
-                      <span className="text-[26px] sm:text-[32px] md:text-[42px] font-black font-display tracking-tighter">{stat.val}</span>
-                      {stat.suffix && <span className="text-[16px] sm:text-[20px] md:text-[26px] font-black font-display tracking-tighter">{stat.suffix}</span>}
+                      <span className="text-[26px] sm:text-[32px] md:text-[42px] font-extrabold font-heading tracking-[-0.02em]">{stat.val}</span>
+                      {stat.suffix && <span className="text-[16px] sm:text-[20px] md:text-[26px] font-extrabold font-heading tracking-[-0.02em]">{stat.suffix}</span>}
                     </div>
-                    <div className="text-[6.5px] sm:text-[7.5px] md:text-[8px] font-bold uppercase tracking-widest whitespace-nowrap text-bison-dark/60">{stat.label}</div>
+                    <div className="text-[8px] sm:text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.04em] whitespace-nowrap text-bison-dark/55">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -236,15 +236,15 @@ const About = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight text-bison-dark text-center md:text-left"
+              className="text-[26px] md:text-[34px] font-extrabold font-heading tracking-[-0.02em] text-bison-dark text-center md:text-left"
             >
-              MENNESKERNE <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">bagved</span>
+              Menneskerne <span className="italic font-serif font-medium text-bison-brown drop-shadow-sm pb-1">bagved</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="text-bison-dark/60 max-w-[340px] md:max-w-md text-[9px] md:text-[10px] font-bold leading-relaxed text-center md:text-right"
+              className="text-bison-dark/60 max-w-[340px] md:max-w-md text-[13px] md:text-sm leading-relaxed text-center md:text-right"
             >
               Vi er ikke et stort, tungt bureau med projektledere og kaffemøder. Vi er et lille hold af specialister, der har fokus på én ting: At gøre det virkelig godt, uden det er bøvlet for dig.
             </motion.p>
@@ -287,13 +287,13 @@ const About = () => {
                   />
                   {/* Hover Description Overlay */}
                   <div className={`absolute inset-0 bg-bison-dark/80 transition-all duration-500 flex flex-col justify-end p-5 ${activeMember === i ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'}`}>
-                    <p className={`text-white text-[9.5px] leading-relaxed font-medium transition-transform duration-500 delay-100 ${activeMember === i ? 'translate-y-0' : 'translate-y-4 md:group-hover:translate-y-0'}`}>
+                    <p className={`text-white text-[12px] md:text-[13px] leading-relaxed transition-transform duration-500 delay-100 ${activeMember === i ? 'translate-y-0' : 'translate-y-4 md:group-hover:translate-y-0'}`}>
                       {member.desc}
                     </p>
                   </div>
                 </div>
-                <h3 className="text-[13px] md:text-[14px] font-black font-display uppercase tracking-tight text-bison-dark mb-1">{member.name}</h3>
-                <p className="text-[8px] font-bold uppercase tracking-widest text-bison-dark/60">{member.role}</p>
+                <h3 className="text-[15px] md:text-[16px] font-heading font-bold tracking-[-0.01em] text-bison-dark mb-1">{member.name}</h3>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/55">{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -308,19 +308,19 @@ const About = () => {
           <div className="flex flex-col relative w-full items-center">
             {[
               {
-                title: "LOGIKKEN",
+                title: "Logikken",
                 text: "Vi bygger kun sider, der er visuelt overlegne. Hvis det ikke ser bedre ud end dine konkurrenters, er vi ikke færdige.",
                 bg: "bg-bison-green",
                 zIndex: "z-30"
               },
               {
-                title: "METODEN",
+                title: "Metoden",
                 text: "Vi interviewer dig, skriver dine tekster og koder alt på 9 dage. Det er den eneste måde at bevare momentum og kvalitet.",
                 bg: "bg-bison-pink",
                 zIndex: "z-20"
               },
               {
-                title: "STARTEN",
+                title: "Starten",
                 text: "Bison opstod som en modreaktion på abonnements-fælder og langsomme processer. Vi gør det gnidningsfrit, og vi gør det ordentligt.",
                 bg: "bg-bison-blue",
                 zIndex: "z-10"
@@ -338,11 +338,11 @@ const About = () => {
                 }}
                 className={`${block.bg} px-6 ${i > 0 ? 'pb-5 pt-[3rem] md:pt-[3.25rem] md:pb-6' : 'py-5 md:py-6'} flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-[5.2rem] w-full max-w-[750px] shadow-md rounded-t-[1.6rem] ${i === 2 ? 'rounded-b-[1.6rem] mb-0' : '-mb-6'} ${block.zIndex} border-t border-white/40 relative z-10`}
               >
-                <div className="md:w-[30%] lg:w-[28%] md:text-right md:pr-[1rem] lg:pr-[2rem]">
-                  <h3 className="text-[20px] md:text-[27px] font-black font-display uppercase tracking-tight text-[#163321]">{block.title}</h3>
+                <div className="md:w-[30%] lg:w-[28%] md:text-left md:pl-[1rem] lg:pl-[2rem]">
+                  <h3 className="text-[22px] md:text-[28px] font-extrabold font-heading tracking-[-0.02em] text-bison-dark">{block.title}</h3>
                 </div>
                 <div className="md:w-[70%] lg:w-[72%] flex items-center">
-                  <p className="text-[#133320]/80 font-medium leading-relaxed text-[9px] md:text-[10.5px] max-w-[340px] md:max-w-[420px]">
+                  <p className="text-bison-dark/80 leading-relaxed text-[13px] md:text-sm max-w-[340px] md:max-w-[420px]">
                     {block.text}
                   </p>
                 </div>
@@ -363,7 +363,7 @@ const About = () => {
           >
             {/* "What they say" on the left, with animated underline */}
             <div className="flex flex-col items-start gap-[6px]">
-              <h3 className="text-[24px] md:text-[32px] font-black font-display uppercase tracking-tight text-bison-dark">RYGTET SIGER</h3>
+              <h3 className="text-[26px] md:text-[34px] font-extrabold font-heading tracking-[-0.02em] text-bison-dark">Rygtet siger</h3>
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -405,8 +405,8 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <p className="font-black font-display uppercase tracking-tight text-[13px] text-bison-dark mb-[2px]">Oliver Rørbæk</p>
-                <p className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-bison-dark/40">Administrerende direktør / ejer, Bison Company</p>
+                <p className="font-heading font-bold tracking-[-0.01em] text-[15px] text-bison-dark mb-[2px]">Oliver Rørbæk</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/45">Administrerende direktør / ejer, Bison Company</p>
               </motion.div>
             </div>
           </motion.div>

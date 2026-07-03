@@ -279,8 +279,8 @@ export const PricingCard = ({
       : `max-w-[234px] 2xl:max-w-[273px] py-6 2xl:py-8`}
   `;
   const buttonClasses = `
-    mt-auto w-full py-2 2xl:py-2.5 rounded-lg font-bold uppercase tracking-wider text-[9px] 2xl:text-[10px] transition-all duration-300 font-sans
-    ${t.bg} brightness-105 saturate-150 text-black border border-black/10 shadow-sm hover:scale-105 hover:-translate-y-1 hover:shadow-xl
+    mt-auto w-full py-2 2xl:py-2.5 rounded-lg font-semibold text-[10px] 2xl:text-[11px] transition-all duration-300 font-body
+    ${t.bg} brightness-105 saturate-150 text-bison-dark border border-bison-dark/10 shadow-sm hover:scale-105 hover:-translate-y-1 hover:shadow-xl
   `;
 
   return (
@@ -294,15 +294,15 @@ export const PricingCard = ({
         </div>
       )}
       <div className="mb-3 2xl:mb-4">
-        <h2 className="text-[27px] 2xl:text-[36px] font-extralight tracking-[-0.03em] text-black font-display leading-[1.1]">{planName}</h2>
-        <p className="text-[10px] 2xl:text-[11.5px] text-black/70 mt-1 2xl:mt-2 font-sans leading-relaxed min-h-[46px] 2xl:min-h-[58px]">{description}</p>
+        <h2 className="text-[27px] 2xl:text-[36px] font-heading font-bold tracking-[-0.02em] text-bison-dark leading-[1.1]">{planName}</h2>
+        <p className="text-[10px] 2xl:text-[11.5px] text-bison-dark/70 mt-1 2xl:mt-2 font-body leading-relaxed min-h-[46px] 2xl:min-h-[58px]">{description}</p>
       </div>
       <div className="mt-4 mb-5 2xl:mt-5 2xl:mb-6 flex flex-wrap items-baseline gap-x-1.5 2xl:gap-x-2 min-h-[36px] 2xl:min-h-[41px]">
-        <span className="text-[26px] 2xl:text-[36px] font-extralight text-bison-brown font-display leading-none">{price}</span>
-        {priceSuffix && <span className="text-[9px] 2xl:text-[10.5px] text-black/70 font-sans">{priceSuffix}</span>}
+        <span className="text-[26px] 2xl:text-[36px] font-heading font-bold text-bison-brown leading-none">{price}</span>
+        {priceSuffix && <span className="text-[9px] 2xl:text-[10.5px] text-bison-dark/70 font-body">{priceSuffix}</span>}
       </div>
       <div className="card-divider w-full mb-5 h-px bg-[linear-gradient(90deg,transparent,rgba(0,0,0,0.1)_50%,transparent)] dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.09)_20%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.09)_80%,transparent)]"></div>
-      <ul className="flex flex-col gap-2 text-[10.5px] text-black/90 mb-6 font-sans">
+      <ul className="flex flex-col gap-2 text-[10.5px] text-bison-dark/90 mb-6 font-body">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-2 2xl:gap-3">
             <CheckIcon className={`${t.text} w-3 h-3 shrink-0 mt-0.5`} />
@@ -354,7 +354,7 @@ export const ModernPricingPage = ({
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   return (
-    <div ref={containerRef} className="bg-white w-full overflow-hidden relative flex flex-col items-center justify-center">
+    <div ref={containerRef} className="bg-white w-full overflow-hidden relative flex flex-col items-center justify-center font-body">
       <div className="absolute top-0 left-0 w-full h-[6rem] bg-gradient-to-b from-bison-bg to-transparent pointer-events-none z-10 md:hidden" />
       {showAnimatedBackground && (
         <motion.div
@@ -366,10 +366,10 @@ export const ModernPricingPage = ({
       )}
       <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 pt-8 md:pt-24 2xl:pt-32 pb-20 md:pb-28 2xl:pb-40">
         <div className="w-full max-w-xl 2xl:max-w-2xl mx-auto text-center mb-10 2xl:mb-12">
-          <h1 className="text-[32px] md:text-[36px] 2xl:text-[41px] font-extralight leading-tight tracking-[-0.03em] text-black font-display">
+          <h1 className="text-[32px] md:text-[36px] 2xl:text-[41px] font-extrabold leading-tight tracking-[-0.02em] text-bison-dark font-heading">
             {title}
           </h1>
-          <p className="mt-2.5 2xl:mt-3 text-[13px] md:text-[12px] 2xl:text-[13px] text-black/80 max-w-lg 2xl:max-w-xl mx-auto font-sans leading-relaxed">
+          <p className="mt-2.5 2xl:mt-3 text-[13px] md:text-[12px] 2xl:text-[13px] text-bison-dark/75 max-w-lg 2xl:max-w-xl mx-auto font-body leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -482,7 +482,7 @@ const MobilePricingStack = ({ plans }: { plans: PricingCardProps[] }) => {
             )}
           </AnimatePresence>
         </div>
-        <span className="text-[10px] font-bold tracking-widest uppercase font-sans">
+        <span className="text-[10px] font-semibold tracking-[0.14em] uppercase font-body">
           Swipe for flere løsninger
         </span>
         <div className="w-[14px] h-[14px] relative flex justify-center items-center">

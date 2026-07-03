@@ -22,7 +22,7 @@ const BookCall = () => {
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
-        styles: { branding: { brandColor: "#1b1b1b" } },
+        styles: { branding: { brandColor: "#3E2723" } },
         layout: "month_view"
       });
     })();
@@ -121,7 +121,7 @@ const BookCall = () => {
         <meta name="description" content="Vælg et tidspunkt i kalenderen, så tager vi en uforpligtende snak om dine muligheder for en ny, professionel hjemmeside." />
         <link rel="canonical" href="https://bisoncompany.dk/book-et-opkald" />
       </Helmet>
-      <main className="pt-32">
+      <main className="pt-32 font-body text-bison-dark">
         <PageSkyHeader />
       <section className="py-20 px-6 relative z-[100]">
         <div className="max-w-[832px] mx-auto">
@@ -133,7 +133,7 @@ const BookCall = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="inline-block bg-bison-dark/5 px-2.5 py-0.5 md:px-3.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60 mb-4"
+                className="inline-block bg-bison-dark/[0.04] px-3 py-1 md:px-3.5 md:py-1 rounded-full text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-bison-brown mb-4"
               >
                 Book en snak
               </motion.div>
@@ -142,11 +142,11 @@ const BookCall = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 0.6 }}
-                className="text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[0.9] mb-2.5 text-bison-dark"
+                className="text-[44px] md:text-[68px] font-extrabold tracking-[-0.02em] font-heading leading-[1.0] mb-2.5 text-bison-dark"
               >
                 Lad os se <br />
                 om vi <br />
-                <span className="italic font-serif normal-case font-medium text-bison-brown/60 pt-1.5 inline-block drop-shadow-sm">kan hjælpe</span>
+                <span className="italic font-serif font-medium text-bison-brown pt-1.5 inline-block drop-shadow-sm">kan hjælpe</span>
               </motion.h1>
               
               {/* Expanding text section pushing items physically down */}
@@ -157,7 +157,7 @@ const BookCall = () => {
                 className="grid"
               >
                 <div className="overflow-hidden">
-                  <p className="text-[13px] w-full text-bison-dark/60 leading-relaxed mt-2.5 mb-8">
+                  <p className="text-[15px] md:text-[16px] w-full text-bison-dark/60 leading-relaxed mt-2.5 mb-8">
                     Vælg et tidspunkt der passer dig, så tager vi en <br className="hidden md:block"/>
                     uforpligtende snak om dine mål og hvordan vi <br className="hidden md:block"/>
                     potentielt kan hjælpe dig med at nå dem.
@@ -182,25 +182,25 @@ const BookCall = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-[16px] md:text-[20px] font-black font-display uppercase tracking-tight">{item.title}</h3>
-                      <p className="text-[10px] md:text-[12px] text-bison-dark/60 mt-0.5">{item.desc}</p>
+                      <h3 className="text-[16px] md:text-[19px] font-heading font-bold tracking-[-0.01em]">{item.title}</h3>
+                      <p className="text-[12px] md:text-[13px] text-bison-dark/60 mt-0.5">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
               <div className="p-5 bg-bison-bg rounded-[1.2rem] border border-bison-dark/5">
-                <h3 className="text-[13px] font-black font-display uppercase mb-2.5 tracking-tight">Hvad sker der nu?</h3>
+                <h3 className="text-[15px] font-heading font-bold mb-2.5 tracking-[-0.01em]">Hvad sker der nu?</h3>
                 <ul className="space-y-2.5">
-                  <li className="flex gap-2 text-[9px] text-bison-dark/60 items-start">
+                  <li className="flex gap-2 text-[12px] text-bison-dark/60 items-start">
                     <ArrowRight size={12} className="text-bison-brown shrink-0 mt-0.5" />
                     Du vælger et tidspunkt der passer dig i kalenderen.
                   </li>
-                  <li className="flex gap-2 text-[9px] text-bison-dark/60 items-start">
+                  <li className="flex gap-2 text-[12px] text-bison-dark/60 items-start">
                     <ArrowRight size={12} className="text-bison-brown shrink-0 mt-0.5" />
                     Du modtager en bekræftelse og et link til mødet.
                   </li>
-                  <li className="flex gap-2 text-[9px] text-bison-dark/60 items-start">
+                  <li className="flex gap-2 text-[12px] text-bison-dark/60 items-start">
                     <ArrowRight size={12} className="text-bison-brown shrink-0 mt-0.5" />
                     Vi tager en snak om dine mål og lægger en plan.
                   </li>
@@ -218,14 +218,14 @@ const BookCall = () => {
                   className="bg-white rounded-[2rem] shadow-2xl relative z-10 w-full overflow-hidden border border-bison-dark/5 min-h-[325px] flex flex-col"
                 >
                   <div className="p-5 bg-bison-dark text-white text-center">
-                    <h2 className="text-[16px] font-black font-display uppercase tracking-tight">Vælg tidspunkt</h2>
+                    <h2 className="text-[16px] font-heading font-bold tracking-[-0.01em]">Vælg tidspunkt</h2>
                     <div className="flex justify-center items-center gap-1.5 mt-1.5">
                       <motion.div 
                         animate={{ opacity: [0.6, 1, 0.6] }} 
                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} 
                         className="w-1.5 h-1.5 shrink-0 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" 
                       />
-                      <span className="text-[8px] font-bold uppercase tracking-widest text-white/60">Ledige tider i dag</span>
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60">Ledige tider i dag</span>
                     </div>
                   </div>
 
@@ -244,7 +244,7 @@ const BookCall = () => {
                   </div>
 
                   <div className="p-4 bg-bison-bg border-t border-bison-dark/5 text-center">
-                    <p className="text-[8px] font-bold text-bison-dark/40 uppercase tracking-widest">Vi glæder os til at møde dig</p>
+                    <p className="text-[10px] font-semibold text-bison-dark/45 uppercase tracking-[0.14em]">Vi glæder os til at møde dig</p>
                   </div>
                 </motion.div>
 
@@ -289,14 +289,14 @@ const BookCall = () => {
                 transition={{ delay: 0.5 }}
                 className="bg-bison-blue/10 p-6 rounded-[1.6rem] border border-bison-blue/20"
               >
-                <h3 className="text-[13px] font-black font-display uppercase mb-2.5 tracking-tight">Passer tiderne ikke?</h3>
-                <p className="text-[9px] text-bison-dark/60 mb-4 w-[85%]">Send os en direkte besked, så finder vi et tidspunkt der fungerer for dig.</p>
+                <h3 className="text-[15px] font-heading font-bold mb-2.5 tracking-[-0.01em]">Passer tiderne ikke?</h3>
+                <p className="text-[12px] text-bison-dark/60 mb-4 w-[85%]">Send os en direkte besked, så finder vi et tidspunkt der fungerer for dig.</p>
                 <div className="relative inline-block">
                   <motion.button 
                     onClick={() => setShowMailPopup(!showMailPopup)} 
                     whileHover={{ scale: 1.05 }} 
                     whileTap={{ scale: 0.95 }} 
-                    className="inline-block bg-bison-dark text-white px-5 py-2 rounded-full font-bold text-[9px] shadow-md transition-shadow hover:shadow-lg focus:outline-none"
+                    className="inline-block bg-bison-dark text-white px-5 py-2 rounded-full font-semibold text-[12px] shadow-md transition-shadow hover:shadow-lg focus:outline-none"
                   >
                     Send en mail
                   </motion.button>
@@ -311,9 +311,9 @@ const BookCall = () => {
                       >
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-px border-[6px] border-transparent border-b-white/70 drop-shadow-sm" />
                         
-                        <p className="text-[8px] font-bold uppercase tracking-widest text-bison-dark/50">Vores direkte e-mail</p>
-                        <p className="text-[12px] font-black font-display text-bison-dark selection:bg-bison-pink/30">team@bisoncompany.dk</p>
-                        <button onClick={handleCopy} className={`mt-1.5 text-[8px] font-bold uppercase tracking-widest text-white px-4 py-1.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-md focus:outline-none flex gap-1.5 items-center ${copiedMail ? 'bg-bison-dark' : 'bg-bison-green hover:bg-bison-green/90'}`}>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/50">Vores direkte e-mail</p>
+                        <p className="text-[13px] font-semibold text-bison-dark selection:bg-bison-pink/30">team@bisoncompany.dk</p>
+                        <button onClick={handleCopy} className={`mt-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white px-4 py-1.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-md focus:outline-none flex gap-1.5 items-center ${copiedMail ? 'bg-bison-dark' : 'bg-bison-green hover:bg-bison-green/90'}`}>
                           {copiedMail ? <><Check size={10} strokeWidth={3} /> Kopieret</> : "Kopier"}
                         </button>
                       </motion.div>

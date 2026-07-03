@@ -84,7 +84,7 @@ const BekreftAftale = () => {
         <title>Bekræft Aftale | Bison Company</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <main className="pt-32 min-h-[80vh] flex flex-col justify-center relative">
+      <main className="pt-32 min-h-[80vh] flex flex-col justify-center relative font-body text-bison-dark">
         <PageSkyHeader />
         <section className="py-20 px-6 relative z-[100] flex-1 flex items-center justify-center">
           <motion.div 
@@ -102,15 +102,15 @@ const BekreftAftale = () => {
               <Check className="w-10 h-10 text-bison-green" strokeWidth={3} />
             </motion.div>
             
-            <h2 className="text-[32px] font-black font-display uppercase leading-none tracking-tight text-bison-dark mb-4">
-              Aftale Bekræftet
+            <h2 className="text-[32px] font-heading font-extrabold leading-none tracking-[-0.02em] text-bison-dark mb-4">
+              Aftale bekræftet
             </h2>
             <p className="text-[14px] text-bison-dark/70 leading-relaxed mb-8">
               Tak for tilliden! Vi glæder os utroligt meget til at komme i gang med jeres nye hjemmeside. Vi sender faktura og næste skridt til din mail inden længe.
             </p>
             
             <div className="bg-bison-bg rounded-2xl p-4 inline-block mx-auto text-left">
-              <p className="text-[10px] uppercase font-bold text-bison-dark/50 tracking-widest mb-1">Kontakt os</p>
+              <p className="text-[10px] uppercase font-semibold text-bison-dark/50 tracking-[0.14em] mb-1">Kontakt os</p>
               <p className="text-[13px] font-medium text-bison-dark">team@bisoncompany.dk</p>
             </div>
           </motion.div>
@@ -127,7 +127,7 @@ const BekreftAftale = () => {
         <title>Bekræft Aftale | Bison Company</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <main className="pt-32">
+      <main className="pt-32 font-body text-bison-dark">
       <PageSkyHeader />
       <section className="py-20 px-6 relative z-[100]">
         <div className="max-w-[900px] mx-auto">
@@ -139,7 +139,7 @@ const BekreftAftale = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="inline-flex gap-2.5 items-center bg-bison-dark/5 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest text-bison-dark/70 mb-5 lg:mb-6"
+                className="inline-flex gap-2.5 items-center bg-bison-dark/[0.04] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] text-bison-brown mb-5 lg:mb-6"
               >
                 <ShieldCheck size={15} className="text-bison-green" /> Sikker bekræftelse
               </motion.div>
@@ -148,11 +148,11 @@ const BekreftAftale = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 0.6 }}
-                className="text-[32px] md:text-[52px] font-black tracking-tighter font-display uppercase leading-[0.95] md:leading-[0.9] mb-4 text-bison-dark"
+                className="text-[32px] md:text-[52px] font-extrabold tracking-[-0.02em] font-heading leading-[1.0] md:leading-[0.95] mb-4 text-bison-dark"
               >
                 Lad os komme i <br />
-                gang med <span className="text-bison-blue/80">jeres</span> <br className="hidden md:block" />
-                <span className="italic font-serif normal-case font-medium text-bison-brown/60 pt-0 md:pt-1.5 block md:inline-block drop-shadow-sm">nye hjemmeside</span>
+                gang med <span className="text-bison-brown">jeres</span> <br className="hidden md:block" />
+                <span className="italic font-serif font-medium text-bison-brown pt-0 md:pt-1.5 block md:inline-block drop-shadow-sm">nye hjemmeside</span>
               </motion.h1>
               
               <motion.p
@@ -171,7 +171,7 @@ const BekreftAftale = () => {
                 transition={{ delay: 1.5, duration: 0.6 }}
                 className="mb-10"
               >
-                <h3 className="text-[14px] font-black font-display uppercase tracking-tight text-bison-dark mb-4">Dét siger I ja til</h3>
+                <h3 className="text-[15px] font-heading font-bold tracking-[-0.01em] text-bison-dark mb-4">Dét siger I ja til</h3>
                 <div className="space-y-4">
                   {[
                     { icon: <Globe className="w-4 h-4 text-bison-blue" />, title: "Skræddersyet Hjemmeside", desc: "Professionelt design optimeret til jeres virksomhed." },
@@ -198,7 +198,7 @@ const BekreftAftale = () => {
                 transition={{ delay: 1.7, duration: 0.6 }}
                 className="p-6 bg-bison-bg rounded-[1.2rem] border border-bison-dark/5"
               >
-                <h3 className="text-[12px] font-black font-display uppercase mb-4 tracking-tight">Hvad sker der efterfølgende?</h3>
+                <h3 className="text-[14px] font-heading font-bold mb-4 tracking-[-0.01em]">Hvad sker der efterfølgende?</h3>
                 <div className="grid sm:grid-cols-3 gap-6 relative">
                   {/* Forbindelseslinje */}
                   <div className="absolute top-4 left-6 right-6 h-[1px] bg-bison-dark/10 hidden sm:block z-0" />
@@ -213,7 +213,7 @@ const BekreftAftale = () => {
                       {i < 2 && (
                         <div className="absolute left-4 -translate-x-1/2 top-8 bottom-[-24px] w-[1px] bg-bison-dark/10 sm:hidden -z-[1]" />
                       )}
-                      <div className="w-8 h-8 rounded-full bg-white border border-bison-dark/10 shadow-sm flex items-center justify-center text-[10px] font-black shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-white border border-bison-dark/10 shadow-sm flex items-center justify-center text-[10px] font-bold shrink-0">
                         {step.nr}
                       </div>
                       <div>
@@ -237,27 +237,27 @@ const BekreftAftale = () => {
                   className="bg-white rounded-[2rem] shadow-2xl relative z-10 w-full overflow-hidden border border-bison-dark/5"
                 >
                   <div className="p-6 bg-bison-dark text-white text-center">
-                    <h2 className="text-[18px] font-black font-display uppercase tracking-tight">Bekræft Aftale</h2>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/50 mt-1.5 flex items-center justify-center gap-1.5">
+                    <h2 className="text-[18px] font-heading font-bold tracking-[-0.01em]">Bekræft aftale</h2>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50 mt-1.5 flex items-center justify-center gap-1.5">
                       <ShieldCheck size={12} /> Helt sikkert og enkelt
                     </p>
                   </div>
 
                   {/* Tilbudsoversigt fra URL */}
                   <div className="bg-[#f2f2ee] p-5 text-center border-b border-bison-dark/5">
-                     <p className="text-[10px] font-bold uppercase tracking-widest text-bison-dark/50 mb-1.5">Valgt løsning</p>
-                     <p className="text-[16px] font-black font-display text-bison-dark leading-tight">{pakkeQuery}</p>
+                     <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/50 mb-1.5">Valgt løsning</p>
+                     <p className="text-[16px] font-heading font-bold text-bison-dark leading-tight">{pakkeQuery}</p>
                      {prisQuery && (
                        <div className="mt-1">
-                         <p className="text-[17px] font-black font-display text-[#BCD5AD] tracking-tight">{prisQuery} DKK</p>
-                         <p className="text-[9px] text-bison-dark/50 font-bold uppercase tracking-widest mt-0.5">Engangsbeløb (eks. moms)</p>
+                         <p className="text-[17px] font-heading font-bold text-bison-brown tracking-[-0.01em]">{prisQuery} DKK</p>
+                         <p className="text-[10px] text-bison-dark/50 font-semibold uppercase tracking-[0.14em] mt-0.5">Engangsbeløb (eks. moms)</p>
                        </div>
                      )}
                   </div>
 
                   <form onSubmit={handleSubmit} className="p-6 bg-[#fbfbf9]">
                     <div className="mb-4">
-                      <label htmlFor="companyInfo" className="block text-[10px] font-bold uppercase tracking-widest text-bison-dark/60 mb-2 ml-1">
+                      <label htmlFor="companyInfo" className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/60 mb-2 ml-1">
                         Virksomhedsnavn eller CVR
                       </label>
                       <input
@@ -272,7 +272,7 @@ const BekreftAftale = () => {
                     </div>
                     
                     <div className="mb-4">
-                      <label htmlFor="contactName" className="block text-[10px] font-bold uppercase tracking-widest text-bison-dark/60 mb-2 ml-1">
+                      <label htmlFor="contactName" className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/60 mb-2 ml-1">
                         Dit fulde navn
                       </label>
                       <input
@@ -287,7 +287,7 @@ const BekreftAftale = () => {
                     </div>
                     
                     <div className="mb-6">
-                      <label htmlFor="contactEmail" className="block text-[10px] font-bold uppercase tracking-widest text-bison-dark/60 mb-2 ml-1">
+                      <label htmlFor="contactEmail" className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-bison-dark/60 mb-2 ml-1">
                         Din e-mail (til faktura)
                       </label>
                       <input
@@ -329,7 +329,7 @@ const BekreftAftale = () => {
                       whileTap={termsAccepted && companyInfo.trim() && contactName.trim() && contactEmail.trim() ? { scale: 0.98 } : {}}
                       type="submit"
                       disabled={!termsAccepted || !companyInfo.trim() || !contactName.trim() || !contactEmail.trim() || isSubmitting}
-                      className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 font-bold uppercase tracking-widest shadow-lg transition-all 
+                      className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 font-semibold shadow-lg transition-all 
                         ${termsAccepted && companyInfo.trim() && contactName.trim() && contactEmail.trim() 
                           ? 'bg-bison-green text-bison-dark hover:bg-[#3ec461] hover:shadow-xl' 
                           : 'bg-bison-dark/10 text-bison-dark/30 cursor-not-allowed border border-bison-dark/5'}`}
@@ -383,10 +383,10 @@ const BekreftAftale = () => {
               exit={{ x: '100%' }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               data-lenis-prevent
-              className="overscroll-contain custom-scrollbar w-full max-w-2xl h-full overflow-y-auto bg-white shadow-2xl relative z-10 flex flex-col"
+              className="overscroll-contain custom-scrollbar w-full max-w-2xl h-full overflow-y-auto bg-white shadow-2xl relative z-10 flex flex-col font-body"
             >
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-bison-dark/5 sticky top-0 bg-white/90 backdrop-blur-md z-10 shadow-sm shrink-0">
-                <h2 className="text-2xl md:text-3xl font-black font-display uppercase tracking-tighter text-bison-dark">Aftalevilkår</h2>
+                <h2 className="text-2xl md:text-3xl font-heading font-extrabold tracking-[-0.02em] text-bison-dark">Aftalevilkår</h2>
                 <button 
                   onClick={() => setIsTermsOpen(false)}
                   className="p-2 hover:bg-bison-dark/5 rounded-full transition-colors outline-none"
@@ -398,58 +398,58 @@ const BekreftAftale = () => {
                 <p className="font-bold mb-4">Standardvilkår for samarbejde med Bison Company ApS</p>
                 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">1. Leverance</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">1. Leverance</h3>
                   <p>Bison Company ApS leverer udvikling og igangsættelse af hjemmeside baseret på kundens behovsinterview samt efterfølgende opsummering og forventningsafstemning.</p>
                   <p>Hosting kan også afholdes, hvis kunden ønsker det. Prisen heraf afhænger af prisen på aktuelle domæne.</p>
                   <p>Konkret omfang, type af løsning, pris og øvrige vilkår fremgår af den skriftlige aftale mellem parterne.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">2. Pris og betaling</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">2. Pris og betaling</h3>
                   <p>Leverancen leveres efter engangsbetaling via faktura. Levering påbegyndes, når aftalen er skriftligt godkendt, og betalingen er gennemført eller accepteret.</p>
                   <p>Ved ønsket hosting aftales der indbyrdes en årlig pris, som vil fremgå af den skriftlige aftale.</p>
                   <p>Ved manglende eller forsinket betaling forbeholder Bison Company ApS sig retten til midlertidigt at sætte leverancen, herunder arbejde, support og drift, på pause, indtil betaling er modtaget.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">3. Levering og tidsplan</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">3. Levering og tidsplan</h3>
                   <p>Første version af hjemmesiden leveres efter gennemført behovsinterview og modtagelse af nødvendigt input fra kunden.</p>
                   <p>Angivne leveringstider er vejledende og kan påvirkes af kundens svartider og feedback.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">4. Rettelser og ændringer</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">4. Rettelser og ændringer</h3>
                   <p>Gratis tilpasninger er inkluderet i den første måned efter launch.</p>
                   <p>Efterfølgende rettelser/justeringer/opdateringer er der rig mulighed for, blot efter vilkårlig timepris.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">5. Hosting og teknisk drift</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">5. Hosting og teknisk drift</h3>
                   <p>Hosting og teknisk drift varetages ikke af Bison Company ApS – medmindre eksplicit ønsket og aftalt, hvilket vil fremgå af den skriftlige aftale mellem parterne.</p>
                   <p>Vi viser dig hvordan du selv kan stå for det hele uden besvær, hvormed det bliver billigst muligt for kunden at have en hjemmeside kørende.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">6. Ejerskab og rettigheder</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">6. Ejerskab og rettigheder</h3>
                   <p>Kunden ejer eget indhold, herunder tekst, logo og billedmateriale leveret af kunden. Den samlede hjemmesideopsætning, herunder struktur, design, teknisk implementering og tekst-modificering udarbejdes af Bison Company ApS, og ejes, efter levering af leverancen, også af kunden.</p>
                   <p>Metode, workflow og interne systemer tilhører Bison Company ApS og overdrages ikke.</p>
                   <p>Bison Company ApS forbeholder sig retten til at anvende arbejdet som reference, medmindre andet aftales skriftligt.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">7. Ansvarsbegrænsning</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">7. Ansvarsbegrænsning</h3>
                   <p>Bison Company ApS leverer en teknisk og indholdsmæssig løsning, men garanterer ikke specifikke resultater såsom leads, omsætning, placeringer eller forretningsmæssig effekt.</p>
                   <p>Virksomheden kan ikke holdes ansvarlig for indirekte tab, driftstab eller tabt fortjeneste.</p>
                   <p>Bison Company ApS’ samlede ansvar kan aldrig overstige det beløb, kunden har betalt inden for de seneste 12 måneder.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">8. Fortrolighed</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">8. Fortrolighed</h3>
                   <p>Bison Company ApS og kunden forpligter sig til at behandle følsomme oplysninger, herunder forretningsmæssige og interne forhold, fortroligt.</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-bison-dark mt-8 mb-2 uppercase tracking-wider text-xs">9. Lovvalg og værneting</h3>
+                  <h3 className="text-sm font-semibold text-bison-dark mt-8 mb-2 uppercase tracking-[0.12em]">9. Lovvalg og værneting</h3>
                   <p>Aftalen er underlagt dansk ret.</p>
                   <p>Eventuelle tvister afgøres ved dansk domstol.</p>
                 </div>
@@ -464,7 +464,7 @@ const BekreftAftale = () => {
                 <div className="mt-12 pt-12 flex justify-center border-t border-bison-dark/10">
                   <button
                     onClick={() => setIsTermsOpen(false)}
-                    className="px-10 py-4 rounded-full bg-bison-dark text-white font-bold tracking-wide hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-3 outline-none"
+                    className="px-10 py-4 rounded-full bg-bison-dark text-white font-semibold tracking-[0.01em] hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-3 outline-none"
                   >
                     Luk aftalevilkår <X size={20} />
                   </button>

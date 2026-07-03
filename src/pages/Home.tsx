@@ -179,7 +179,7 @@ const Hero = () => {
           */}
 
           {/* NY NATIVE SKALERET OVERSKRIFT */}
-          <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-4 xl:mb-5 2xl:mb-6 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
+          <h1 className="flex flex-col font-extrabold tracking-[-0.02em] leading-[1.05] mb-5 lg:mb-4 xl:mb-5 2xl:mb-6 font-heading text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
             <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br />hjemmesider</span>
             <span className="block text-[5.5vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.7rem] 2xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
               uden besvær og månedlige betalinger
@@ -250,7 +250,7 @@ const Hero = () => {
                 </div>
               </div>
               
-              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-8 py-3.5 md:px-5 md:py-2 lg:px-6 lg:py-3 xl:px-8 xl:py-3 2xl:px-10 2xl:py-4 rounded-full text-[15px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
+              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-8 py-3.5 md:px-5 md:py-2 lg:px-6 lg:py-3 xl:px-8 xl:py-3 2xl:px-10 2xl:py-4 rounded-full text-[15px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-semibold flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
                 <Magnetic intensity={0.15} springOptions={{ bounce: 0.15 }} actionArea='global' range={250}>
                   <span className="relative z-10 inline-block pointer-events-none">Start her</span>
                 </Magnetic>
@@ -268,7 +268,7 @@ const Services = () => {
   
   const services = [
     {
-      title: "DEJLIGT NEMT",
+      title: "Dejligt nemt",
       desc: "Alt indholdet laves ud fra ét mundtligt interview – også teksten. Det tager typisk 45 minutter. Derfra skal du ikke selv bruge mere tid.",
       color: "bg-bison-blue/10 backdrop-blur-xl border-white/50",
       cloudColor: "bg-[#0284c7]",
@@ -301,7 +301,7 @@ const Services = () => {
       )
     },
     {
-      title: "UNIKT DESIGN",
+      title: "Unikt design",
       desc: "Vi laver hjemmesider fra bunden med levende og interaktive elementer i et univers bygget på jeres personlighed.",
       color: "bg-bison-pink/10 backdrop-blur-xl border-white/50",
       cloudColor: "bg-[#db2777]",
@@ -313,7 +313,7 @@ const Services = () => {
       )
     },
     {
-      title: "100% EJERSKAB",
+      title: "100% ejerskab",
       desc: "I ejer siden. Vi opkræver ikke månedlige gebyrer. Én pris. Ét godt stykke arbejde. Hos os betaler man ikke \"digital husleje\".",
       color: "bg-bison-green/10 backdrop-blur-xl border-white/50",
       cloudColor: "bg-[#4d7c0f]",
@@ -341,10 +341,10 @@ const Services = () => {
       <div className="absolute top-0 left-0 w-full h-2 bison-stripes" />
       <div className="max-w-[60rem] mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-2 md:mb-3 font-display uppercase leading-[1.1]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.02em] mb-2 md:mb-3 font-heading leading-[1.1]">
             Hvordan vi gør det 
             <br className="hidden md:block"/>
-            <span className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1">anderledes</span>
+            <span className="italic font-serif font-medium text-bison-brown drop-shadow-sm pb-1">anderledes</span>
           </h2>
           <p className="text-xs md:text-sm text-bison-dark/60 font-medium max-w-lg mx-auto">Vi har fjernet alt det, der normalt gør et webprojekt til en langsommelig hovedpine.</p>
         </div>
@@ -374,7 +374,7 @@ const Services = () => {
                   <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/90 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shadow-md relative z-10 transition-transform duration-300 group-hover:scale-110 group-data-[active=true]:scale-110">
                     <div className="scale-75 md:scale-90">{s.icon}</div>
                   </div>
-                  <h3 className="text-sm md:text-base lg:text-lg font-black font-display uppercase tracking-tight relative z-10 whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.05] group-data-[active=true]:scale-[1.05]">{s.title}</h3>
+                  <h3 className="text-sm md:text-base lg:text-lg font-heading font-bold tracking-[-0.01em] relative z-10 whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.05] group-data-[active=true]:scale-[1.05]">{s.title}</h3>
                   <p className="text-[0.65rem] md:text-[0.7rem] lg:text-xs text-bison-dark/70 transition-colors duration-300 group-hover:text-bison-dark group-data-[active=true]:text-bison-dark leading-relaxed relative z-10 font-medium max-w-[12rem] md:max-w-none">{s.desc}</p>
                 </div>
               </motion.div>
@@ -474,7 +474,7 @@ const Mission = () => {
 
           <div className="mb-4 lg:mb-6">
             <div className="inline-block bg-bison-dark/5 px-2 py-0.5 lg:px-3 lg:py-1 rounded-full text-[8px] md:text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60 mb-2 md:mb-3">Vores filosofi</div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase tracking-tighter leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold font-heading tracking-[-0.02em] leading-tight">
               Med ærlighed <br />
               kommer <span className="italic font-serif normal-case font-medium text-bison-brown">man længst</span>
             </h2>
@@ -588,7 +588,7 @@ const Mission = () => {
               </div>
             </div>
             <div>
-              <p className="font-black font-display uppercase tracking-wide text-[9px] md:text-[10px] lg:text-xs text-bison-dark">Bison Company</p>
+              <p className="font-semibold uppercase tracking-[0.14em] text-[10px] md:text-[10px] lg:text-xs text-bison-dark">Bison Company</p>
               <p className="text-[8px] md:text-[9px] lg:text-[10px] text-bison-dark/40 font-bold uppercase tracking-widest mt-px">Vi står bag hvert et ord</p>
             </div>
           </div>
@@ -652,10 +652,10 @@ const StepItem = ({ step, title1, title2, desc, align, bgColor, textColor }) => 
                Step {step}
              </span>
            </div>
-         <h3 className="text-[20px] md:text-5xl font-semibold tracking-tight mb-2 md:mb-4 text-[#1b1b1b]">
-           <span className="italic font-serif normal-case font-medium">{title1}</span>{title2}
+         <h3 className="text-[20px] md:text-5xl font-heading font-bold tracking-[-0.01em] mb-2 md:mb-4 text-bison-dark">
+           <span className="italic font-serif font-medium text-bison-brown">{title1}</span>{title2}
          </h3>
-         <p className="text-[11.5px] md:text-xl text-black/50 font-medium leading-relaxed w-full">
+         <p className="text-[11.5px] md:text-xl text-bison-dark/55 font-medium leading-relaxed w-full">
            {desc}
          </p>
          </div>
@@ -715,7 +715,7 @@ const SmoothLiftoff = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[26px] md:text-5xl font-black font-display uppercase tracking-tight mb-4 md:mb-6 text-[#1b1b1b]"
+            className="text-[26px] md:text-5xl font-extrabold font-heading tracking-[-0.02em] mb-4 md:mb-6 text-bison-dark"
           >
             Fra start til slut <br />
             <span className="italic font-serif normal-case font-medium text-bison-brown">uden bøvl</span>
@@ -725,7 +725,7 @@ const SmoothLiftoff = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[13px] md:text-[21px] text-black/60 font-medium leading-relaxed"
+            className="text-[13px] md:text-[21px] text-bison-dark/60 font-medium leading-relaxed"
           >
             Glem alt om langhårede processer. Vi har kogt forløbet ned til tre<br className="hidden md:block" /> simple trin, så du kan få en professionel side uden at miste fokus<br className="hidden md:block" /> på din forretning.
           </motion.p>
@@ -839,7 +839,7 @@ const Home = () => {
         <meta property="og:title" content="Hjemmesider uden abonnement | Unikt design af Bison Company" />
         <meta property="og:description" content="Vi designer skræddersyede hjemmesider fra bunden uden skjulte gebyrer eller digital husleje. Få en professionel løsning, og betal kun én gang." />
       </Helmet>
-      <main className="overflow-x-hidden w-full relative">
+      <main className="overflow-x-hidden w-full relative font-body text-bison-dark">
         <Hero />
       <Services />
       <Mission />
@@ -850,8 +850,8 @@ const Home = () => {
           <ContainerScroll
             titleComponent={
               <div className="text-center drop-shadow-sm pb-8 xl:pb-0">
-                <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tighter font-display uppercase text-bison-dark whitespace-nowrap">
-                  Solidt <span className="italic font-serif normal-case text-bison-brown">håndværk</span>
+                <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5.5rem] font-extrabold tracking-[-0.02em] font-heading text-bison-dark whitespace-nowrap">
+                  Solidt <span className="italic font-serif font-medium text-bison-brown">håndværk</span>
                 </h2>
               </div>
             }
@@ -894,7 +894,7 @@ const Home = () => {
                   <div className="w-10 h-10 lg:w-16 lg:h-16 bg-bison-dark/5 rounded-full flex items-center justify-center mb-4 lg:mb-6 bg-clip-padding backdrop-filter backdrop-blur-sm">
                     <Rocket className="text-bison-dark/40 w-5 h-5 lg:w-8 lg:h-8" />
                   </div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-black font-display uppercase tracking-widest text-bison-dark/40 drop-shadow-sm mb-2 lg:mb-4">Næste Case</h3>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-heading font-bold tracking-[-0.01em] text-bison-dark/40 drop-shadow-sm mb-2 lg:mb-4">Næste Case</h3>
                   <p className="text-bison-dark/30 font-bold uppercase tracking-widest text-[10px] lg:text-xs">Under konstruktion. Kommer snart.</p>
                 </motion.div>
               ) : (
@@ -927,7 +927,7 @@ const Home = () => {
                   />
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm z-50">
-                    <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-black text-sm lg:text-lg uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-3 lg:gap-4 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-out hover:bg-white/30 hover:scale-105 active:scale-95">
+                    <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-semibold text-sm lg:text-lg shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-3 lg:gap-4 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-out hover:bg-white/30 hover:scale-105 active:scale-95">
                       <span>Besøg Siden</span>
                       <div className="bg-white/20 p-2 rounded-full border border-white/20 shadow-sm">
                         <ExternalLink className="text-bison-blue drop-shadow-md w-4 h-4 lg:w-5 lg:h-5" />
@@ -965,7 +965,7 @@ const Home = () => {
             <div className="flex justify-center mt-0 md:mt-16 lg:mt-24 xl:mt-28 mb-10 md:mb-0">
               <Link 
                 to="/cases" 
-                className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-black tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"
+                className="group px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full backdrop-blur-2xl bg-bison-brown/30 border border-white/50 text-white font-semibold tracking-wide text-sm lg:text-base hover:bg-bison-brown/40 hover:border-white/60 hover:pr-8 active:scale-95 transition-all duration-300 ease-out shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-2.5 lg:gap-3 hover:gap-5 relative z-30"
               >
                 Se mere arbejde
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -1003,8 +1003,8 @@ const Home = () => {
         />
         <div className="max-w-[832px] mx-auto lg:max-w-[650px] xl:max-w-[700px] 2xl:max-w-[832px] bg-white/5 backdrop-blur-[40px] border border-white/20 rounded-[1rem] lg:rounded-[1.5rem] 2xl:rounded-[2rem] p-5 md:p-8 lg:p-6 xl:p-8 2xl:p-16 text-center relative z-10 shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
           <div className="relative z-10 flex flex-col items-center">
-            <h2 className="text-2xl md:text-3xl lg:text-[38px] xl:text-[44px] 2xl:text-[62px] font-black font-display uppercase tracking-tighter text-white leading-[0.9] mb-3 lg:mb-4 xl:mb-5 2xl:mb-6">
-              SLUT MED AT BETALE <br />
+            <h2 className="text-2xl md:text-3xl lg:text-[38px] xl:text-[44px] 2xl:text-[62px] font-extrabold font-heading tracking-[-0.02em] text-white leading-[0.9] mb-3 lg:mb-4 xl:mb-5 2xl:mb-6">
+              Slut med at betale <br />
               <span className="italic font-serif normal-case font-medium text-bison-pink">digital husleje.</span>
             </h2>
             <p className="text-[12px] md:text-[10px] lg:text-[12.5px] xl:text-[14px] 2xl:text-[14px] text-white/60 w-full mb-4 lg:mb-5 xl:mb-6 2xl:mb-8 leading-relaxed max-w-[620px]">
@@ -1019,14 +1019,14 @@ const Home = () => {
               range={200}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-                <Link to="/book-et-opkald" className="relative group overflow-hidden bg-white text-bison-dark px-4 py-2 lg:px-6 lg:py-3 xl:px-7 xl:py-3.5 2xl:px-8 2xl:py-[13px] rounded-full text-[10px] lg:text-[12px] xl:text-[13px] font-black uppercase tracking-tight shadow-xl 2xl:shadow-2xl transition-all duration-300 flex items-center justify-center">
+                <Link to="/book-et-opkald" className="relative group overflow-hidden bg-white text-bison-dark px-4 py-2 lg:px-6 lg:py-3 xl:px-7 xl:py-3.5 2xl:px-8 2xl:py-[13px] rounded-full text-[10px] lg:text-[12px] xl:text-[13px] font-semibold shadow-xl 2xl:shadow-2xl transition-all duration-300 flex items-center justify-center">
                   <Magnetic
                     intensity={0.1}
                     springOptions={{ bounce: 0.1 }}
                     actionArea='global'
                     range={200}
                   >
-                    <span className="relative z-10 transition-colors group-hover:text-bison-blue duration-300 inline-block pointer-events-none">BOOK EN SNAK</span>
+                    <span className="relative z-10 transition-colors group-hover:text-bison-blue duration-300 inline-block pointer-events-none">Book en snak</span>
                   </Magnetic>
                 </Link>
               </motion.div>
