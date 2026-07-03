@@ -31,10 +31,10 @@ const About = () => {
     <>
       <Helmet>
         <title>Om Bison Company | Menneskerne bag det ærlige webbureau</title>
-        <meta name="description" content="Vi er et passioneret tremandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
+        <meta name="description" content="Vi er et passioneret tomandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
         <link rel="canonical" href="https://bisoncompany.dk/om-os" />
         <meta property="og:title" content="Om Bison Company | Menneskerne bag det ærlige webbureau" />
-        <meta property="og:description" content="Vi er et passioneret tremandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
+        <meta property="og:description" content="Vi er et passioneret tomandshold, der er trætte af branchens langsomme processer og abonnementsfælder. Lær mere om vores metode og filosofi." />
       </Helmet>
       <main className="pt-32 overflow-x-hidden w-full relative">
         <PageSkyHeader />
@@ -72,7 +72,7 @@ const About = () => {
               transition={{ delay: 1.4 }}
               className="text-[16px] text-bison-dark/70 font-medium leading-relaxed inline-block"
             >
-              Bison er et passioneret tremandshold stiftet på vreden over branchens <br className="hidden md:block" /> langsomme og dyre processer. Vi knokler solen sort for at bygge dit digitale <br className="hidden md:block" /> ansigt udadtil – lynhurtigt, bundærligt og snorlige.
+              Bison er et passioneret tomandshold stiftet på vreden over branchens <br className="hidden md:block" /> langsomme og dyre processer. Vi knokler solen sort for at bygge dit digitale <br className="hidden md:block" /> ansigt udadtil – gennemtænkt, bundærligt og snorlige.
             </motion.p>
           </div>
         </div>
@@ -250,7 +250,7 @@ const About = () => {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[540px] mx-auto">
             {[
               {
                 name: "Oliver Rørbæk",
@@ -266,14 +266,6 @@ const About = () => {
                 desc: "Salgsansvarlig med et gudsbenådet talent for den gode handel. Udover at styre maskinrummet og vores sociale kanaler er jeg firmaets moralske kompas, der elsker det hårde grind og sikrer ordentlighed i alt, vi lover.",
                 img: "/assets/2.png",
                 color: "bg-bison-pink",
-                imgClassName: "w-full h-full object-cover grayscale mix-blend-normal opacity-95 transition-transform duration-700 group-hover:scale-[1.05] group-hover:opacity-100"
-              },
-              {
-                name: "Jens Godballe Madsen",
-                role: "Salgsrådgiver",
-                desc: "Tidligere tømrer, der nu bygger ærlige løsninger. Jeg er den absolutte modsætning til den gennemsnitlige, varmlufts-sælgertype. Min passion er at skære alt bullshit fra, dykke nede-på-jorden ind i dine behov og lægge en plan, der rammer plet.",
-                img: "/assets/3.png",
-                color: "bg-bison-blue",
                 imgClassName: "w-full h-full object-cover grayscale mix-blend-normal opacity-95 transition-transform duration-700 group-hover:scale-[1.05] group-hover:opacity-100"
               }
             ].map((member, i) => (

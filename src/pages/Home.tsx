@@ -179,19 +179,19 @@ const Hero = () => {
           */}
 
           {/* NY NATIVE SKALERET OVERSKRIFT */}
-          <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-4 xl:mb-6 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
-            <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br />hjemmesider</span>
-            <span className="block text-[5.5vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
+          <h1 className="flex flex-col font-black tracking-tighter leading-[1.05] mb-5 lg:mb-4 xl:mb-5 2xl:mb-6 font-display uppercase text-white drop-shadow-2xl w-full max-w-[95vw] xl:max-w-[60rem] mx-auto cursor-default text-center items-center">
+            <span className="block text-[11vw] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[5.5rem] mb-2 md:mb-3 drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]">Flotte<br />hjemmesider</span>
+            <span className="block text-[5.5vw] sm:text-2xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.7rem] 2xl:text-[3.25rem] italic font-serif normal-case font-medium text-bison-pink drop-shadow-[0_15px_35px_rgba(236,72,153,0.35)] mt-1 lg:mt-2">
               uden besvær og månedlige betalinger
             </span>
           </h1>
-          <p className="text-xs md:text-sm lg:text-base xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mb-6 lg:mb-5 xl:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
+          <p className="text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg text-white/90 w-full max-w-[95vw] md:max-w-xl lg:max-w-2xl xl:max-w-2xl 2xl:max-w-3xl mx-auto mb-6 lg:mb-5 xl:mb-6 2xl:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
             Vi designer fra bunden, og laver noget, som faktisk er skræddersyet til din virksomhed og dens personlighed. Samtidig er vores proces så simpel som muligt for dig – vi har skåret alt fedtet fra. Og så betaler du kun én gang.
           </p>
 
           <Magnetic intensity={0.2} springOptions={{ bounce: 0.1 }} actionArea='global' range={200}>
             <motion.div
-              className="relative flex flex-wrap gap-4 mb-8 group"
+              className="relative flex flex-wrap gap-4 mb-8 xl:mb-6 2xl:mb-8 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               animate={{
@@ -250,7 +250,7 @@ const Hero = () => {
                 </div>
               </div>
               
-              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-8 py-3.5 md:px-5 md:py-2 lg:px-6 lg:py-3 xl:px-10 xl:py-4 rounded-full text-[15px] md:text-xs lg:text-sm xl:text-lg font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
+              <Link to="/book-et-opkald" className="relative z-10 overflow-hidden bg-white/10 ring-1 ring-inset ring-white/20 text-white px-8 py-3.5 md:px-5 md:py-2 lg:px-6 lg:py-3 xl:px-8 xl:py-3 2xl:px-10 2xl:py-4 rounded-full text-[15px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-black font-display uppercase tracking-widest flex items-center justify-center transition-all cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/20 hover:ring-white/30" style={{ transform: "translateZ(0)" }}>
                 <Magnetic intensity={0.15} springOptions={{ bounce: 0.15 }} actionArea='global' range={250}>
                   <span className="relative z-10 inline-block pointer-events-none">Start her</span>
                 </Magnetic>

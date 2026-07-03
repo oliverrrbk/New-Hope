@@ -36,7 +36,7 @@ const Footer = () => {
           background-color: rgba(59, 45, 40, 0.3);
         }
       `}</style>
-  <footer className="text-white pt-20 md:pt-32 pb-12 overflow-hidden relative">
+  <footer className="text-white pt-20 md:pt-32 pb-12 overflow-hidden relative font-body">
     {/* Background Mesh Gradient with Noise Texture */}
     <div className="absolute inset-0 z-0 overflow-hidden bg-[#2c1a11]">
       <div 
@@ -57,7 +57,7 @@ const Footer = () => {
       />
     </div>
 
-    <div className="max-w-[1280px] mx-auto px-6 relative z-10" style={{ zoom: "65%" }}>
+    <div className="max-w-[1280px] mx-auto px-6 relative z-10 [zoom:0.65] xl:[zoom:0.8] 2xl:[zoom:0.65]">
       <div className="grid md:grid-cols-4 gap-[48px] mb-[80px]">
         <div className="col-span-2">
           <Link to="/" className="flex items-center gap-3 md:gap-[16px] mb-[24px] md:mb-[32px] group inline-flex">
@@ -68,13 +68,13 @@ const Footer = () => {
             >
               <img src="/assets/logo-clean.png" alt="Bison Logo" className="w-[130%] h-[130%] object-contain scale-110" />
             </motion.div>
-            <span className="text-xl md:text-2xl font-black tracking-tighter font-display uppercase group-hover:text-white/60 transition-colors duration-300 text-white/40">
+            <span className="text-xl md:text-2xl font-extrabold tracking-[-0.01em] font-heading uppercase group-hover:text-white/60 transition-colors duration-300 text-white/40">
               Bison Company
             </span>
           </Link>
-          <h2 className="text-[26px] md:text-[36px] font-black font-display uppercase tracking-tighter leading-tight mb-[32px] max-w-md">
+          <h2 className="text-[26px] md:text-[36px] font-extrabold font-heading tracking-[-0.02em] leading-[1.1] mb-[32px] max-w-md">
             Med ærlighed <br />
-            kommer <span className="italic font-serif normal-case font-medium text-bison-blue">man længst</span>
+            kommer <span className="italic font-serif font-medium text-bison-blue">man længst</span>
           </h2>
           <div className="flex gap-[16px]">
             {[
@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-[24px]">Naviger</h4>
+          <h4 className="font-semibold uppercase tracking-[0.16em] text-xs text-white/40 mb-[24px]">Naviger</h4>
           <ul className="space-y-[16px]">
             {[
               { name: 'Hjem', path: '/' },
@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold uppercase tracking-widest text-xs text-white/40 mb-[24px]">Kontakt</h4>
+          <h4 className="font-semibold uppercase tracking-[0.16em] text-xs text-white/40 mb-[24px]">Kontakt</h4>
           <ul className="space-y-[16px]">
             <li className="flex items-center gap-[12px] group">
               <motion.div whileHover={{ scale: 1.2, rotate: 10 }}><Mail size={20} className="text-bison-green group-hover:text-white transition-colors" /></motion.div>
@@ -152,7 +152,7 @@ const Footer = () => {
 
     {/* Large background text */}
     <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 opacity-[0.05] pointer-events-none select-none text-center z-10 mix-blend-overlay">
-      <h1 className="text-[25vw] font-black font-display uppercase tracking-tighter leading-none">BISON</h1>
+      <h1 className="text-[25vw] font-extrabold font-heading uppercase tracking-[-0.02em] leading-none">BISON</h1>
     </div>
 
     {/* Top stripe acting as border */}
@@ -175,10 +175,10 @@ const Footer = () => {
               exit={{ x: '100%' }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               data-lenis-prevent
-              className="overscroll-contain custom-scrollbar w-full max-w-2xl h-full overflow-y-auto bg-white shadow-2xl relative z-10 flex flex-col"
+              className="overscroll-contain custom-scrollbar w-full max-w-2xl h-full overflow-y-auto bg-white shadow-2xl relative z-10 flex flex-col font-body"
             >
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-bison-dark/5 sticky top-0 bg-white/90 backdrop-blur-md z-10 shadow-sm shrink-0">
-                <h2 className="text-2xl md:text-3xl font-black font-display uppercase tracking-tighter text-bison-dark">Privatlivspolitik</h2>
+                <h2 className="text-2xl md:text-3xl font-extrabold font-heading tracking-[-0.02em] text-bison-dark">Privatlivspolitik</h2>
                 <button 
                   onClick={() => setIsPolicyOpen(false)}
                   className="p-2 hover:bg-bison-dark/5 rounded-full transition-colors outline-none"
@@ -189,7 +189,7 @@ const Footer = () => {
               <div className="p-6 md:p-8 space-y-6 max-w-none text-bison-dark/80 font-medium leading-relaxed">
                 <p>Hos Bison Company ApS tager vi beskyttelsen af dine personoplysninger alvorligt. I denne privatlivspolitik kan du læse, hvordan vi indsamler, behandler og opbevarer dine data, når du besøger vores hjemmeside eller benytter vores kontaktformular.</p>
                 
-                <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">1. Dataansvarlig</h3>
+                <h3 className="text-sm font-semibold text-bison-dark mt-10 mb-4 uppercase tracking-[0.12em]">1. Dataansvarlig</h3>
                 <p className="bg-bison-dark/5 p-6 rounded-2xl">
                   Den dataansvarlige for behandlingen af dine personoplysninger er:<br /><br />
                   Bison Company ApS<br />
@@ -200,7 +200,7 @@ const Footer = () => {
                   Telefon: 20 32 31 44
                 </p>
 
-                <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">2. Hvilke oplysninger indsamler vi, formål og behandlingsgrundlag?</h3>
+                <h3 className="text-sm font-semibold text-bison-dark mt-10 mb-4 uppercase tracking-[0.12em]">2. Hvilke oplysninger indsamler vi, formål og behandlingsgrundlag?</h3>
                 <p>Vi indsamler kun de oplysninger, der er nødvendige for at kunne levere vores service til dig. Vi behandler dine data ud fra følgende formål og juridiske grundlag (GDPR):</p>
                 <div className="space-y-4">
                   <p><strong>Når du bruger vores kontaktformular:</strong> For at kunne besvare din henvendelse og evt. give dig et tilbud på vores ydelser, indsamler vi: Fornavn, efternavn, e-mailadresse, telefonnummer, den valgte ydelse, samt eventuelle oplysninger du selv angiver i beskeden.</p>
@@ -217,14 +217,14 @@ const Footer = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">3. Modtagere af personoplysninger og tredjelande</h3>
+                <h3 className="text-sm font-semibold text-bison-dark mt-10 mb-4 uppercase tracking-[0.12em]">3. Modtagere af personoplysninger og tredjelande</h3>
                 <p>Vi sælger aldrig dine personoplysninger til tredjepart. For at kunne drive vores hjemmeside og forretning, deler vi oplysninger med vores databehandlere, som f.eks. vores hostingudbyder (Vercel), vores e-mailudbyder samt vores bookingsystem (Cal.com). Vi har indgået databehandleraftaler med disse leverandører, som sikrer, at de overholder gældende GDPR-lovgivning.</p>
                 <p><strong>Overførsel til tredjelande:</strong> Visse af vores databehandlere (f.eks. Vercel og Cal.com) kan være etableret uden for EU/EØS. I disse tilfælde sikrer vi, at overførslen sker på et lovligt grundlag, f.eks. via EU-Kommissionens standardkontraktbestemmelser (SCC) eller EU-US Data Privacy Framework.</p>
 
-                <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">4. Cookies og Analytics</h3>
+                <h3 className="text-sm font-semibold text-bison-dark mt-10 mb-4 uppercase tracking-[0.12em]">4. Cookies og Analytics</h3>
                 <p>Vi ønsker at forbedre vores hjemmeside og brugeroplevelsen. Til dette formål benytter vi Vercel Analytics, som er en privatlivsvenlig løsning, der giver os indblik i hjemmesidens trafik. Vercel Analytics indsamler data anonymiseret og sætter ikke personhenførbare cookies på dit udstyr. Vi sætter overhovedet ikke markedsførings- eller tredjepartscookies på din enhed.</p>
 
-                <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">5. Hvor længe opbevarer vi dine data?</h3>
+                <h3 className="text-sm font-semibold text-bison-dark mt-10 mb-4 uppercase tracking-[0.12em]">5. Hvor længe opbevarer vi dine data?</h3>
                 <p>Vi opbevarer kun dine personoplysninger, så længe det er nødvendigt:</p>
                 <ul className="list-disc pl-6 space-y-3">
                   <li><strong>Kunderelationer:</strong> Oplysninger relateret til køb og fakturering opbevares i 5 år udløbet af det pågældende regnskabsår, jf. Bogføringsloven.</li>
@@ -232,7 +232,7 @@ const Footer = () => {
                   <li><strong>Nyhedsbrev:</strong> Din e-mailadresse opbevares indtil du afmelder dig. Du kan til enhver tid trække dit samtykke tilbage.</li>
                 </ul>
 
-                <h3 className="text-xl font-bold text-bison-dark mt-10 mb-4 uppercase tracking-wider text-sm">6. Dine rettigheder</h3>
+                <h3 className="text-sm font-semibold text-bison-dark mt-10 mb-4 uppercase tracking-[0.12em]">6. Dine rettigheder</h3>
                 <p>Efter databeskyttelsesforordningen har du en række rettigheder i forhold til vores behandling af dine oplysninger:</p>
                 <ul className="list-disc pl-6 space-y-3">
                   <li><strong>Ret til indsigt:</strong> Du har ret til at se de oplysninger, vi behandler om dig.</li>
@@ -246,7 +246,7 @@ const Footer = () => {
                 <div className="mt-12 pt-12 flex justify-center border-t border-bison-dark/10">
                   <button
                     onClick={() => setIsPolicyOpen(false)}
-                    className="px-10 py-4 rounded-full bg-bison-dark text-white font-bold tracking-wide hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-3 outline-none"
+                    className="px-10 py-4 rounded-full bg-bison-dark text-white font-semibold tracking-[0.01em] hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-3 outline-none"
                   >
                     Luk politikken <X size={20} />
                   </button>

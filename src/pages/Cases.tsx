@@ -32,8 +32,9 @@ const Cases = () => {
       isUnderConstruction: false,
       isUpcoming: false,
       tags: [
-        { text: "Premium Design", theme: "Design" },
-        { text: "Interaktiv", theme: "Vækst" }
+        { text: "Eksempel", theme: "Udgangspunkt" },
+        { text: "Vækst", theme: "Formål" },
+        { text: "Stilrent", theme: "Design" }
       ]
     },
     {
@@ -45,8 +46,9 @@ const Cases = () => {
       isUnderConstruction: false,
       isUpcoming: false,
       tags: [
-        { text: "Ventilation", theme: "Teknologi" },
-        { text: "Konvertering", theme: "Vækst" }
+        { text: "Fra Bunden", theme: "Udgangspunkt" },
+        { text: "Synlighed", theme: "Formål" },
+        { text: "Skræddersyet", theme: "Design" }
       ]
     },
     {
@@ -58,20 +60,36 @@ const Cases = () => {
       isUnderConstruction: false,
       isUpcoming: false,
       tags: [
-        { text: "Redesign", theme: "Vækst" },
-        { text: "Premium Design", theme: "Design" }
+        { text: "Redesign", theme: "Udgangspunkt" },
+        { text: "Bookinger", theme: "Formål" },
+        { text: "Elegant", theme: "Design" }
       ]
     },
     {
       title: "D-EL",
       category: "Elektriker",
-      desc: "For det nystartede elektrikerfirma D-EL bygger vi fra bunden en stærk hjemmeside, der sikrer dem det absolut bedste afsæt på deres nye rejse.",
+      desc: "For det nystartede elektrikerfirma D-EL har vi bygget en knivskarp hjemmeside fra bunden, der giver dem det bedst tænkelige afsæt på deres nye rejse.",
+      img: "/d-el.png",
+      link: "https://d-el.dk/",
+      isUnderConstruction: false,
+      isUpcoming: false,
+      tags: [
+        { text: "Fra Bunden", theme: "Udgangspunkt" },
+        { text: "Autoritet", theme: "Formål" },
+        { text: "Moderne", theme: "Design" }
+      ]
+    },
+    {
+      title: "Cammilla Maalue",
+      category: "Parterapeut & Coach",
+      desc: "For Cammilla Maalue bygger vi et helt nyt, powerfuldt univers, der matcher styrken i hendes personlige brand som kærlighedscoach.",
       link: "#",
       isUnderConstruction: true,
       isUpcoming: false,
       tags: [
-        { text: "Under Opbygning", theme: "Design" },
-        { text: "Webdesign", theme: "Teknologi" }
+        { text: "Redesign", theme: "Udgangspunkt" },
+        { text: "Samlet platform", theme: "Formål" },
+        { text: "Brand-univers", theme: "Design" }
       ]
     },
     {
@@ -82,7 +100,7 @@ const Cases = () => {
       isUnderConstruction: false,
       isUpcoming: true,
       tags: [
-        { text: "Din Tur?", theme: "Teknologi" }
+        { text: "Din Tur?", theme: "Udgangspunkt" }
       ]
     }
   ];
@@ -90,9 +108,9 @@ const Cases = () => {
   const getTagColor = (tag: string) => {
     switch(tag) {
       case "Design": return "bg-bison-pink text-bison-dark";
-      case "Teknologi": return "bg-bison-blue text-bison-dark";
-      case "Vækst": return "bg-bison-green text-bison-dark";
-      default: return "bg-gray-100 text-bison-dark";
+      case "Udgangspunkt": return "bg-bison-blue text-bison-dark";
+      case "Formål": return "bg-bison-green text-bison-dark";
+      default: return "bg-bison-dark/5 text-bison-dark";
     }
   };
 
@@ -105,7 +123,7 @@ const Cases = () => {
         <meta property="og:title" content="Vores Cases | Webdesign af høj kvalitet | Bison Company" />
         <meta property="og:description" content="Se vores tidligere arbejde, lige fra anlægsgartnere til ventilationsfirmaer. Vi bygger konverteringsfokuserede sites med premium design." />
       </Helmet>
-      <main className="pt-32">
+      <main className="pt-32 font-body text-bison-dark">
         <PageSkyHeader />
       <section className="py-12 md:py-20 px-6 relative z-10">
         <div className="max-w-[832px] mx-auto">
@@ -113,11 +131,11 @@ const Cases = () => {
             <FadeText
               direction="up"
               text="Vores Arbejde"
-              className="inline-block bg-bison-dark/5 px-2.5 py-0.5 md:px-3.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60"
+              className="inline-block bg-bison-dark/[0.04] px-3 py-1 md:px-3.5 md:py-1 rounded-full text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-bison-brown"
               framerProps={{ show: { transition: { delay: 1.2 } } }}
             />
           </div>
-          <div className="flex flex-wrap items-end gap-x-2.5 md:gap-x-4 text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[0.9] mb-8 text-bison-dark drop-shadow-none">
+          <div className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 text-[44px] md:text-[68px] font-extrabold tracking-[-0.02em] font-heading leading-[1.0] mb-8 text-bison-dark drop-shadow-none">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,7 +147,7 @@ const Cases = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.25, duration: 0.5 }}
-              className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm pb-1"
+              className="italic font-serif font-medium text-bison-brown drop-shadow-sm pb-1"
             >
               cases
             </motion.span>
@@ -148,29 +166,29 @@ const Cases = () => {
                 >
                    {c.link === "#" ? (
                      <div className="block h-full border-2 border-dashed border-bison-dark/10 rounded-[1.6rem] p-8 flex flex-col items-center justify-center text-center transition-colors">
-                       <h3 className="text-[20px] font-black font-display uppercase tracking-tight opacity-40 mb-1.5">{c.title}</h3>
-                       <p className="text-bison-dark/40 font-bold uppercase tracking-widest text-[8px] mb-4">{c.category}</p>
+                       <h3 className="text-[20px] font-heading font-bold tracking-[-0.01em] opacity-40 mb-1.5">{c.title}</h3>
+                       <p className="text-bison-dark/45 font-semibold uppercase tracking-[0.14em] text-[10px] mb-4">{c.category}</p>
                        <div className="flex gap-1.5 mb-4">
                           {c.tags?.map((tag, ti) => (
-                            <span key={ti} className={`text-[8px] px-2.5 py-1 font-bold uppercase tracking-widest rounded-full opacity-60 ${getTagColor(tag.theme)}`}>
+                            <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full opacity-60 ${getTagColor(tag.theme)}`}>
                               {tag.text}
                             </span>
                           ))}
                        </div>
-                       <p className="text-[12px] text-bison-dark/40 leading-relaxed max-w-[245px]">{c.desc}</p>
+                       <p className="text-[13px] md:text-sm text-bison-dark/50 leading-relaxed max-w-[245px]">{c.desc}</p>
                      </div>
                    ) : (
                      <Link to={c.link} className="block h-full border-2 border-dashed border-bison-dark/20 bg-bison-dark/5 rounded-[1.6rem] p-8 flex flex-col items-center justify-center text-center hover:bg-bison-dark/10 transition-colors shadow-sm hover:shadow-md cursor-pointer">
-                       <h3 className="text-[20px] font-black font-display uppercase tracking-tight text-bison-dark/60 mb-1.5">{c.title}</h3>
-                       <p className="text-bison-dark/50 font-bold uppercase tracking-widest text-[8px] mb-4">{c.category}</p>
+                       <h3 className="text-[20px] font-heading font-bold tracking-[-0.01em] text-bison-dark/60 mb-1.5">{c.title}</h3>
+                       <p className="text-bison-dark/50 font-semibold uppercase tracking-[0.14em] text-[10px] mb-4">{c.category}</p>
                        <div className="flex gap-1.5 mb-4">
                           {c.tags?.map((tag, ti) => (
-                            <span key={ti} className={`text-[8px] px-2.5 py-1 font-bold uppercase tracking-widest rounded-full shadow-sm hover:scale-105 transition-transform ${getTagColor(tag.theme)}`}>
+                            <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full shadow-sm hover:scale-105 transition-transform ${getTagColor(tag.theme)}`}>
                               {tag.text}
                             </span>
                           ))}
                        </div>
-                       <p className="text-[12px] text-bison-dark/70 leading-relaxed max-w-[245px] font-medium">{c.desc}</p>
+                       <p className="text-[13px] md:text-sm text-bison-dark/60 leading-relaxed max-w-[245px]">{c.desc}</p>
                      </Link>
                    )}
                 </motion.div>
@@ -187,23 +205,64 @@ const Cases = () => {
                      <div className="w-10 h-10 bg-white/60 backdrop-blur-md rounded-[1rem] border border-white flex items-center justify-center mb-4 shadow-sm">
                         <Hammer className="text-bison-dark/40 -rotate-[15deg]" size={20} />
                      </div>
-                     <h3 className="text-[16px] md:text-[20px] font-black font-display uppercase tracking-widest text-bison-dark/40">Siden bygges</h3>
-                     <p className="text-bison-dark/30 font-bold uppercase tracking-widest text-[8px] mt-1.5">Kommer snart online</p>
+                     <h3 className="text-[16px] md:text-[20px] font-heading font-bold tracking-tight text-bison-dark/40">Siden bygges</h3>
+                     <p className="text-bison-dark/40 font-semibold uppercase tracking-[0.14em] text-[10px] mt-1.5">Kommer snart online</p>
                   </div>
-                  <div className="flex justify-between items-start mb-2.5">
+                  <div className="flex justify-between items-start gap-2 mb-2.5">
                     <div>
-                      <h3 className="text-[20px] font-black font-display uppercase tracking-tight">{c.title}</h3>
-                      <p className="text-bison-dark/40 font-bold uppercase tracking-widest text-[8px] mt-0.5">{c.category}</p>
+                      <h3 className="text-[18px] font-heading font-bold tracking-[-0.01em] whitespace-nowrap">{c.title}</h3>
+                      <p className="text-bison-dark/45 font-semibold uppercase tracking-[0.14em] text-[10px] mt-0.5">{c.category}</p>
                     </div>
-                    <div className="flex gap-1.5">
-                      {c.tags?.map((tag, ti) => (
-                        <span key={ti} className={`text-[8px] px-2.5 py-1 font-bold uppercase tracking-widest rounded-full ${getTagColor(tag.theme)}`}>
+                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
+                      <div className="flex gap-1.5">
+                        {c.tags?.filter(t => t.theme !== "Design").map((tag, ti) => (
+                          <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full ${getTagColor(tag.theme)}`}>
+                            {tag.text}
+                          </span>
+                        ))}
+                      </div>
+                      {c.tags?.filter(t => t.theme === "Design").map((tag, ti) => (
+                        <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full ${getTagColor(tag.theme)}`}>
                           {tag.text}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <p className="text-[12px] text-bison-dark/60 leading-relaxed max-w-[370px]">{c.desc}</p>
+                  <p className="text-[13px] md:text-sm text-bison-dark/60 leading-relaxed max-w-[370px]">{c.desc}</p>
+                </motion.div>
+              ) : c.link === "#" ? (
+                <motion.div
+                  key={i}
+                  custom={i}
+                  variants={caseVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="group block"
+                >
+                  <div className="aspect-video rounded-[1.6rem] overflow-hidden mb-5 relative shadow-xl">
+                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className="w-full h-full object-cover object-[60%_50%] rounded-[1.6rem]" referrerPolicy="no-referrer" />
+                  </div>
+                  <div className="flex justify-between items-start mb-2.5">
+                    <div>
+                      <h3 className="text-[20px] font-heading font-bold tracking-[-0.01em]">{c.title}</h3>
+                      <p className="text-bison-dark/45 font-semibold uppercase tracking-[0.14em] text-[10px] mt-0.5">{c.category}</p>
+                    </div>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <div className="flex gap-1.5">
+                        {c.tags?.filter(t => t.theme !== "Design").map((tag, ti) => (
+                          <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full ${getTagColor(tag.theme)}`}>
+                            {tag.text}
+                          </span>
+                        ))}
+                      </div>
+                      {c.tags?.filter(t => t.theme === "Design").map((tag, ti) => (
+                        <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full ${getTagColor(tag.theme)}`}>
+                          {tag.text}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-[13px] md:text-sm text-bison-dark/60 leading-relaxed max-w-[370px]">{c.desc}</p>
                 </motion.div>
               ) : (
                 <motion.a
@@ -220,9 +279,9 @@ const Cases = () => {
                   className="group block cursor-pointer"
                 >
                   <div className="aspect-video rounded-[1.6rem] overflow-hidden mb-5 relative shadow-xl">
-                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover rounded-[1.6rem] transition-transform duration-700 ${c.title === "Showcase" || c.title === "Studio 24" ? "object-top origin-top scale-[1.22] group-hover:scale-[1.27]" : "object-[50%_25%] origin-[50%_25%] scale-[1.18] group-hover:scale-[1.22]"}`} referrerPolicy="no-referrer" />
+                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover rounded-[1.6rem] transition-transform duration-700 ${c.title === "D-EL" ? "object-[50%_50%] origin-center group-hover:scale-[1.05]" : c.title === "Showcase" || c.title === "Studio 24" ? "object-top origin-top scale-[1.22] group-hover:scale-[1.27]" : "object-[50%_25%] origin-[50%_25%] scale-[1.18] group-hover:scale-[1.22]"}`} referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
-                      <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-black text-[13px] md:text-[16px] uppercase tracking-widest shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-2.5 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/30">
+                      <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-semibold text-[13px] md:text-[15px] uppercase tracking-[0.14em] shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-2.5 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/30">
                         <span>Se Case</span>
                         <div className="bg-white/20 p-1 rounded-full border border-white/20 shadow-sm">
                           <ExternalLink size={16} className="text-bison-blue drop-shadow-md" />
@@ -232,18 +291,25 @@ const Cases = () => {
                   </div>
                   <div className="flex justify-between items-start mb-2.5">
                     <div>
-                      <h3 className="text-[20px] font-black font-display uppercase tracking-tight">{c.title}</h3>
-                      <p className="text-bison-dark/40 font-bold uppercase tracking-widest text-[8px] mt-0.5">{c.category}</p>
+                      <h3 className="text-[20px] font-heading font-bold tracking-[-0.01em]">{c.title}</h3>
+                      <p className="text-bison-dark/45 font-semibold uppercase tracking-[0.14em] text-[10px] mt-0.5">{c.category}</p>
                     </div>
-                    <div className="flex gap-1.5">
-                      {c.tags?.map((tag, ti) => (
-                        <span key={ti} className={`text-[8px] px-2.5 py-1 font-bold uppercase tracking-widest rounded-full ${getTagColor(tag.theme)}`}>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <div className="flex gap-1.5">
+                        {c.tags?.filter(t => t.theme !== "Design").map((tag, ti) => (
+                          <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full ${getTagColor(tag.theme)}`}>
+                            {tag.text}
+                          </span>
+                        ))}
+                      </div>
+                      {c.tags?.filter(t => t.theme === "Design").map((tag, ti) => (
+                        <span key={ti} className={`text-[10px] px-2.5 py-1 font-semibold uppercase tracking-[0.1em] rounded-full ${getTagColor(tag.theme)}`}>
                           {tag.text}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <p className="text-[12px] text-bison-dark/60 leading-relaxed max-w-[370px]">{c.desc}</p>
+                  <p className="text-[13px] md:text-sm text-bison-dark/60 leading-relaxed max-w-[370px]">{c.desc}</p>
                 </motion.a>
               )
             ))}

@@ -95,7 +95,7 @@ const Blog = () => {
         <meta name="description" content="Læs vores nyeste tanker om moderne webdesign, psykologi og konverteringsstrategier der hjælper din forretning vokse." />
         <link rel="canonical" href="https://bisoncompany.dk/blog" />
       </Helmet>
-      <main className="pt-32 overflow-x-hidden w-full">
+      <main className="pt-32 overflow-x-hidden w-full font-body text-bison-dark">
         <PageSkyHeader />
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
@@ -142,24 +142,24 @@ const Blog = () => {
               <div className="aspect-video w-full relative shrink-0">
                 <img src={selectedPost.img} alt={selectedPost.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-bison-dark/5" />
-                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white px-3 py-1.5 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-sm">
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white px-3 py-1.5 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.14em] shadow-sm">
                   {selectedPost.category}
                 </div>
               </div>
 
               <div className="p-6 md:p-12 lg:p-14">
-                <div className="flex items-center gap-4 text-xs font-bold text-bison-dark/40 uppercase tracking-widest mb-4">
+                <div className="flex items-center gap-4 text-[11px] font-semibold text-bison-dark/45 uppercase tracking-[0.14em] mb-4">
                   <span className="flex items-center gap-1.5"><User size={14} /> {selectedPost.author}</span>
                   <span className="flex items-center gap-1.5"><Clock size={14} /> {selectedPost.readTime}</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase tracking-tighter mb-6 md:mb-8 leading-[1.0]">
+                <h2 className="text-[26px] md:text-[34px] lg:text-[38px] font-heading font-extrabold tracking-[-0.02em] mb-6 md:mb-8 leading-[1.08]">
                   {selectedPost.title}
                 </h2>
-                <div className="prose max-w-none text-bison-dark/70">
-                  <p className="whitespace-pre-line leading-relaxed font-medium text-sm md:text-base lg:text-lg">
+                <div className="prose max-w-none text-bison-dark/75">
+                  <p className="whitespace-pre-line leading-[1.75] text-[15px] md:text-base lg:text-[17px]">
                     {selectedPost.content.split(/(\*\*.*?\*\*)/g).map((part: string, i: number) => {
                       if (part.startsWith('**') && part.endsWith('**')) {
-                        return <strong key={i} className="font-extrabold text-bison-dark">{part.slice(2, -2)}</strong>;
+                        return <strong key={i} className="font-bold text-bison-dark">{part.slice(2, -2)}</strong>;
                       }
                       return <span key={i}>{part}</span>;
                     })}
@@ -169,7 +169,7 @@ const Blog = () => {
                 <div className="mt-16 pt-16 border-t border-bison-dark/10 flex justify-center">
                   <button
                     onClick={() => setSelectedPost(null)}
-                    className="px-10 py-5 rounded-full bg-bison-dark text-white font-bold tracking-wide hover:scale-105 active:scale-95 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.15)] flex items-center gap-3"
+                    className="px-10 py-5 rounded-full bg-bison-dark text-white font-semibold tracking-[0.01em] hover:scale-105 active:scale-95 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.15)] flex items-center gap-3"
                   >
                     Luk artiklen <X size={20} />
                   </button>
@@ -181,18 +181,18 @@ const Blog = () => {
       </AnimatePresence>
 
 
-      <section className="py-12 md:py-20 px-6">
+      <section className="py-16 md:py-24 px-6">
         <div className="max-w-[832px] mx-auto">
-          <div className="text-center mb-[52px]">
+          <div className="text-center mb-14 md:mb-16">
             <div className="mb-4 overflow-hidden">
               <FadeText
                 direction="up"
                 text="Vores Tanker"
-                className="inline-block bg-bison-dark/5 px-2.5 py-0.5 md:px-3.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-bison-dark/60"
+                className="inline-block bg-bison-dark/[0.04] px-3 py-1 md:px-3.5 md:py-1 rounded-full text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-bison-brown"
                 framerProps={{ show: { transition: { delay: 0.8 } } }}
               />
             </div>
-            <div className="flex flex-wrap justify-center items-end gap-x-2.5 md:gap-x-3 text-[39px] md:text-[62px] font-black tracking-tighter font-display uppercase leading-[0.9] mb-5 text-bison-dark">
+            <div className="flex flex-wrap justify-center items-baseline gap-x-3 md:gap-x-4 text-[44px] md:text-[68px] font-extrabold tracking-[-0.02em] font-heading leading-[1.0] mb-5 text-bison-dark">
               <motion.span
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -204,7 +204,7 @@ const Blog = () => {
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ delay: 0.95, duration: 0.5 }}
-                className="italic font-serif normal-case font-medium text-bison-brown/60 drop-shadow-sm"
+                className="italic font-serif font-medium text-bison-brown drop-shadow-sm"
               >
                 Insights
               </motion.span>
@@ -213,7 +213,7 @@ const Blog = () => {
               per="word"
               preset="fade"
               delay={0.8}
-              className="text-[13px] text-bison-dark/60 max-w-[436px] mx-auto leading-relaxed"
+              className="text-[15px] md:text-[17px] text-bison-dark/70 max-w-[460px] mx-auto leading-relaxed"
             >
               Vi deler vores viden om design, teknologi og vækst for at hjælpe dig med at blive klogere på den digitale verden.
             </TextEffect>
@@ -240,26 +240,26 @@ const Blog = () => {
                 }}
                 className="group cursor-pointer flex flex-col transform-gpu"
               >
-                <div className="aspect-[4/3] rounded-[1.2rem] overflow-hidden mb-5 relative shadow-lg">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-5 relative shadow-lg">
                   <img src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" referrerPolicy="no-referrer" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[7px] font-black uppercase tracking-widest shadow-sm">
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-[0.14em] shadow-sm">
                     {post.category}
                   </div>
                 </div>
-                <div className="flex items-center gap-2.5 text-[8px] font-bold text-bison-dark/40 uppercase tracking-widest mb-2.5">
+                <div className="flex items-center gap-2.5 text-[11px] font-semibold text-bison-dark/45 uppercase tracking-[0.14em] mb-2.5">
                   <span className="flex items-center gap-1"><User size={10} /> {post.author}</span>
                   <span className="flex items-center gap-1"><Clock size={10} /> {post.readTime}</span>
                 </div>
 
-                <h3 className="text-[16px] font-black font-display uppercase tracking-tight mb-2.5 group-hover:text-bison-brown transition-colors leading-tight line-clamp-2 min-h-[2rem]">
+                <h3 className="text-[17px] md:text-[18px] font-heading font-bold tracking-[-0.01em] mb-2 group-hover:text-bison-brown transition-colors leading-[1.2] line-clamp-2 min-h-[2.6rem] text-bison-dark">
                   {post.title}
                 </h3>
 
-                <p className="text-[10px] text-bison-dark/60 leading-relaxed mb-4 line-clamp-3 h-[3.2rem] overflow-hidden">
+                <p className="text-[13px] md:text-sm text-bison-dark/60 leading-relaxed mb-4 line-clamp-3 h-[4.25rem] overflow-hidden">
                   {post.excerpt}
                 </p>
 
-                <div className="mt-auto pt-2.5 border-t border-bison-dark/5 flex items-center justify-between text-[10px] font-bold text-bison-dark group-hover:text-bison-brown transition-colors">
+                <div className="mt-auto pt-3 border-t border-bison-dark/10 flex items-center justify-between text-[12px] md:text-[13px] font-semibold text-bison-dark group-hover:text-bison-brown transition-colors">
                   Læs artiklen
                   <div className="w-6 h-6 rounded-full bg-bison-dark/5 flex items-center justify-center group-hover:bg-bison-brown/10 transition-colors">
                     <ArrowRight size={12} className="transform group-hover:translate-x-0.5 transition-transform" />
@@ -272,20 +272,20 @@ const Blog = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 px-6">
+      <section className="py-16 md:py-24 px-6">
         <div
-          className="max-w-[665px] mx-auto bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.03)] rounded-[2rem] p-8 md:p-12 text-center relative group transition-all duration-500"
+          className="max-w-[740px] mx-auto bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.03)] rounded-[1.75rem] p-8 md:p-12 text-center relative group transition-all duration-500"
         >
           {/* Internal Content wrapping */}
           <div className="relative z-10">
-            <h2 className="text-[24px] md:text-[31px] font-black font-display uppercase tracking-tighter mb-4 leading-tight">Få de nyeste insights direkte i din <br className="hidden md:block" /> indbakke</h2>
-            <p className="text-[12px] text-bison-dark/60 mb-8 max-w-[374px] mx-auto leading-relaxed">Vi sender kun guld. Ingen spam, kun viden der hjælper din <br className="hidden md:block" /> forretning med at vokse.</p>
+            <h2 className="text-[26px] md:text-[34px] font-heading font-extrabold tracking-[-0.02em] mb-4 leading-[1.1] text-bison-dark">Få de nyeste insights <br className="hidden md:block" /><span className="italic font-serif font-medium text-bison-brown">direkte i din indbakke</span></h2>
+            <p className="text-[14px] md:text-[15px] text-bison-dark/60 mb-8 max-w-[480px] mx-auto leading-relaxed">Vi sender kun guld. Ingen spam, kun viden der hjælper <br className="hidden md:block" /> din forretning med at vokse.</p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-[320px] mx-auto" onSubmit={handleSubscribe}>
               {subscribeStatus === 'success' ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="w-full bg-[#163321] text-[#fbfbf9] px-4 py-3 rounded-full font-bold flex items-center justify-center shadow-lg border border-[#163321]/20 text-[12px]"
+                  className="w-full bg-bison-dark text-bison-bg px-4 py-3 rounded-full font-semibold flex items-center justify-center shadow-lg border border-bison-dark/20 text-[13px]"
                 >
                   <span className="flex items-center gap-2">Du er tilmeldt! <span className="text-bison-green">✔</span></span>
                 </motion.div>
@@ -298,14 +298,14 @@ const Blog = () => {
                     disabled={subscribeStatus === 'loading'}
                     placeholder="Din e-mail adresse"
                     required
-                    className="flex-1 bg-white/70 backdrop-blur-sm border border-white focus:border-bison-brown px-4 py-3 rounded-full text-bison-dark text-[12px] focus:ring-4 focus:ring-bison-brown/20 outline-none font-bold shadow-sm transition-all disabled:opacity-50"
+                    className="flex-1 bg-white/70 backdrop-blur-sm border border-white focus:border-bison-brown px-4 py-3 rounded-full text-bison-dark text-[14px] focus:ring-4 focus:ring-bison-brown/20 outline-none font-medium shadow-sm transition-all disabled:opacity-50"
                   />
                   <motion.button
                     type="submit"
                     disabled={subscribeStatus === 'loading'}
                     whileHover={subscribeStatus !== 'loading' ? { scale: 1.05 } : {}}
                     whileTap={subscribeStatus !== 'loading' ? { scale: 0.95 } : {}}
-                    className="bg-bison-dark text-white px-6 py-3 rounded-full text-[12px] font-bold shadow-lg transition-all hover:shadow-xl border border-bison-dark/10 min-w-[100px] disabled:opacity-70 flex items-center justify-center"
+                    className="bg-bison-dark text-white px-6 py-3 rounded-full text-[14px] font-semibold shadow-lg transition-all hover:shadow-xl border border-bison-dark/10 min-w-[100px] disabled:opacity-70 flex items-center justify-center"
                   >
                     {subscribeStatus === 'loading' ? (
                       <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
