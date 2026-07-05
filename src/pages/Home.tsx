@@ -577,14 +577,11 @@ const Mission = () => {
 
           <div className="mt-5 md:mt-6 lg:mt-8 pt-5 md:pt-6 lg:pt-8 border-t border-bison-dark/5 flex items-center gap-3 lg:gap-4">
             <div className="flex -space-x-1.5 md:-space-x-2">
-              <div className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-30 shadow-sm">
-                <img src="/assets/1.png" alt="Oliver" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
+              <div className="w-8 h-8 md:w-9 md:h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-30 shadow-sm">
+                <img src="/assets/1.png" alt="Oliver" className="w-[120%] h-[120%] object-cover object-top -translate-x-[1%] -translate-y-[10%]" referrerPolicy="no-referrer" />
               </div>
-              <div className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-20 shadow-sm">
+              <div className="w-8 h-8 md:w-9 md:h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-20 shadow-sm">
                 <img src="/assets/2.png" alt="Mads" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
-              </div>
-              <div className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden ring-2 ring-white bg-white relative z-10 shadow-sm">
-                <img src="/assets/3.png" alt="Jens" className="w-[120%] h-[120%] object-cover object-top translate-x-[6%] -translate-y-[10%]" referrerPolicy="no-referrer" />
               </div>
             </div>
             <div>

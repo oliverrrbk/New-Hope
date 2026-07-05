@@ -125,7 +125,7 @@ const BookCall = () => {
         <PageSkyHeader />
       <section className="py-20 px-6 relative z-[100]">
         <div className="max-w-[832px] mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-end">
             
             {/* Left Column: Mission & Features */}
             <div className="relative z-20">
@@ -189,7 +189,7 @@ const BookCall = () => {
                 ))}
               </div>
 
-              <div className="p-5 bg-bison-bg rounded-[1.2rem] border border-bison-dark/5">
+              <div className="p-5 bg-bison-bg rounded-[1.2rem] border border-bison-dark/5 min-h-[161px]">
                 <h3 className="text-[15px] font-heading font-bold mb-2.5 tracking-[-0.01em]">Hvad sker der nu?</h3>
                 <ul className="space-y-2.5">
                   <li className="flex gap-2 text-[12px] text-bison-dark/60 items-start">
@@ -208,8 +208,8 @@ const BookCall = () => {
               </div>
             </div>
 
-            <div className="space-y-5 relative w-full z-10">
-              <div className="relative w-full">
+            <div className="space-y-5 md:space-y-[26px] relative w-full z-10">
+              <div className="relative w-full md:-translate-y-4">
                 {/* Main Calendar Widget */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -232,7 +232,7 @@ const BookCall = () => {
                   <div 
                     id="book-snak-widget"
                     className="w-full bg-[#fbfbf9] border-t border-bison-dark/5 overflow-y-auto" 
-                    style={{ height: "360px" }}
+                    style={{ height: "378px" }}
                   >
                     <div className="w-full min-h-full">
                       <Cal
@@ -255,7 +255,7 @@ const BookCall = () => {
                     animate={{ opacity: 1, x: 0, rotate: 6 }}
                     transition={{ delay: 2.2, type: "spring", bounce: 0.4, stiffness: 60 }}
                     style={{ borderRadius: "45% 55% 42% 58% / 55% 45% 58% 42%" }}
-                    className="absolute top-[8%] -right-8 md:-right-16 lg:-right-24 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_15px_30px_rgba(0,0,0,0.15)] overflow-hidden z-10"
+                    className="absolute top-[23%] -right-8 md:-right-16 lg:-right-24 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_15px_30px_rgba(0,0,0,0.15)] overflow-hidden z-10"
                   >
                     <img src="/assets/1.png" className="w-full h-full object-cover scale-105 grayscale" alt="Oliver Rørbæk" referrerPolicy="no-referrer" />
                   </motion.div>
@@ -265,20 +265,11 @@ const BookCall = () => {
                     animate={{ opacity: 1, x: 0, rotate: -4 }}
                     transition={{ delay: 2.4, type: "spring", bounce: 0.4, stiffness: 60 }}
                     style={{ borderRadius: "55% 45% 60% 40% / 40% 60% 45% 55%" }}
-                    className="absolute top-[32%] -right-10 md:-right-20 lg:-right-30 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden z-20"
+                    className="absolute top-[51%] -right-8 md:-right-16 lg:-right-24 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden z-20"
                   >
                     <img src="/assets/2.png" className="w-full h-full object-cover scale-105 grayscale" alt="Mads Brunsbjerg" referrerPolicy="no-referrer" />
                   </motion.div>
 
-                  <motion.div 
-                    initial={{ opacity: 0, x: -50, rotate: -20 }}
-                    animate={{ opacity: 1, x: 0, rotate: 10 }}
-                    transition={{ delay: 2.6, type: "spring", bounce: 0.4, stiffness: 60 }}
-                    style={{ borderRadius: "50% 50% 40% 60% / 60% 40% 50% 50%" }}
-                    className="absolute top-[56%] -right-5 md:-right-13 lg:-right-18 w-[83px] h-[114px] md:w-[104px] md:h-[145px] shadow-[0_25px_50px_rgba(0,0,0,0.25)] overflow-hidden z-30"
-                  >
-                    <img src="/assets/3.png" className="w-full h-full object-cover scale-105 grayscale" alt="Jens Godballe Madsen" referrerPolicy="no-referrer" />
-                  </motion.div>
                 </div>
               </div>
 
@@ -287,7 +278,7 @@ const BookCall = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-bison-blue/10 p-6 rounded-[1.6rem] border border-bison-blue/20"
+                className="bg-bison-blue/10 p-5 rounded-[1.2rem] border border-bison-blue/20 min-h-[161px]"
               >
                 <h3 className="text-[15px] font-heading font-bold mb-2.5 tracking-[-0.01em]">Passer tiderne ikke?</h3>
                 <p className="text-[12px] text-bison-dark/60 mb-4 w-[85%]">Send os en direkte besked, så finder vi et tidspunkt der fungerer for dig.</p>
