@@ -803,6 +803,7 @@ const Home = () => {
     { src: "/casepic1.png", link: "https://www.eksempel.nu/", isUnderConstruction: false },
     { src: "/showcase1.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
     { src: "/studio24.jpeg", link: "https://www.studio24randers.dk/", isUnderConstruction: false },
+    { src: "/d-el.png", link: "https://d-el.dk/", isUnderConstruction: false },
     { src: "", link: "", isUnderConstruction: true }
   ];
 
@@ -919,7 +920,7 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className={`mx-auto object-cover h-full w-full object-top origin-top transition-transform duration-700 ${activeCaseIndex === 1 ? "scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : "scale-[1.15] group-hover:scale-[1.20]"}`}
+                    className={`mx-auto object-cover h-full w-full transition-transform duration-700 ${activeCaseIndex === 1 ? "object-top origin-top scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : activeCaseIndex === 3 ? "object-center origin-center group-hover:scale-[1.05]" : "object-top origin-top scale-[1.15] group-hover:scale-[1.20]"}`}
                     draggable={false}
                   />
                   {/* Hover Overlay */}
