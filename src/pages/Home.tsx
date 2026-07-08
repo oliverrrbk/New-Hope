@@ -915,12 +915,12 @@ const Home = () => {
                     else if (offset.x > 50) prevCase();
                   }}
                   style={{ WebkitMaskImage: "-webkit-radial-gradient(white, black)" }}
-                  className="absolute inset-0 block w-full h-full group cursor-pointer overflow-hidden"
+                  className="absolute inset-0 block w-full h-full group cursor-pointer overflow-hidden rounded-[16px] md:rounded-[24px] lg:rounded-[30px]"
                 >
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className={`mx-auto object-cover h-full w-full transition-transform duration-700 ${activeCaseIndex === 1 ? "object-top origin-top scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : activeCaseIndex === 3 ? "object-center origin-center group-hover:scale-[1.05]" : "object-top origin-top scale-[1.15] group-hover:scale-[1.20]"}`}
+                    className={`mx-auto h-full w-full transition-transform duration-700 ${activeCaseIndex === 1 ? "object-cover object-top origin-top scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : activeCaseIndex === 3 ? "object-cover object-center origin-center group-hover:scale-[1.05]" : "object-cover object-top origin-top scale-[1.15] group-hover:scale-[1.20]"}`}
                     draggable={false}
                   />
                   {/* Hover Overlay */}
