@@ -608,7 +608,7 @@ const myPricingPlans: PricingCardProps[] = [
   },
   { 
     planName: 'Kerne-sitet', 
-    description: 'Til virksomheden, der vil have plads til at folde sine ydelser ud.',
+    description: 'Til virksomheden, der vil have plads til at folde sig ud.',
     price: '31.900',
     priceSuffix: 'kr. (én gang)', 
     features: ['Alt fra One-pager pakken', 'Op til 5 unikke hovedsider', 'Plads til ydelser, om os & cases', 'Færdig på 14 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'],
