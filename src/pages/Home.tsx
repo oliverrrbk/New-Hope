@@ -598,8 +598,8 @@ const Mission = () => {
 const myPricingPlans: PricingCardProps[] = [
   { 
     planName: 'One-pager', 
-    description: 'Perfekt til den mindre virksomhed, der bare skal stå skarpt.', 
-    price: '7.500', 
+    description: 'Perfekt til den mindre virksomhed, der bare skal stå skarpt.',
+    price: '13.900',
     priceSuffix: 'kr. (Én gang)',
     features: ['45 min. behovsinterview', 'High-end design & animationer', 'Professionel tekstforfatning', 'Færdig på 9 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
     buttonText: 'Kom i gang', 
@@ -608,10 +608,10 @@ const myPricingPlans: PricingCardProps[] = [
   },
   { 
     planName: 'Kerne-sitet', 
-    description: 'Til virksomheden, der vil have plads til at folde sine ydelser ud.', 
-    price: '13.900', 
+    description: 'Til virksomheden, der vil have plads til at folde sine ydelser ud.',
+    price: '31.900',
     priceSuffix: 'kr. (Én gang)', 
-    features: ['Alt fra One-pager pakken', 'Op til 5 unikke hovedsider', 'Plads til ydelser, om os & cases', 'Færdig på 9 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'], 
+    features: ['Alt fra One-pager pakken', 'Op til 5 unikke hovedsider', 'Plads til ydelser, om os & cases', 'Færdig på 14 dage', '100% ejerskab af alt', '0 kr. i månedligt gebyr'],
     buttonText: 'Vælg denne', 
     isPopular: true, 
     buttonVariant: 'primary',
