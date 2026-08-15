@@ -27,7 +27,7 @@ const Cases = () => {
       title: "Showcase",
       category: "Anlægsgartner",
       desc: "Dette er bare et ydmygt, lille showcase. Et rart og nede-på-jorden indblik i det ukomplicerede, bundsolide webdesign, der altid performer godt for kunden.",
-      img: "/casepic1.png",
+      img: "/showcase.png",
       link: "https://www.eksempel.nu/",
       isUnderConstruction: false,
       isUpcoming: false,
@@ -40,8 +40,8 @@ const Cases = () => {
     {
       title: "OSMA Klima ApS",
       category: "Ventilationsløsninger",
-      desc: "For OSMA Klima har vi designet en knivskarp platform, der cementerer deres faglige tyngde inden for ventilation over for både store erhvervsprojekter og private.",
-      img: "/showcase1.png", 
+      desc: "For OSMA Klima har vi designet en knivskarp platform, der cementerer deres faglige tyngde inden for ventilation over for erhvervsprojekter og private.",
+      img: "/osma-klima.png",
       link: "https://www.osmaklima.dk/",
       isUnderConstruction: false,
       isUpcoming: false,
@@ -52,11 +52,11 @@ const Cases = () => {
       ]
     },
     {
-      title: "Studio 24",
+      title: "Salon Deleuran",
       category: "Frisørsalon",
-      desc: "For Studio 24 har vi bygget en elegant ny webplatform, der effektivt sløjfer frisørens ældre hjemmeside og i stedet sender kunderne ind i et langt flottere univers.",
-      img: "/studio24.jpeg",
-      link: "https://www.studio24randers.dk/",
+      desc: "For Salon Deleuran har vi bygget en elegant ny webplatform, der sløjfer frisørens ældre hjemmeside og i stedet sender kunderne ind i et langt flottere univers.",
+      img: "/salon-deleuran.png",
+      link: "https://www.salondeleuran.dk/",
       isUnderConstruction: false,
       isUpcoming: false,
       tags: [
@@ -77,6 +77,20 @@ const Cases = () => {
         { text: "Fra Bunden", theme: "Udgangspunkt" },
         { text: "Autoritet", theme: "Formål" },
         { text: "Moderne", theme: "Design" }
+      ]
+    },
+    {
+      title: "Skovbo Byg",
+      category: "Tømrerfirma",
+      desc: "For Skovbo Byg har vi bygget en varm hjemmeside fra bunden, der giver tømrerfirmaet samme tyngde udadtil, som kunderne mærker på pladsen.",
+      img: "/skovbo-byg.png",
+      link: "https://skovbobyg.dk/",
+      isUnderConstruction: false,
+      isUpcoming: false,
+      tags: [
+        { text: "Fra Bunden", theme: "Udgangspunkt" },
+        { text: "Tillid", theme: "Formål" },
+        { text: "Jordnært", theme: "Design" }
       ]
     },
     {
@@ -279,7 +293,7 @@ const Cases = () => {
                   className="group block cursor-pointer"
                 >
                   <div className="aspect-video rounded-[1.6rem] overflow-hidden mb-5 relative shadow-xl">
-                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className={`w-full h-full object-cover rounded-[1.6rem] transition-transform duration-700 ${c.title === "D-EL" ? "object-[50%_50%] origin-center group-hover:scale-[1.05]" : c.title === "Showcase" || c.title === "Studio 24" ? "object-top origin-top scale-[1.22] group-hover:scale-[1.27]" : "object-[50%_25%] origin-[50%_25%] scale-[1.18] group-hover:scale-[1.22]"}`} referrerPolicy="no-referrer" />
+                    <img src={c.img} alt={`${c.title} - Ny hjemmeside case af webbureauet Bison Company`} className="w-full h-full object-cover object-top origin-top rounded-[1.6rem] transition-transform duration-700 group-hover:scale-[1.05]" referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-bison-dark/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
                       <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-semibold text-[13px] md:text-[15px] shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center gap-2.5 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/30">
                         <span>Se Case</span>

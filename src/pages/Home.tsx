@@ -799,11 +799,13 @@ const Home = () => {
 
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  // Nyeste case først (modsat rækkefølge af /cases-siden, hvor de står kronologisk)
   const cases = [
-    { src: "/casepic1.png", link: "https://www.eksempel.nu/", isUnderConstruction: false },
-    { src: "/showcase1.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
-    { src: "/studio24.jpeg", link: "https://www.studio24randers.dk/", isUnderConstruction: false },
+    { src: "/skovbo-byg.png", link: "https://skovbobyg.dk/", isUnderConstruction: false },
     { src: "/d-el.png", link: "https://d-el.dk/", isUnderConstruction: false },
+    { src: "/salon-deleuran.png", link: "https://www.salondeleuran.dk/", isUnderConstruction: false },
+    { src: "/osma-klima.png", link: "https://www.osmaklima.dk/", isUnderConstruction: false },
+    { src: "/showcase.png", link: "https://www.eksempel.nu/", isUnderConstruction: false },
     { src: "", link: "", isUnderConstruction: true }
   ];
 
@@ -920,7 +922,7 @@ const Home = () => {
                   <img
                     src={cases[activeCaseIndex].src}
                     alt="Udvalgt Case"
-                    className={`mx-auto h-full w-full transition-transform duration-700 ${activeCaseIndex === 1 ? "object-cover object-top origin-top scale-[1.22] group-hover:scale-[1.26] -translate-y-8 md:-translate-y-12 lg:-translate-y-14" : activeCaseIndex === 3 ? "object-cover object-center origin-center group-hover:scale-[1.05]" : "object-cover object-top origin-top scale-[1.15] group-hover:scale-[1.20]"}`}
+                    className="mx-auto h-full w-full object-cover object-top origin-top transition-transform duration-700 group-hover:scale-[1.05]"
                     draggable={false}
                   />
                   {/* Hover Overlay */}
